@@ -4,41 +4,61 @@ using System.Linq;
 using System.Text;
 
 using IrrKlang;
+using System.Windows.Forms;
 
 namespace MusicPlayerWindow
 {
-    public class MusicPlayer
+    public class MusicPlayer : MusicPlayerInterface, ISoundStopEventReceiver
     {
         private ISoundEngine engine;
-        public MusicPlayer()
+        private MainWindow window;
+        public MusicPlayer(MainWindow window)
         {
             engine = new ISoundEngine();
+            this.window = window;
         }
 
         public void playCurrSong(Song song)
         {
             ISound sound = engine.Play2D(song.getPath());
+            sound.setSoundStopEventReceiver(this);
             song.setSound(sound);
         }
 
-        public void pauseSong()
+        public void pauseUnpauseSong(Song song)
         {
-            engine.SetAllSoundsPaused(true);
+            song.getSound().Paused = !song.getSound().Paused;
         }
 
-        public void stopSong()
+        public void stopSong(Song song)
         {
-            engine.StopAllSounds();
-        }
-
-        public void getNextSong()
-        {
+            song.getSound().Stop();
 
         }
 
-        public void getPrevSong()
+        public void getNextSong(Song currentSong)
+        {
+            currentSong = null;
+            //get next song
+            //currentSong = new Song(next_song_path);
+        }
+
+        public void getPrevSong(Song currentSong)
         {
 
+        }
+
+        public void OnSoundStopped(ISound sound, StopEventCause cause, object userData)
+        {
+            if (cause == StopEventCause.SoundFinishedPlaying)
+            {
+                window.playNextSong();
+            }
+            else if (cause == StopEventCause.SoundStoppedByUser)
+            {
+                return;
+            }
+            else return;
         }
     }
 }
