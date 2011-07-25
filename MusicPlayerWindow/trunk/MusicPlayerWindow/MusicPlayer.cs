@@ -21,6 +21,7 @@ namespace MusicPlayerWindow
         public void playCurrSong(Song song)
         {
             ISound sound = engine.Play2D(song.getPath());
+            sound.Volume = window.getVolume();
             sound.setSoundStopEventReceiver(this);
             song.setSound(sound);
         }

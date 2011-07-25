@@ -32,6 +32,8 @@
             this.stopButton = new System.Windows.Forms.Button();
             this.prevButton = new System.Windows.Forms.Button();
             this.nextButton = new System.Windows.Forms.Button();
+            this.volumeBar = new System.Windows.Forms.TrackBar();
+            ((System.ComponentModel.ISupportInitialize)(this.volumeBar)).BeginInit();
             this.SuspendLayout();
             // 
             // playButton
@@ -53,6 +55,7 @@
             this.stopButton.Text = "Stop";
             this.stopButton.UseVisualStyleBackColor = true;
             this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
+            this.stopButton.Enabled = false;
             // 
             // prevButton
             // 
@@ -62,6 +65,7 @@
             this.prevButton.TabIndex = 3;
             this.prevButton.Text = "Prev";
             this.prevButton.UseVisualStyleBackColor = true;
+            this.prevButton.Enabled = false;
             // 
             // nextButton
             // 
@@ -72,19 +76,36 @@
             this.nextButton.Text = "Next";
             this.nextButton.UseVisualStyleBackColor = true;
             this.nextButton.Click += new System.EventHandler(this.nextButton_Click);
+            this.nextButton.Enabled = false;
+            // 
+            // trackBar1
+            // 
+            this.volumeBar.Location = new System.Drawing.Point(13, 69);
+            this.volumeBar.Name = "Volume Bar";
+            this.volumeBar.Size = new System.Drawing.Size(201, 45);
+            this.volumeBar.TabIndex = 5;
+            this.volumeBar.Scroll += new System.EventHandler(this.volumeBar_Scroll);
+            this.volumeBar.Maximum = 100;
+            this.volumeBar.SmallChange = 5;
+            this.volumeBar.TabIndex = 3;
+            this.volumeBar.TickFrequency = 10;
+            this.volumeBar.Value = 100;
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.volumeBar);
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.prevButton);
             this.Controls.Add(this.stopButton);
             this.Controls.Add(this.playButton);
             this.Name = "MainWindow";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.volumeBar)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -94,6 +115,7 @@
         private System.Windows.Forms.Button stopButton;
         private System.Windows.Forms.Button prevButton;
         private System.Windows.Forms.Button nextButton;
+        private System.Windows.Forms.TrackBar volumeBar;
     }
 }
 

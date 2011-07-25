@@ -44,8 +44,9 @@ namespace MusicPlayerWindow
                 playButton.Text = "Play";
             else
                 playButton.Text = "Pause";
-
-            
+            nextButton.Enabled = true;
+            prevButton.Enabled = true;
+            stopButton.Enabled = true;
         }
         
         private void stopButton_Click(object sender, EventArgs e)
@@ -54,6 +55,9 @@ namespace MusicPlayerWindow
             player.stopSong(currentSong);
             currentSong = null;
             playButton.Text = "Play";
+            nextButton.Enabled = false;
+            prevButton.Enabled = false;
+            stopButton.Enabled = false;
         }
 
         public Song getCurrSong()
@@ -73,6 +77,19 @@ namespace MusicPlayerWindow
         private void nextButton_Click(object sender, EventArgs e)
         {
             playNextSong();
+        }
+
+        private void volumeBar_Scroll(object sender, EventArgs e)
+        {
+            if (currentSong != null)
+            {
+                currentSong.getSound().Volume = volumeBar.Value / 100.0f;
+            }
+        }
+
+        public int getVolume()
+        {
+            return volumeBar.Value;
         }
     }
 }
