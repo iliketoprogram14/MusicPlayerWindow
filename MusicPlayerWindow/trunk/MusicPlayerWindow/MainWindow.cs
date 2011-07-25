@@ -65,7 +65,7 @@ namespace MusicPlayerWindow
         {
             stopPressed = false;
             player.stopSong(currentSong);
-            player.getNextSong(currentSong);
+            currentSong = player.getNextSong(currentSong);
             player.playCurrSong(currentSong);
             //update next queue
         }
