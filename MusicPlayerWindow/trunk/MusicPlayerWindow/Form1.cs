@@ -18,14 +18,14 @@ namespace MusicPlayerWindow
         {
             InitializeComponent();
             irrKlangEngine = new IrrKlang.ISoundEngine();
-            label1.Text = "label not clicked";
-            sound = irrKlangEngine.Play2D("D:/Music/iTunes/Kyuss/Wretch/11 Stage III.mp3");
+            label1.Text = "Pause song";
+            sound = irrKlangEngine.Play2D("D:/Music/iTunes/Kyuss/Wretch/11 Stage III.mp3", true);
             Console.Out.WriteLine(sound);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            label1.Text = "label clicked";
+            label1.Text = "Pause/Play Song";
             //IrrKlang.ISound sound = engine.Play2D("D:/Music/iTunes/Kyuss/Wretch/11 Stage III.mp3", true);
             sound.Paused = !sound.Paused;
 
