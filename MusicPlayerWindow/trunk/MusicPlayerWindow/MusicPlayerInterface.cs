@@ -10,7 +10,5 @@ namespace MusicPlayerWindow
         void playCurrSong(Song song);
         void pauseUnpauseSong(Song song);
         void stopSong(Song song);
-        Song getNextSong(Song currentSong);
-        Song getPrevSong(Song currentSong);
     }
 }

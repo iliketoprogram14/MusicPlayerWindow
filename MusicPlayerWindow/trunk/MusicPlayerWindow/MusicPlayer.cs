@@ -37,20 +37,6 @@ namespace MusicPlayerWindow
 
         }
 
-        public Song getNextSong(Song currentSong)
-        {
-            currentSong = null;
-            //get next song
-            //currentSong = new Song(next_song_path);
-            currentSong = new Song("D:/Music/iTunes/Kyuss/Blues for the Red Sun/04 50 Million Year Trip (Downside Up).mp3");
-            return currentSong;
-        }
-
-        public Song getPrevSong(Song currentSong)
-        {
-            return currentSong;
-        }
-
         public void OnSoundStopped(ISound sound, StopEventCause cause, object userData)
         {
             if (cause == StopEventCause.SoundFinishedPlaying)

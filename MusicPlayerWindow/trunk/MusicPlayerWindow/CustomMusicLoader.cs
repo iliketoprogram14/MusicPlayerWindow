@@ -29,7 +29,7 @@ namespace MusicPlayerWindow
         {
             loaderThread = new Thread(new ThreadStart(this.ThreadActivity));
             opObject = new OperationObject(QueueOp.NO_OP, null, null);
-            store = null;
+            this.store = null;
         }
 
         private void ThreadActivity()
@@ -100,6 +100,15 @@ namespace MusicPlayerWindow
         private void _writePlaylistToStore()
         {
             store.writeCurrentPlaylistToStore();
+        }
+
+        public Song getNextSong()
+        {
+            return store.getSongFromNextQueue();
+        }
+        public Song getPrevSong()
+        {
+            return store.getSongFromPrevQueue();
         }
     }
 }

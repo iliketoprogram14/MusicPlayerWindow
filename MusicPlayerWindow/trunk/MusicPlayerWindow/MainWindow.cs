@@ -14,6 +14,7 @@ namespace MusicPlayerWindow
     public partial class MainWindow : System.Windows.Forms.Form
     {
         private MusicPlayer player;
+        private CustomMusicLoader loader;
         private Song currentSong;
         public bool stopPressed;
 
@@ -21,6 +22,7 @@ namespace MusicPlayerWindow
         {
             InitializeComponent();
             player = new MusicPlayer(this);
+            loader = new CustomMusicLoader();
             currentSong = null;
         }
 
@@ -69,9 +71,9 @@ namespace MusicPlayerWindow
         {
             stopPressed = false;
             player.stopSong(currentSong);
-            currentSong = player.getNextSong(currentSong);
+            currentSong = loader.getNextSong();
             player.playCurrSong(currentSong);
-            //update next queue
+            loader.updateNextQueue();
         }
 
         private void nextButton_Click(object sender, EventArgs e)
@@ -90,6 +92,16 @@ namespace MusicPlayerWindow
         public int getVolume()
         {
             return volumeBar.Value;
+        }
+
+        private void prevButton_Click(object sender, EventArgs e)
+        {
+            stopPressed = false;
+            player.stopSong(currentSong);
+            Song oldSong = currentSong;
+            currentSong = loader.getPrevSong();
+            player.playCurrSong(currentSong);
+            loader.updatePrevQueue(oldSong);
         }
     }
 }

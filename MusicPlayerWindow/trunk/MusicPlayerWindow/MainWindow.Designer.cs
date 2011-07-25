@@ -48,6 +48,7 @@
             // 
             // stopButton
             // 
+            this.stopButton.Enabled = false;
             this.stopButton.Location = new System.Drawing.Point(124, 27);
             this.stopButton.Name = "stopButton";
             this.stopButton.Size = new System.Drawing.Size(39, 23);
@@ -55,20 +56,21 @@
             this.stopButton.Text = "Stop";
             this.stopButton.UseVisualStyleBackColor = true;
             this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
-            this.stopButton.Enabled = false;
             // 
             // prevButton
             // 
+            this.prevButton.Enabled = false;
             this.prevButton.Location = new System.Drawing.Point(13, 27);
             this.prevButton.Name = "prevButton";
             this.prevButton.Size = new System.Drawing.Size(46, 23);
             this.prevButton.TabIndex = 3;
             this.prevButton.Text = "Prev";
             this.prevButton.UseVisualStyleBackColor = true;
-            this.prevButton.Enabled = false;
+            this.prevButton.Click += new System.EventHandler(this.prevButton_Click);
             // 
             // nextButton
             // 
+            this.nextButton.Enabled = false;
             this.nextButton.Location = new System.Drawing.Point(169, 27);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(45, 23);
@@ -76,20 +78,18 @@
             this.nextButton.Text = "Next";
             this.nextButton.UseVisualStyleBackColor = true;
             this.nextButton.Click += new System.EventHandler(this.nextButton_Click);
-            this.nextButton.Enabled = false;
             // 
-            // trackBar1
+            // volumeBar
             // 
             this.volumeBar.Location = new System.Drawing.Point(13, 69);
-            this.volumeBar.Name = "Volume Bar";
-            this.volumeBar.Size = new System.Drawing.Size(201, 45);
-            this.volumeBar.TabIndex = 5;
-            this.volumeBar.Scroll += new System.EventHandler(this.volumeBar_Scroll);
             this.volumeBar.Maximum = 100;
+            this.volumeBar.Name = "volumeBar";
+            this.volumeBar.Size = new System.Drawing.Size(201, 45);
             this.volumeBar.SmallChange = 5;
             this.volumeBar.TabIndex = 3;
             this.volumeBar.TickFrequency = 10;
             this.volumeBar.Value = 100;
+            this.volumeBar.Scroll += new System.EventHandler(this.volumeBar_Scroll);
             // 
             // MainWindow
             // 
