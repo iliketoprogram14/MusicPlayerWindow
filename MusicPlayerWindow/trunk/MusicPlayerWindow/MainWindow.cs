@@ -65,6 +65,11 @@ namespace MusicPlayerWindow
         {
             stopPressed = true;
             player.stopSong(currentSong);
+            resetEngine();
+        }
+
+        private void resetEngine()
+        {
             currentSong = null;
             playButton.Text = "Play";
             nextButton.Enabled = false;
@@ -99,8 +104,10 @@ namespace MusicPlayerWindow
             player.stopSong(currentSong);
             Song oldSong = currentSong;
             currentSong = loader.getPrevSong();
+            if (currentSong == null) { resetEngine(); return; }
+            if (oldSong.Equals(currentSong)) { stopButton_Click(this, null); return; }
             player.playCurrSong(currentSong);
-            //loader.updatePrevQueue(oldSong);
+            loader.addSongToNextQueueFront(oldSong);
         }
 
         private void volumeBar_Scroll(object sender, EventArgs e)

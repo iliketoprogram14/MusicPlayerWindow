@@ -8,7 +8,7 @@ namespace MusicPlayerWindow
 {
     public class CustomMusicLoader
     {
-        enum QueueOp { UPDATE_NEXT_Q, UPDATE_PREV_Q, SWITCH_PLAYLIST, WRITE_PLAYLIST, NO_OP };
+        enum QueueOp { UPDATE_NEXT_Q, UPDATE_PREV_Q, NEXT_Q_FRONT, SWITCH_PLAYLIST, WRITE_PLAYLIST, NO_OP };
         private class OperationObject
         {
             public QueueOp next_operation;
@@ -43,6 +43,7 @@ namespace MusicPlayerWindow
                 {
                     case QueueOp.UPDATE_NEXT_Q: _updateNextQueue(); break;
                     case QueueOp.UPDATE_PREV_Q: _updatePrevQueue(); break;
+                    case QueueOp.NEXT_Q_FRONT: _addSongToNextQueueFront(); break;
                     case QueueOp.SWITCH_PLAYLIST: _switchToPlaylist(); break;
                     //case QueueOp.WRITE_PLAYLIST: _writePlaylistToStore(); break;
                     case QueueOp.NO_OP:
@@ -76,6 +77,14 @@ namespace MusicPlayerWindow
             Monitor.Pulse(opObject);
             Monitor.Exit(opObject);
         }
+        public void addSongToNextQueueFront(Song song)
+        {
+            Monitor.Enter(opObject);
+            opObject.next_operation = QueueOp.NEXT_Q_FRONT;
+            opObject.song_for_op = song;
+            Monitor.Pulse(opObject);
+            Monitor.Exit(opObject);
+        }
         /*public void writePlaylistToStore(Playlist playlist)
         {
             Monitor.Enter(opObject);
@@ -102,9 +111,6 @@ namespace MusicPlayerWindow
             Random random = new Random();
             int num = random.Next(0, q.getPlaylistLen());
             String id = String.Format("{0:000000}", num);
-            /*nav.MoveToRoot();
-            nav.MoveToFirstChild();
-            nav.MoveToFirstChild();*/
             nav.MoveToId(id);
             Song newSong = new Song(nav.Value);
             return newSong;
@@ -119,6 +125,10 @@ namespace MusicPlayerWindow
             store.addSongToPrevQueue(opObject.song_for_op);
             opObject.song_for_op = null;
         }
+        private void _addSongToNextQueueFront()
+        {
+            store.addSongToNextQueueFront(opObject.song_for_op);
+        }        
         private void _switchToPlaylist()
         {
             //_writePlaylistToStore();

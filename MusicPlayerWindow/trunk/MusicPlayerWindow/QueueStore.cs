@@ -39,10 +39,17 @@ namespace MusicPlayerWindow
         {
             currentQueue.addNextSong(newSong);
         }
+
         public void addSongToPrevQueue(Song oldSong)
         {
             currentQueue.addPrevSong(oldSong);
         }
+
+        public void addSongToNextQueueFront(Song song)
+        {
+            currentQueue.nextSongQueue.Insert(0, song);
+        }
+
         public Song getSongFromNextQueue()
         {
             return currentQueue.getNextSong();

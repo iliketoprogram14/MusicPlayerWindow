@@ -10,14 +10,14 @@ namespace MusicPlayerWindow
     public class Queue
     {
         public Playlist playlist;
-        public ArrayList prevSongQueue;
+        public List<Song> prevSongQueue;
         public int prevSongLimit;
-        public Queue<Song> nextSongQueue;
+        public List<Song> nextSongQueue;
         public Queue(Playlist playlist, int songLimit)
         {
             this.playlist = playlist;
-            prevSongQueue = new ArrayList();
-            nextSongQueue = new Queue<Song>();
+            prevSongQueue = new List<Song>();
+            nextSongQueue = new List<Song>();
             prevSongLimit = songLimit;
         }
 	public Queue(Queue prevQ)
@@ -26,28 +26,34 @@ namespace MusicPlayerWindow
         Song [] prevSongs = (Song[]) prevQ.prevSongQueue.ToArray();
         foreach (Song song in prevSongs) { this.prevSongQueue.Add(song); }
         Song[] nextSongs = (Song[]) prevQ.nextSongQueue.ToArray();
-        foreach (Song song in nextSongs) { this.nextSongQueue.Enqueue(song); }
+        foreach (Song song in nextSongs) { this.nextSongQueue.Add(song); }
 	    this.prevSongLimit = prevQ.prevSongLimit;
 	}
 	public void addNextSong(Song newSong)
 	{
-	    nextSongQueue.Enqueue(newSong);
+	    nextSongQueue.Add(newSong);
 	}
 	public Song getNextSong()
 	{
-	    return nextSongQueue.Dequeue();
+        Song song = nextSongQueue[0];
+        nextSongQueue.RemoveAt(0);
+        return song;
 	}
 	public void addPrevSong(Song oldSong)
 	{
 	    if (prevSongQueue.Count == prevSongLimit)
 	    {
-		    prevSongQueue.Remove(0); //remove least recent song
+		    prevSongQueue.RemoveAt(0); //remove least recent song
 	    }
 	    prevSongQueue.Add(oldSong);
 	}
 	public Song getPrevSong()
 	{
-	    return (Song)prevSongQueue[prevSongQueue.Count-1];
+        if (prevSongQueue.Count == 0)
+            return null;
+        Song prevSong = prevSongQueue[prevSongQueue.Count - 1];
+        prevSongQueue.RemoveAt(prevSongQueue.Count - 1);
+	    return prevSong;
 	}
 	public String getPlaylistPath()
 	{
