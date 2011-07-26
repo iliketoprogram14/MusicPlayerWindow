@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomMusicLoader.cs" />
+    <Compile Include="MusicLoaderInterface.cs" />
     <Compile Include="MusicPlayer.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>

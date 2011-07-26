@@ -8,7 +8,7 @@ namespace MusicPlayerWindow
 {
     public class CustomMusicLoader
     {
-        enum QueueOp { UPDATE_NEXT_Q, UPDATE_PREV_Q, SWITCH_PLAYLIST, WRITE_PLAYLIST, NO_OP};
+        enum QueueOp { UPDATE_NEXT_Q, UPDATE_PREV_Q, SWITCH_PLAYLIST, WRITE_PLAYLIST, NO_OP };
         private class OperationObject
         {
             public QueueOp next_operation;
@@ -25,11 +25,12 @@ namespace MusicPlayerWindow
         QueueStore store;
         OperationObject opObject;
 
-        public CustomMusicLoader()
+        public CustomMusicLoader(String outputDir)
         {
             loaderThread = new Thread(new ThreadStart(this.ThreadActivity));
             opObject = new OperationObject(QueueOp.NO_OP, null, null);
-            this.store = null;
+            this.store = new QueueStore(outputDir, this);
+            loaderThread.Start();
         }
 
         private void ThreadActivity()
@@ -38,12 +39,12 @@ namespace MusicPlayerWindow
             Monitor.Wait(opObject);
             while (true)
             {
-                switch(opObject.next_operation)
+                switch (opObject.next_operation)
                 {
                     case QueueOp.UPDATE_NEXT_Q: _updateNextQueue(); break;
                     case QueueOp.UPDATE_PREV_Q: _updatePrevQueue(); break;
                     case QueueOp.SWITCH_PLAYLIST: _switchToPlaylist(); break;
-                    case QueueOp.WRITE_PLAYLIST: _writePlaylistToStore(); break;
+                    //case QueueOp.WRITE_PLAYLIST: _writePlaylistToStore(); break;
                     case QueueOp.NO_OP:
                     default: break;
                 }
@@ -51,6 +52,7 @@ namespace MusicPlayerWindow
             }
         }
 
+        //INTERFACE
         public void updateNextQueue()
         {
             Monitor.Enter(opObject);
@@ -74,34 +76,13 @@ namespace MusicPlayerWindow
             Monitor.Pulse(opObject);
             Monitor.Exit(opObject);
         }
-        public void writePlaylistToStore(Playlist playlist)
+        /*public void writePlaylistToStore(Playlist playlist)
         {
             Monitor.Enter(opObject);
             opObject.next_operation = QueueOp.WRITE_PLAYLIST;
             Monitor.Pulse(opObject);
             Monitor.Exit(opObject);
-        }
-
-        private void _updateNextQueue()
-        {
-            store.addSongToNextQueue();
-        }
-        private void _updatePrevQueue()
-        {
-            store.addSongToPrevQueue(opObject.song_for_op);
-            opObject.song_for_op = null;
-        }
-        private void _switchToPlaylist()
-        {
-            _writePlaylistToStore();
-            store.switchPlaylist(opObject.playlist_for_op);
-            opObject.playlist_for_op = null;
-        }
-        private void _writePlaylistToStore()
-        {
-            store.writeCurrentPlaylistToStore();
-        }
-
+        }*/
         public Song getNextSong()
         {
             return store.getSongFromNextQueue();
@@ -110,5 +91,44 @@ namespace MusicPlayerWindow
         {
             return store.getSongFromPrevQueue();
         }
+
+        //INTERNAL AND PRIVATE METHODS/HELPERS
+        internal Song getOneSong(Queue q)
+        {
+            //get song from playlist
+            String path = q.getPlaylistPath();
+            System.Xml.XPath.XPathDocument doc = new System.Xml.XPath.XPathDocument(q.getPlaylistPath());
+            System.Xml.XPath.XPathNavigator nav = doc.CreateNavigator();
+            Random random = new Random();
+            int num = random.Next(0, q.getPlaylistLen());
+            String id = String.Format("{0:000000}", num);
+            /*nav.MoveToRoot();
+            nav.MoveToFirstChild();
+            nav.MoveToFirstChild();*/
+            nav.MoveToId(id);
+            Song newSong = new Song(nav.Value);
+            return newSong;
+        }
+        private void _updateNextQueue()
+        {
+            Song newSong = getOneSong(store.getCurrentQueue());
+            store.addSongToNextQueue(newSong);
+        }
+        private void _updatePrevQueue()
+        {
+            store.addSongToPrevQueue(opObject.song_for_op);
+            opObject.song_for_op = null;
+        }
+        private void _switchToPlaylist()
+        {
+            //_writePlaylistToStore();
+            store.switchPlaylist(opObject.playlist_for_op);
+            opObject.playlist_for_op = null;
+        }
+        /*private void _writePlaylistToStore()
+        {
+            store.writeCurrentPlaylistToStore();
+        }*/
+
     }
 }

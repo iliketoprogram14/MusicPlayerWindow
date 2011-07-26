@@ -9,10 +9,13 @@ namespace MusicPlayerWindow
     {
         private String name;
         private String path;
-        public Playlist(String name, String path)
+        private int len;
+        public Playlist(String path, int len)
         {
-            this.name = name;
             this.path = path;
+            this.len = System.IO.File.ReadLines(path).Count();
+            String[] tmp = path.Split('\\');
+            this.name = (tmp[tmp.Length - 1].Split('.'))[0];
         }
         public String getName()
         {
@@ -21,6 +24,10 @@ namespace MusicPlayerWindow
         public String getPath()
         {
             return path;
+        }
+        public int getLen()
+        {
+            return len;
         }
     }
 }
