@@ -31,7 +31,7 @@ namespace MusicPlayerWindow
                 getiTunesSongs(libLocation);
                 parseiTunesSongs(libLocation, outputDir);
             }
-            loader = new CustomMusicLoader(outputDir); //UNCOMMENT WHEN HAVE M3U FILES
+            loader = new CustomMusicLoader(outputDir);
             InitializeComponent();
             currentSong = null;
             playlistBoxLastIndex = playlistBox.SelectedIndex;

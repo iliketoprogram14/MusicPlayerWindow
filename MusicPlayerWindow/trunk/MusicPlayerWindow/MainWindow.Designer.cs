@@ -100,7 +100,7 @@
             this.playlistBox.Size = new System.Drawing.Size(189, 21);
             this.playlistBox.TabIndex = 5;
             this.playlistBox.Items.AddRange(loader.getPlaylistNames().ToArray());
-            playlistBox.SelectedItem = "Music";
+            this.playlistBox.SelectedItem = "Music";
             this.playlistBox.SelectedValueChanged += new System.EventHandler(this.playlistBox_SelectedValueChanged);
             // 
             // MainWindow
@@ -115,7 +115,7 @@
             this.Controls.Add(this.stopButton);
             this.Controls.Add(this.playButton);
             this.Name = "MainWindow";
-            this.Text = "Form1";
+            this.Text = "Music Shuffler";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainWindow_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.volumeBar)).EndInit();
             this.ResumeLayout(false);
