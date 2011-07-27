@@ -17,15 +17,13 @@ namespace MusicPlayerWindow
         private MusicPlayer player;
         private CustomMusicLoader loader;
         private Song currentSong;
-        public bool stopPressed;
 	    public static String outputDir = @"..\..\Playlists";
         public String libLocation;
-        private bool playlistChanged;
+        private int playlistBoxLastIndex;
 
         public MainWindow()
         {
             libLocation = @"D:\Music\iTunes";
-            playlistChanged = false;
             player = new MusicPlayer(this);
             String[] wtf = System.IO.Directory.GetFiles(outputDir);
             if (wtf.Length == 0)
@@ -35,7 +33,8 @@ namespace MusicPlayerWindow
             }
             loader = new CustomMusicLoader(outputDir); //UNCOMMENT WHEN HAVE M3U FILES
             InitializeComponent();
-            currentSong = null;            
+            currentSong = null;
+            playlistBoxLastIndex = playlistBox.SelectedIndex;
         }
 
         [STAThread]
@@ -65,7 +64,6 @@ namespace MusicPlayerWindow
         
         private void stopButton_Click(object sender, EventArgs e)
         {
-            stopPressed = true;
             player.stopSong(currentSong);
             resetEngine();
         }
@@ -86,17 +84,10 @@ namespace MusicPlayerWindow
 
         public void playNextSong()
         {
-            stopPressed = false;
             if (currentSong != null) { player.stopSong(currentSong); }
-            Song oldSong = currentSong;
             currentSong = loader.getNextSong();
             player.playCurrSong(currentSong);
             loader.updateNextQueue();
-            if (playlistChanged)
-            {
-                playlistChanged = false;
-                loader.updatePrevQueue(oldSong);
-            }
         }
 
         private void nextButton_Click(object sender, EventArgs e)
@@ -106,7 +97,6 @@ namespace MusicPlayerWindow
 
         private void prevButton_Click(object sender, EventArgs e)
         {
-            stopPressed = false;
             player.stopSong(currentSong);
             Song oldSong = currentSong;
             currentSong = loader.getPrevSong();
@@ -128,8 +118,7 @@ namespace MusicPlayerWindow
         {
             return volumeBar.Value;
         }
-
-
+        
         ///<summary>
         /// Executes a process and waits for it to end. 
         ///</summary>
@@ -207,14 +196,15 @@ namespace MusicPlayerWindow
 
         }
 
-        private void playlistBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void playlistBox_SelectedValueChanged(object sender, EventArgs e)
         {
+            if (playlistBox.SelectedIndex == playlistBoxLastIndex) { return; }
+            playlistBoxLastIndex = playlistBox.SelectedIndex;
             String playlistToPlay = playlistBox.SelectedItem.ToString();
-            loader.switchToPlaylist(playlistToPlay);
-            playlistChanged = true;
+            loader.switchToPlaylist(playlistToPlay, currentSong);
             playNextSong();
         }
-
+        
         public void MainWindow_FormClosed(object sender, FormClosedEventArgs e)
         {
             player.destroyPlayer();

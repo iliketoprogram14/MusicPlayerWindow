@@ -99,13 +99,9 @@
             this.playlistBox.Name = "playlistBox";
             this.playlistBox.Size = new System.Drawing.Size(189, 21);
             this.playlistBox.TabIndex = 5;
-            System.Collections.Generic.List<string> playlists = loader.getPlaylistNames();
-            foreach (string playlist in playlists)
-            {
-                playlistBox.Items.Add(playlist);
-            }
+            this.playlistBox.Items.AddRange(loader.getPlaylistNames().ToArray());
             playlistBox.SelectedItem = "Music";
-            this.playlistBox.SelectedIndexChanged += new System.EventHandler(this.playlistBox_SelectedIndexChanged);
+            this.playlistBox.SelectedValueChanged += new System.EventHandler(this.playlistBox_SelectedValueChanged);
             // 
             // MainWindow
             // 
@@ -127,10 +123,7 @@
 
         }
 
-        void MainWindow_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
-        {
-            throw new System.NotImplementedException();
-        }
+
 
         #endregion
 

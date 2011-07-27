@@ -11,6 +11,7 @@ namespace MusicPlayerWindow
     {
         private Dictionary<String,Queue> playlistQueues;
         private Queue currentQueue;
+        private Queue lastQueue;
         private CustomMusicLoader loader;
         public QueueStore(String outputDir, CustomMusicLoader loader)
         {

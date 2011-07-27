@@ -74,11 +74,12 @@ namespace MusicPlayerWindow
             Monitor.Pulse(opObject);
             Monitor.Exit(opObject);
         }
-        public void switchToPlaylist(String newPlaylistName)
+        public void switchToPlaylist(String newPlaylistName, Song oldSong)
         {
             Monitor.Enter(opObject);
             opObject.next_operation = QueueOp.SWITCH_PLAYLIST;
             opObject.playlist_name_for_op = newPlaylistName;
+            opObject.song_for_op = oldSong;
             Monitor.Pulse(opObject);
             Monitor.Wait(opObject); //wait to change playlist...
             Monitor.Exit(opObject);
@@ -150,6 +151,7 @@ namespace MusicPlayerWindow
         }        
         private void _switchToPlaylist()
         {
+            store.addSongToPrevQueue(opObject.song_for_op);
             store.switchPlaylist(opObject.playlist_name_for_op);
         }
         /*private void _writePlaylistToStore()
