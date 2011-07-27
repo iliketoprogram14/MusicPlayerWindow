@@ -17,18 +17,18 @@ namespace MusicPlayerWindow
         private MusicPlayer player;
         protected CustomMusicLoader loader;
         private Song currentSong;
-	    public static String outputDir = @"..\..\Playlists";
+	    public static String outputDir = @"Playlists";
         public String libLocation;
         private int playlistBoxLastIndex;
 
         public MainWindow()
         {
-            libLocation = @"D:\Music\iTunes";
             player = new MusicPlayer(this);
             if (!System.IO.Directory.Exists(outputDir) || System.IO.Directory.GetFiles(outputDir).Length == 0)
             {
-                getiTunesSongs(libLocation);
-                parseiTunesSongs(libLocation, outputDir);
+                getLibLocation();
+                getiTunesSongs();
+                parseiTunesSongs(outputDir);
             }
             loader = new CustomMusicLoader(outputDir);
             InitializeComponent();
@@ -141,13 +141,13 @@ namespace MusicPlayerWindow
             return p.ExitCode;
         }
 
-        private int getiTunesSongs(String libLoc)
+        private int getiTunesSongs()
         {
             String outputString;
             int timeout = 10000;
             System.IO.Directory.CreateDirectory(outputDir);
-            String cmdArgs = String.Format("-mx1024m -jar ..\\..\\itunesexport.jar -playlistType=M3U -library=\"{0}\\iTunes Music Library.xml\" -outputDir=\"{1}\" -includeBuiltInPlaylists -excludePlaylist=\"iTunes DJ, Movies, iTunes U, Purchased on iPod touch, Purchased, Purchased on iPhone, Podcasts, Recently Played\"",
-                libLoc, outputDir);
+            String cmdArgs = String.Format("-mx1024m -jar ..\\..\\itunesexport.jar -playlistType=M3U -library=\"{0}\\..\\iTunes Music Library.xml\" -outputDir=\"{1}\" -includeBuiltInPlaylists -excludePlaylist=\"iTunes DJ, Movies, iTunes U, Purchased on iPod touch, Purchased, Purchased on iPhone, Podcasts, Recently Played\"",
+                libLocation, outputDir);
             int exitCode = ExecuteProcess(@"C:\Program Files (x86)\Java\jre6\bin\java.exe",
                 cmdArgs,
                 System.IO.Directory.GetCurrentDirectory(),
@@ -156,7 +156,7 @@ namespace MusicPlayerWindow
             return exitCode;
         }
 
-        private void parseiTunesSongs(String libLoc, String outputDir)
+        private void parseiTunesSongs(String outputDir)
         {
             String[] playlistPaths = System.IO.Directory.GetFiles(outputDir);
             foreach (String file in playlistPaths)
@@ -182,9 +182,6 @@ namespace MusicPlayerWindow
                 while ((line = tr.ReadLine()) != null)
                 {
                     line = line.Replace("&", "&amp;");
-                    line = line.Replace(@"C:\Users\Randy", "D:");
-                    //line = line.Replace(@"iTunes Music\", "");
-                    //line = line.Replace(@"\","/");
                     String line_to_write = String.Format("    <song id=\'{0:000000}\'>{1}</song>", count, line);
                     w.WriteLine(line_to_write);
                     count++;
@@ -204,6 +201,24 @@ namespace MusicPlayerWindow
             String playlistToPlay = playlistBox.SelectedItem.ToString();
             loader.switchToPlaylist(playlistToPlay, currentSong);
             playNextSong();
+        }
+        private void getLibLocation()
+        {
+            MessageBox.Show("Please specify the location of your iTunes Music folder.\n\n" +
+            "An example is C:/Users/YOUR_NAME/Music/iTunes/Music.  If that doesn't exist, your music may be in C:/Users/YOUR_NAME/Music/iTunes.\n\n" +
+            "Please note that I assume that all your iTunes music is in the same place.", "Specify iTunes Music Location");
+            FolderBrowserDialog browser;
+            bool shouldExit = false;
+            while (true)
+            {
+                browser = new FolderBrowserDialog();
+                DialogResult result = browser.ShowDialog();
+                if (result == DialogResult.OK) { break; }
+                DialogResult retry = MessageBox.Show("Click OK to try again.  To exit setup, please click Cancel", "Specify iTunes Music Location", MessageBoxButtons.OKCancel);
+                if (retry == DialogResult.Cancel) { shouldExit = true; break;  }
+            }
+            if (shouldExit) { this.Close(); System.Environment.Exit(1); return; }
+            libLocation = browser.SelectedPath;
         }
         
         public void MainWindow_FormClosed(object sender, FormClosedEventArgs e)
