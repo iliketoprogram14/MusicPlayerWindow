@@ -33,6 +33,7 @@
             this.prevButton = new System.Windows.Forms.Button();
             this.nextButton = new System.Windows.Forms.Button();
             this.volumeBar = new System.Windows.Forms.TrackBar();
+            this.playlistBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.volumeBar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,7 +82,7 @@
             // 
             // volumeBar
             // 
-            this.volumeBar.Location = new System.Drawing.Point(13, 69);
+            this.volumeBar.Location = new System.Drawing.Point(12, 56);
             this.volumeBar.Maximum = 100;
             this.volumeBar.Name = "volumeBar";
             this.volumeBar.Size = new System.Drawing.Size(201, 45);
@@ -91,11 +92,21 @@
             this.volumeBar.Value = 100;
             this.volumeBar.Scroll += new System.EventHandler(this.volumeBar_Scroll);
             // 
+            // playlistBox
+            // 
+            this.playlistBox.FormattingEnabled = true;
+            this.playlistBox.Location = new System.Drawing.Point(24, 107);
+            this.playlistBox.Name = "playlistBox";
+            this.playlistBox.Size = new System.Drawing.Size(189, 21);
+            this.playlistBox.TabIndex = 5;
+            this.playlistBox.SelectedIndexChanged += new System.EventHandler(this.playlistBox_SelectedIndexChanged);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(227, 159);
+            this.Controls.Add(this.playlistBox);
             this.Controls.Add(this.volumeBar);
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.prevButton);
@@ -103,10 +114,16 @@
             this.Controls.Add(this.playButton);
             this.Name = "MainWindow";
             this.Text = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainWindow_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.volumeBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        void MainWindow_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
+        {
+            throw new System.NotImplementedException();
         }
 
         #endregion
@@ -116,6 +133,7 @@
         private System.Windows.Forms.Button prevButton;
         private System.Windows.Forms.Button nextButton;
         private System.Windows.Forms.TrackBar volumeBar;
+        private System.Windows.Forms.ComboBox playlistBox;
     }
 }
 

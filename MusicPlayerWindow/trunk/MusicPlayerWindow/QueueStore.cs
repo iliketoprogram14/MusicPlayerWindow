@@ -58,9 +58,9 @@ namespace MusicPlayerWindow
         {
             return currentQueue.getPrevSong();
         }
-        public void switchPlaylist(Playlist next_playlist)
+        public void switchPlaylist(String next_playlist_name)
         {
-            currentQueue = playlistQueues[next_playlist.getName()];
+            currentQueue = playlistQueues[next_playlist_name];
         }
         /*public void writeCurrentPlaylistToStore()
         {
@@ -69,6 +69,10 @@ namespace MusicPlayerWindow
         internal Queue getCurrentQueue()
         {
             return currentQueue;
+        }
+        public List<String> getPlaylistNames()
+        {
+            return new List<String>(playlistQueues.Keys);
         }
     }
 }

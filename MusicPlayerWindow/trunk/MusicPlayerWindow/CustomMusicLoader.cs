@@ -8,16 +8,16 @@ namespace MusicPlayerWindow
 {
     public class CustomMusicLoader
     {
-        enum QueueOp { UPDATE_NEXT_Q, UPDATE_PREV_Q, NEXT_Q_FRONT, SWITCH_PLAYLIST, WRITE_PLAYLIST, NO_OP };
+        enum QueueOp { UPDATE_NEXT_Q, UPDATE_PREV_Q, NEXT_Q_FRONT, SWITCH_PLAYLIST, WRITE_PLAYLIST, DESTROY, NO_OP };
         private class OperationObject
         {
             public QueueOp next_operation;
-            public Playlist playlist_for_op;
+            public String playlist_name_for_op;
             public Song song_for_op;
-            public OperationObject(QueueOp next_op, Playlist playlist, Song song)
+            public OperationObject(QueueOp next_op, String playlistName, Song song)
             {
                 next_operation = next_op;
-                playlist_for_op = playlist;
+                playlist_name_for_op = playlistName;
                 song_for_op = song;
             }
         }
@@ -36,11 +36,13 @@ namespace MusicPlayerWindow
         private void ThreadActivity()
         {
             Monitor.Enter(opObject);
+            bool shouldExit = false;
             Monitor.Wait(opObject);
             while (true)
             {
                 switch (opObject.next_operation)
                 {
+                    case QueueOp.DESTROY: _destroyStore(); shouldExit = true; break;
                     case QueueOp.UPDATE_NEXT_Q: _updateNextQueue(); break;
                     case QueueOp.UPDATE_PREV_Q: _updatePrevQueue(); break;
                     case QueueOp.NEXT_Q_FRONT: _addSongToNextQueueFront(); break;
@@ -49,8 +51,10 @@ namespace MusicPlayerWindow
                     case QueueOp.NO_OP:
                     default: break;
                 }
+                if (shouldExit) { break; }
                 Monitor.Wait(opObject);
             }
+            Monitor.Exit(opObject);
         }
 
         //INTERFACE
@@ -69,12 +73,13 @@ namespace MusicPlayerWindow
             Monitor.Pulse(opObject);
             Monitor.Exit(opObject);
         }
-        public void switchToPlaylist(Playlist newPlaylist)
+        public void switchToPlaylist(String newPlaylistName)
         {
             Monitor.Enter(opObject);
             opObject.next_operation = QueueOp.SWITCH_PLAYLIST;
-            opObject.playlist_for_op = newPlaylist;
+            opObject.playlist_name_for_op = newPlaylistName;
             Monitor.Pulse(opObject);
+            Monitor.Wait(opObject); //wait to change playlist...
             Monitor.Exit(opObject);
         }
         public void addSongToNextQueueFront(Song song)
@@ -100,6 +105,19 @@ namespace MusicPlayerWindow
         {
             return store.getSongFromPrevQueue();
         }
+        public List<String> getPlaylistNames()
+        {
+            return store.getPlaylistNames();
+        }
+        public void destroyStoreAndExit()
+        {
+            Monitor.Enter(opObject);
+            opObject.next_operation = QueueOp.DESTROY;
+            Monitor.Pulse(opObject);
+            Monitor.Exit(opObject);
+            loaderThread.Join(500);
+        }
+
 
         //INTERNAL AND PRIVATE METHODS/HELPERS
         internal Song getOneSong(Queue q)
@@ -131,14 +149,16 @@ namespace MusicPlayerWindow
         }        
         private void _switchToPlaylist()
         {
-            //_writePlaylistToStore();
-            store.switchPlaylist(opObject.playlist_for_op);
-            opObject.playlist_for_op = null;
+            store.switchPlaylist(opObject.playlist_name_for_op);
         }
         /*private void _writePlaylistToStore()
         {
             store.writeCurrentPlaylistToStore();
         }*/
+        private void _destroyStore()
+        {
+            store = null;
+        }
 
     }
 }

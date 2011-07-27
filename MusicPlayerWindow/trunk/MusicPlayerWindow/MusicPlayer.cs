@@ -49,5 +49,11 @@ namespace MusicPlayerWindow
             }
             else return;
         }
+
+        public void destroyPlayer()
+        {
+            engine.RemoveAllSoundSources();
+            engine.Dispose();
+        }
     }
 }

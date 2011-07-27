@@ -20,10 +20,12 @@ namespace MusicPlayerWindow
         public bool stopPressed;
 	    public static String outputDir = @"..\..\Playlists";
         public String libLocation;
+        private bool playlistChanged;
 
         public MainWindow()
         {
             libLocation = @"D:\Music\iTunes";
+            playlistChanged = false;
             InitializeComponent();
             player = new MusicPlayer(this);
             String[] wtf = System.IO.Directory.GetFiles(outputDir);
@@ -34,6 +36,8 @@ namespace MusicPlayerWindow
             }
             loader = new CustomMusicLoader(outputDir); //UNCOMMENT WHEN HAVE M3U FILES
             currentSong = null;
+            initPlaylistMenu();
+            
         }
 
         [STAThread]
@@ -90,7 +94,11 @@ namespace MusicPlayerWindow
             currentSong = loader.getNextSong();
             player.playCurrSong(currentSong);
             loader.updateNextQueue();
-            loader.updatePrevQueue(oldSong);
+            if (playlistChanged)
+            {
+                playlistChanged = false;
+                loader.updatePrevQueue(oldSong);
+            }
         }
 
         private void nextButton_Click(object sender, EventArgs e)
@@ -124,82 +132,106 @@ namespace MusicPlayerWindow
         }
 
 
-	///<summary>
-	/// Executes a process and waits for it to end. 
-	///</summary>
-	///<param name="cmd">Full Path of process to execute.</param>
-	///<param name="cmdParams">Command Line params of process</param>
-	///<param name="workingDirectory">Process' working directory</param>
-	///<param name="timeout">Time to wait for process to end</param>
-	///<param name="stdOutput">Redirected standard output of process</param>
-	///<returns>Process exit code</returns>
-	private int ExecuteProcess( string cmd, string cmdParams, string workingDirectory, int timeout, out string stdOutput )
-	{
-        ProcessStartInfo pInfo = new ProcessStartInfo(cmd, cmdParams);
-		pInfo.WorkingDirectory = workingDirectory;
-		pInfo.UseShellExecute = false;
-		pInfo.RedirectStandardOutput = true;
-        pInfo.WindowStyle = ProcessWindowStyle.Hidden;
-		Process p = Process.Start(pInfo);
-		stdOutput = p.StandardOutput.ReadToEnd();
-		p.WaitForExit(timeout);
-		return p.ExitCode;
-	}
+        ///<summary>
+        /// Executes a process and waits for it to end. 
+        ///</summary>
+        ///<param name="cmd">Full Path of process to execute.</param>
+        ///<param name="cmdParams">Command Line params of process</param>
+        ///<param name="workingDirectory">Process' working directory</param>
+        ///<param name="timeout">Time to wait for process to end</param>
+        ///<param name="stdOutput">Redirected standard output of process</param>
+        ///<returns>Process exit code</returns>
+        private int ExecuteProcess(string cmd, string cmdParams, string workingDirectory, int timeout, out string stdOutput)
+        {
+            ProcessStartInfo pInfo = new ProcessStartInfo(cmd, cmdParams);
+            pInfo.WorkingDirectory = workingDirectory;
+            pInfo.UseShellExecute = false;
+            pInfo.RedirectStandardOutput = true;
+            pInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            Process p = Process.Start(pInfo);
+            stdOutput = p.StandardOutput.ReadToEnd();
+            p.WaitForExit(timeout);
+            return p.ExitCode;
+        }
 
-	private int getiTunesSongs(String libLoc)
-	{
-	    String outputString;
-	    int timeout = 10000;
-        System.IO.Directory.CreateDirectory(outputDir);
-        String cmdArgs = String.Format("-jar ..\\..\\itunesexport.jar -playlistType=M3U -library=\"{0}\\iTunes Music Library.xml\" -outputDir=\"{1}\" -includeBuiltInPlaylists",
-            libLoc, outputDir);
-	    int exitCode = ExecuteProcess(@"C:\Program Files (x86)\Java\jre6\bin\java.exe",
-            cmdArgs,
-            System.IO.Directory.GetCurrentDirectory(),
-		    timeout,
-		    out outputString);
-	    return exitCode;
-	}
+        private int getiTunesSongs(String libLoc)
+        {
+            String outputString;
+            int timeout = 10000;
+            System.IO.Directory.CreateDirectory(outputDir);
+            String cmdArgs = String.Format("-jar ..\\..\\itunesexport.jar -playlistType=M3U -library=\"{0}\\iTunes Music Library.xml\" -outputDir=\"{1}\" -includeBuiltInPlaylists",
+                libLoc, outputDir);
+            int exitCode = ExecuteProcess(@"C:\Program Files (x86)\Java\jre6\bin\java.exe",
+                cmdArgs,
+                System.IO.Directory.GetCurrentDirectory(),
+                timeout,
+                out outputString);
+            return exitCode;
+        }
 
-	private void parseiTunesSongs(String libLoc, String outputDir) 
-	{
-	    String[] playlistPaths = System.IO.Directory.GetFiles(outputDir);
-	    foreach (String file in playlistPaths)
-	    {
-		    System.IO.TextReader tr = new System.IO.StreamReader(file);
-		    String file_to_write = String.Format("{0}xml", file.TrimEnd('m','3','u'));
-		    System.IO.TextWriter w = new System.IO.StreamWriter(file_to_write);
-            int count = 0; 
-            String line;
-		    while ((line = tr.ReadLine()) != null)
-		    {
-                if (count == 0)
+        private void parseiTunesSongs(String libLoc, String outputDir)
+        {
+            String[] playlistPaths = System.IO.Directory.GetFiles(outputDir);
+            foreach (String file in playlistPaths)
+            {
+                System.IO.TextReader tr = new System.IO.StreamReader(file);
+                String file_to_write = String.Format("{0}xml", file.TrimEnd('m', '3', 'u'));
+                System.IO.TextWriter w = new System.IO.StreamWriter(file_to_write);
+                int count = 0;
+                String line;
+                while ((line = tr.ReadLine()) != null)
                 {
-                    w.WriteLine("<?xml version='1.0' ?>");
-                    w.WriteLine("<!DOCTYPE playlist [");
-                    w.WriteLine("  <!ELEMENT playlist (song)>");
-                    w.WriteLine("  <!ELEMENT song     (#PCDATA)>");
-                    w.WriteLine("  <!ATTLIST song id ID #REQUIRED>");
-                    w.WriteLine("]>");
-                    w.WriteLine("<playlist>");
-                    count += 7;
-                    continue;
+                    if (count == 0)
+                    {
+                        w.WriteLine("<?xml version='1.0' ?>");
+                        w.WriteLine("<!DOCTYPE playlist [");
+                        w.WriteLine("  <!ELEMENT playlist (song)>");
+                        w.WriteLine("  <!ELEMENT song     (#PCDATA)>");
+                        w.WriteLine("  <!ATTLIST song id ID #REQUIRED>");
+                        w.WriteLine("]>");
+                        w.WriteLine("<playlist>");
+                        count += 7;
+                        continue;
+                    }
+                    //if extinfo, skip line
+                    line = line.Replace("&", "&amp;");
+                    line = line.Replace(@"C:\Users\Randy", "D:");
+                    line = line.Replace(@"iTunes Music\", "");
+                    String line_to_write = String.Format("    <song id=\'{0:000000}\'>{1}</song>", count, line);
+                    w.WriteLine(line_to_write);
+                    count++;
                 }
-		        //if extinfo, skip line
-                line = line.Replace("&", "&amp;");
-                line = line.Replace(@"C:\Users\Randy", "D:");
-                line = line.Replace(@"iTunes Music\","");
-		        String line_to_write = String.Format("    <song id=\'{0:000000}\'>{1}</song>", count, line);
-		        w.WriteLine(line_to_write);
-		        count++;
-		    }
-            w.WriteLine("</playlist>");
-		    tr.Close();
-		    w.Close();
-		    System.IO.File.Delete(file);
-	    }
-	    
-	}
+                w.WriteLine("</playlist>");
+                tr.Close();
+                w.Close();
+                System.IO.File.Delete(file);
+            }
+
+        }
+
+        private void playlistBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String playlistToPlay = playlistBox.SelectedItem.ToString();
+            loader.switchToPlaylist(playlistToPlay);
+            playlistChanged = true;
+            playNextSong();
+        }
+        private void initPlaylistMenu()
+        {
+            List<String> playlists = loader.getPlaylistNames();
+            foreach (String playlist in playlists)
+            {
+                playlistBox.Items.Add(playlist);
+            }
+        }
+
+        public void MainWindow_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            player.destroyPlayer();
+            loader.destroyStoreAndExit();
+            this.Dispose();
+            Application.Exit();
+        }
 
     }
 }
