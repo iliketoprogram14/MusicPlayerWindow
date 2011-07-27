@@ -52,6 +52,7 @@ namespace MusicPlayerWindow
                     default: break;
                 }
                 if (shouldExit) { break; }
+                Monitor.Pulse(opObject);
                 Monitor.Wait(opObject);
             }
             Monitor.Exit(opObject);

@@ -99,6 +99,12 @@
             this.playlistBox.Name = "playlistBox";
             this.playlistBox.Size = new System.Drawing.Size(189, 21);
             this.playlistBox.TabIndex = 5;
+            System.Collections.Generic.List<string> playlists = loader.getPlaylistNames();
+            foreach (string playlist in playlists)
+            {
+                playlistBox.Items.Add(playlist);
+            }
+            playlistBox.SelectedItem = "Music";
             this.playlistBox.SelectedIndexChanged += new System.EventHandler(this.playlistBox_SelectedIndexChanged);
             // 
             // MainWindow

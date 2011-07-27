@@ -26,7 +26,6 @@ namespace MusicPlayerWindow
         {
             libLocation = @"D:\Music\iTunes";
             playlistChanged = false;
-            InitializeComponent();
             player = new MusicPlayer(this);
             String[] wtf = System.IO.Directory.GetFiles(outputDir);
             if (wtf.Length == 0)
@@ -35,9 +34,8 @@ namespace MusicPlayerWindow
                 parseiTunesSongs(libLocation, outputDir);
             }
             loader = new CustomMusicLoader(outputDir); //UNCOMMENT WHEN HAVE M3U FILES
-            currentSong = null;
-            initPlaylistMenu();
-            
+            InitializeComponent();
+            currentSong = null;            
         }
 
         [STAThread]
@@ -50,7 +48,7 @@ namespace MusicPlayerWindow
         private void playButton_Click(object sender, EventArgs e)
         {
             if (currentSong == null) {
-                currentSong = new Song(@"D:\Music\iTunes\Kyuss\Wretch\11 Stage III.mp3");
+                currentSong = loader.getNextSong();
                 player.playCurrSong(currentSong);
             }
             else {
@@ -89,7 +87,7 @@ namespace MusicPlayerWindow
         public void playNextSong()
         {
             stopPressed = false;
-            player.stopSong(currentSong);
+            if (currentSong != null) { player.stopSong(currentSong); }
             Song oldSong = currentSong;
             currentSong = loader.getNextSong();
             player.playCurrSong(currentSong);
@@ -215,14 +213,6 @@ namespace MusicPlayerWindow
             loader.switchToPlaylist(playlistToPlay);
             playlistChanged = true;
             playNextSong();
-        }
-        private void initPlaylistMenu()
-        {
-            List<String> playlists = loader.getPlaylistNames();
-            foreach (String playlist in playlists)
-            {
-                playlistBox.Items.Add(playlist);
-            }
         }
 
         public void MainWindow_FormClosed(object sender, FormClosedEventArgs e)

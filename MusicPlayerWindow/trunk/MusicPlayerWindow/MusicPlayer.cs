@@ -34,7 +34,6 @@ namespace MusicPlayerWindow
         public void stopSong(Song song)
         {
             song.getSound().Stop();
-
         }
 
         public void OnSoundStopped(ISound sound, StopEventCause cause, object userData)
