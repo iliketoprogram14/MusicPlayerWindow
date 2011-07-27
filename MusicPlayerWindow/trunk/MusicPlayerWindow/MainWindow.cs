@@ -15,7 +15,7 @@ namespace MusicPlayerWindow
     public partial class MainWindow : System.Windows.Forms.Form
     {
         private MusicPlayer player;
-        private CustomMusicLoader loader;
+        protected CustomMusicLoader loader;
         private Song currentSong;
 	    public static String outputDir = @"..\..\Playlists";
         public String libLocation;
@@ -25,14 +25,14 @@ namespace MusicPlayerWindow
         {
             libLocation = @"D:\Music\iTunes";
             player = new MusicPlayer(this);
-            String[] wtf = System.IO.Directory.GetFiles(outputDir);
-            if (wtf.Length == 0)
+            if (!System.IO.Directory.Exists(outputDir) || System.IO.Directory.GetFiles(outputDir).Length == 0)
             {
                 getiTunesSongs(libLocation);
                 parseiTunesSongs(libLocation, outputDir);
             }
             loader = new CustomMusicLoader(outputDir);
             InitializeComponent();
+            InitPlaylistBox();
             currentSong = null;
             playlistBoxLastIndex = playlistBox.SelectedIndex;
         }
@@ -146,7 +146,7 @@ namespace MusicPlayerWindow
             String outputString;
             int timeout = 10000;
             System.IO.Directory.CreateDirectory(outputDir);
-            String cmdArgs = String.Format("-jar ..\\..\\itunesexport.jar -playlistType=M3U -library=\"{0}\\iTunes Music Library.xml\" -outputDir=\"{1}\" -includeBuiltInPlaylists",
+            String cmdArgs = String.Format("-mx1024m -jar ..\\..\\itunesexport.jar -playlistType=M3U -library=\"{0}\\iTunes Music Library.xml\" -outputDir=\"{1}\" -includeBuiltInPlaylists -excludePlaylist=\"iTunes DJ, Movies, iTunes U, Purchased on iPod touch, Purchased, Purchased on iPhone, Podcasts, Recently Played\"",
                 libLoc, outputDir);
             int exitCode = ExecuteProcess(@"C:\Program Files (x86)\Java\jre6\bin\java.exe",
                 cmdArgs,
@@ -162,28 +162,29 @@ namespace MusicPlayerWindow
             foreach (String file in playlistPaths)
             {
                 System.IO.TextReader tr = new System.IO.StreamReader(file);
-                String file_to_write = String.Format("{0}xml", file.TrimEnd('m', '3', 'u'));
+                String tmp = tr.ReadLine();
+
+                tmp = tmp.Replace("#Playlist: '","").Replace("' exported by iTunesExport-Scala v2.2.2 http://www.ericdaugherty.com/dev/itunesexport/scala/", "");
+                String file_to_write = tmp.Replace("/","_");
+                file_to_write = outputDir + "/" + file_to_write + ".xml";
+
+                //String file_to_write = String.Format("{0}xml", file.TrimEnd('m', '3', 'u'));
                 System.IO.TextWriter w = new System.IO.StreamWriter(file_to_write);
-                int count = 0;
+                w.WriteLine("<?xml version='1.0' ?>");
+                w.WriteLine("<!DOCTYPE playlist [");
+                w.WriteLine("  <!ELEMENT playlist (song)>");
+                w.WriteLine("  <!ELEMENT song     (#PCDATA)>");
+                w.WriteLine("  <!ATTLIST song id ID #REQUIRED>");
+                w.WriteLine("]>");
+                w.WriteLine("<playlist>");
                 String line;
+                int count = 0;
                 while ((line = tr.ReadLine()) != null)
                 {
-                    if (count == 0)
-                    {
-                        w.WriteLine("<?xml version='1.0' ?>");
-                        w.WriteLine("<!DOCTYPE playlist [");
-                        w.WriteLine("  <!ELEMENT playlist (song)>");
-                        w.WriteLine("  <!ELEMENT song     (#PCDATA)>");
-                        w.WriteLine("  <!ATTLIST song id ID #REQUIRED>");
-                        w.WriteLine("]>");
-                        w.WriteLine("<playlist>");
-                        count += 7;
-                        continue;
-                    }
-                    //if extinfo, skip line
                     line = line.Replace("&", "&amp;");
                     line = line.Replace(@"C:\Users\Randy", "D:");
-                    line = line.Replace(@"iTunes Music\", "");
+                    //line = line.Replace(@"iTunes Music\", "");
+                    //line = line.Replace(@"\","/");
                     String line_to_write = String.Format("    <song id=\'{0:000000}\'>{1}</song>", count, line);
                     w.WriteLine(line_to_write);
                     count++;
