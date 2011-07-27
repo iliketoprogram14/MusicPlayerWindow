@@ -92,13 +92,6 @@ namespace MusicPlayerWindow
             Monitor.Pulse(opObject);
             Monitor.Exit(opObject);
         }
-        /*public void writePlaylistToStore(Playlist playlist)
-        {
-            Monitor.Enter(opObject);
-            opObject.next_operation = QueueOp.WRITE_PLAYLIST;
-            Monitor.Pulse(opObject);
-            Monitor.Exit(opObject);
-        }*/
         public Song getNextSong()
         {
             return store.getSongFromNextQueue();

@@ -137,6 +137,7 @@
             this.playlistBox.Items.AddRange(loader.getPlaylistNames().ToArray());
             this.playlistBox.SelectedItem = "Music";
             this.playlistBox.SelectedValueChanged += new System.EventHandler(this.playlistBox_SelectedValueChanged);
+            playlistBoxLastIndex = playlistBox.SelectedIndex;
         }
     }
 }

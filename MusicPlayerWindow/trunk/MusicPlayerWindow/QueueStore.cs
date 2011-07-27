@@ -62,10 +62,6 @@ namespace MusicPlayerWindow
         {
             currentQueue = playlistQueues[next_playlist_name];
         }
-        /*public void writeCurrentPlaylistToStore()
-        {
-	    playlistQueues[currentQueue.playlist] = new Queue(currentQueue);
-        }*/
         internal Queue getCurrentQueue()
         {
             return currentQueue;

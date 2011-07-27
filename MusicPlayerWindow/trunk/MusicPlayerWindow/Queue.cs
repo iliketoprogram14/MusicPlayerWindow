@@ -31,6 +31,7 @@ namespace MusicPlayerWindow
         }
         public void addNextSong(Song newSong)
         {
+            if (nextSongQueue.Contains(newSong)) { return; }
             nextSongQueue.Add(newSong);
         }
         public Song getNextSong()
@@ -41,10 +42,8 @@ namespace MusicPlayerWindow
         }
         public void addPrevSong(Song oldSong)
         {
-            if (prevSongQueue.Count == prevSongLimit)
-            {
-                prevSongQueue.RemoveAt(0); //remove least recent song
-            }
+            if (prevSongQueue.Contains(oldSong)) { return; }
+            if (prevSongQueue.Count == prevSongLimit) { prevSongQueue.RemoveAt(0); } //remove least recent song
             prevSongQueue.Add(oldSong);
         }
         public Song getPrevSong()

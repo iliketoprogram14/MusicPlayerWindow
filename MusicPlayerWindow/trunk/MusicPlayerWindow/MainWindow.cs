@@ -34,7 +34,6 @@ namespace MusicPlayerWindow
             InitializeComponent();
             InitPlaylistBox();
             currentSong = null;
-            playlistBoxLastIndex = playlistBox.SelectedIndex;
             Control.CheckForIllegalCrossThreadCalls = false;
         }
 
@@ -93,7 +92,9 @@ namespace MusicPlayerWindow
 
         private void nextButton_Click(object sender, EventArgs e)
         {
+            Song oldSong = currentSong;
             playNextSong();
+            loader.updatePrevQueue(oldSong);
         }
 
         private void prevButton_Click(object sender, EventArgs e)
@@ -101,8 +102,7 @@ namespace MusicPlayerWindow
             player.stopSong(currentSong);
             Song oldSong = currentSong;
             currentSong = loader.getPrevSong();
-            if (currentSong == null) { resetEngine(); return; }
-            if (oldSong.Equals(currentSong)) { stopButton_Click(this, null); return; }
+            if (currentSong == null) { resetEngine(); return; } //prevQueue is empty, so stop playing
             player.playCurrSong(currentSong);
             loader.addSongToNextQueueFront(oldSong);
         }
