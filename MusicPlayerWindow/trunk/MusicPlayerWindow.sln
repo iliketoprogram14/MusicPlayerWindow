@@ -21,6 +21,7 @@ Global
 		{77B8777E-0737-4AE2-8CDB-FD3B4DA61FC4}.Release|x86.Build.0 = Release|x86
 		{D9766771-85C7-4577-A7F7-5515CC5ECD96}.Debug|x86.ActiveCfg = Debug
 		{D9766771-85C7-4577-A7F7-5515CC5ECD96}.Release|x86.ActiveCfg = Release
+		{D9766771-85C7-4577-A7F7-5515CC5ECD96}.Release|x86.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

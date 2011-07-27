@@ -35,6 +35,7 @@ namespace MusicPlayerWindow
             InitPlaylistBox();
             currentSong = null;
             playlistBoxLastIndex = playlistBox.SelectedIndex;
+            Control.CheckForIllegalCrossThreadCalls = false;
         }
 
         [STAThread]
