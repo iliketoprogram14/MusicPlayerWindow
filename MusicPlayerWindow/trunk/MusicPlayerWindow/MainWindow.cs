@@ -54,9 +54,9 @@ namespace MusicPlayerWindow
                 player.pauseUnpauseSong(currentSong);
             }
             if (currentSong.getSound().Paused == true)
-                playButton.Text = "Play";
+                playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Play;
             else
-                playButton.Text = "Pause";
+                playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Pause;
             nextButton.Enabled = true;
             prevButton.Enabled = true;
             stopButton.Enabled = true;
@@ -71,7 +71,7 @@ namespace MusicPlayerWindow
         private void resetEngine()
         {
             currentSong = null;
-            playButton.Text = "Play";
+            playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Play;
             nextButton.Enabled = false;
             prevButton.Enabled = false;
             stopButton.Enabled = false;
@@ -88,6 +88,7 @@ namespace MusicPlayerWindow
             currentSong = loader.getNextSong();
             player.playCurrSong(currentSong);
             loader.updateNextQueue();
+            playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Pause;
         }
 
         private void nextButton_Click(object sender, EventArgs e)
@@ -202,6 +203,13 @@ namespace MusicPlayerWindow
             String playlistToPlay = playlistBox.SelectedItem.ToString();
             loader.switchToPlaylist(playlistToPlay, currentSong);
             playNextSong();
+            if (stopButton.Enabled == false)
+            {
+                playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Pause;
+                stopButton.Enabled = true;
+                nextButton.Enabled = true;
+                prevButton.Enabled = true;
+            }
         }
         private void getLibLocation()
         {

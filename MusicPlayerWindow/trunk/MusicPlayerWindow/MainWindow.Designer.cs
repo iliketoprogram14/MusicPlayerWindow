@@ -28,45 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.playButton = new System.Windows.Forms.Button();
-            this.stopButton = new System.Windows.Forms.Button();
             this.prevButton = new System.Windows.Forms.Button();
             this.nextButton = new System.Windows.Forms.Button();
             this.volumeBar = new System.Windows.Forms.TrackBar();
             this.playlistBox = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.songLabel = new System.Windows.Forms.Label();
             this.artistAlbumLabel = new System.Windows.Forms.Label();
+            this.songLabel = new System.Windows.Forms.Label();
+            this.stopButton = new System.Windows.Forms.Button();
+            this.playButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.volumeBar)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // playButton
-            // 
-            this.playButton.Location = new System.Drawing.Point(58, 12);
-            this.playButton.MinimumSize = new System.Drawing.Size(60, 60);
-            this.playButton.Name = "playButton";
-            this.playButton.Size = new System.Drawing.Size(60, 60);
-            this.playButton.TabIndex = 1;
-            this.playButton.Text = "Play";
-            this.playButton.UseVisualStyleBackColor = true;
-            this.playButton.Click += new System.EventHandler(this.playButton_Click);
-            // 
-            // stopButton
-            // 
-            this.stopButton.Enabled = false;
-            this.stopButton.Location = new System.Drawing.Point(124, 12);
-            this.stopButton.MinimumSize = new System.Drawing.Size(60, 60);
-            this.stopButton.Name = "stopButton";
-            this.stopButton.Size = new System.Drawing.Size(60, 60);
-            this.stopButton.TabIndex = 2;
-            this.stopButton.Text = "Stop";
-            this.stopButton.UseVisualStyleBackColor = true;
-            this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
-            // 
             // prevButton
             // 
             this.prevButton.Enabled = false;
+            this.prevButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.prevButton.Location = new System.Drawing.Point(13, 22);
             this.prevButton.MaximumSize = new System.Drawing.Size(40, 40);
             this.prevButton.MinimumSize = new System.Drawing.Size(40, 40);
@@ -80,6 +58,7 @@
             // nextButton
             // 
             this.nextButton.Enabled = false;
+            this.nextButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.nextButton.Location = new System.Drawing.Point(190, 22);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(40, 40);
@@ -96,7 +75,7 @@
             this.volumeBar.MaximumSize = new System.Drawing.Size(220, 30);
             this.volumeBar.MinimumSize = new System.Drawing.Size(215, 30);
             this.volumeBar.Name = "volumeBar";
-            this.volumeBar.Size = new System.Drawing.Size(220, 30);
+            this.volumeBar.Size = new System.Drawing.Size(220, 45);
             this.volumeBar.SmallChange = 5;
             this.volumeBar.TabIndex = 3;
             this.volumeBar.TickFrequency = 10;
@@ -107,6 +86,8 @@
             // playlistBox
             // 
             this.playlistBox.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.playlistBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.playlistBox.ForeColor = System.Drawing.Color.DarkBlue;
             this.playlistBox.FormattingEnabled = true;
             this.playlistBox.Location = new System.Drawing.Point(0, 62);
             this.playlistBox.Name = "playlistBox";
@@ -123,32 +104,62 @@
             this.panel1.Size = new System.Drawing.Size(200, 83);
             this.panel1.TabIndex = 6;
             // 
+            // artistAlbumLabel
+            // 
+            this.artistAlbumLabel.AutoSize = true;
+            this.artistAlbumLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.artistAlbumLabel.ForeColor = System.Drawing.Color.DarkBlue;
+            this.artistAlbumLabel.Location = new System.Drawing.Point(10, 35);
+            this.artistAlbumLabel.MinimumSize = new System.Drawing.Size(180, 10);
+            this.artistAlbumLabel.Name = "artistAlbumLabel";
+            this.artistAlbumLabel.Size = new System.Drawing.Size(180, 16);
+            this.artistAlbumLabel.TabIndex = 7;
+            this.artistAlbumLabel.Text = "Artist - Album";
+            this.artistAlbumLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // songLabel
             // 
             this.songLabel.AutoSize = true;
+            this.songLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.songLabel.ForeColor = System.Drawing.Color.DarkBlue;
             this.songLabel.Location = new System.Drawing.Point(10, 10);
             this.songLabel.MinimumSize = new System.Drawing.Size(180, 0);
             this.songLabel.Name = "songLabel";
-            this.songLabel.Size = new System.Drawing.Size(180, 13);
+            this.songLabel.Size = new System.Drawing.Size(180, 16);
             this.songLabel.TabIndex = 6;
             this.songLabel.Text = "Song goes here";
             this.songLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // artistAlbumLabel
+            // stopButton
             // 
-            this.artistAlbumLabel.AutoSize = true;
-            this.artistAlbumLabel.Location = new System.Drawing.Point(10, 40);
-            this.artistAlbumLabel.MinimumSize = new System.Drawing.Size(180, 10);
-            this.artistAlbumLabel.Name = "artistAlbumLabel";
-            this.artistAlbumLabel.Size = new System.Drawing.Size(180, 13);
-            this.artistAlbumLabel.TabIndex = 7;
-            this.artistAlbumLabel.Text = "Artist - Album";
-            this.artistAlbumLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.stopButton.Enabled = false;
+            this.stopButton.Image = global::MusicPlayerWindow.Properties.Resources.Small_Glass_Stop;
+            this.stopButton.Location = new System.Drawing.Point(124, 12);
+            this.stopButton.MinimumSize = new System.Drawing.Size(60, 60);
+            this.stopButton.Name = "stopButton";
+            this.stopButton.Size = new System.Drawing.Size(60, 60);
+            this.stopButton.TabIndex = 2;
+            this.stopButton.UseVisualStyleBackColor = true;
+            this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
+            this.stopButton.Paint += new System.Windows.Forms.PaintEventHandler(this.stopButton_Paint);
+            // 
+            // playButton
+            // 
+            this.playButton.Image = global::MusicPlayerWindow.Properties.Resources.Small_Glass_Play;
+            this.playButton.Location = new System.Drawing.Point(58, 12);
+            this.playButton.MinimumSize = new System.Drawing.Size(60, 60);
+            this.playButton.Name = "playButton";
+            this.playButton.Size = new System.Drawing.Size(60, 60);
+            this.playButton.TabIndex = 1;
+            this.playButton.UseVisualStyleBackColor = true;
+            this.playButton.Click += new System.EventHandler(this.playButton_Click);
+            this.playButton.Paint += new System.Windows.Forms.PaintEventHandler(this.playButton_Paint);
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(456, 113);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.volumeBar);
@@ -184,6 +195,41 @@
             this.playlistBox.SelectedItem = "Music";
             this.playlistBox.SelectedValueChanged += new System.EventHandler(this.playlistBox_SelectedValueChanged);
             playlistBoxLastIndex = playlistBox.SelectedIndex;
+        }
+
+        private void playButton_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+        {
+            button_Paint(playButton, e);
+        }
+
+        private void stopButton_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+        {
+            button_Paint(stopButton, e);
+        }
+
+        private void button_Paint(System.Windows.Forms.Button button, System.Windows.Forms.PaintEventArgs e)
+        {
+            System.Drawing.Drawing2D.GraphicsPath buttonPath = new System.Drawing.Drawing2D.GraphicsPath();
+
+            // Set a new rectangle to the same size as the button's 
+            // ClientRectangle property.
+            System.Drawing.Rectangle newRectangle = button.ClientRectangle;
+
+            // Decrease the size of the rectangle.
+            newRectangle.Inflate(-4, -4);
+
+            // Draw the button's border.
+            e.Graphics.DrawEllipse(System.Drawing.Pens.Black, newRectangle);
+
+            // Increase the size of the rectangle to include the border.
+            newRectangle.Inflate(1, 1);
+
+            // Create a circle within the new rectangle.
+            buttonPath.AddEllipse(newRectangle);
+
+            // Set the button's Region property to the newly created 
+            // circle region.
+            button.Region = new System.Drawing.Region(buttonPath);
         }
 
         private System.Windows.Forms.Panel panel1;
