@@ -10,7 +10,6 @@ namespace MusicPlayerWindow
         void updateNextQueue();
         void updatePrevQueue(Song song);
         void switchToPlaylist(Playlist newPlaylist);
-        //void writePlaylistToStore(Playlist playlist);
         Song getNextSong();
         Song getPrevSong();
     }

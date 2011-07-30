@@ -145,13 +145,14 @@
             // 
             // playButton
             // 
+            this.playButton.BackColor = System.Drawing.Color.Transparent;
             this.playButton.Image = global::MusicPlayerWindow.Properties.Resources.Small_Glass_Play;
             this.playButton.Location = new System.Drawing.Point(58, 12);
             this.playButton.MinimumSize = new System.Drawing.Size(60, 60);
             this.playButton.Name = "playButton";
             this.playButton.Size = new System.Drawing.Size(60, 60);
             this.playButton.TabIndex = 1;
-            this.playButton.UseVisualStyleBackColor = true;
+            this.playButton.UseVisualStyleBackColor = false;
             this.playButton.Click += new System.EventHandler(this.playButton_Click);
             this.playButton.Paint += new System.Windows.Forms.PaintEventHandler(this.playButton_Paint);
             // 
@@ -159,7 +160,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(456, 113);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.volumeBar);
@@ -219,7 +220,7 @@
             newRectangle.Inflate(-4, -4);
 
             // Draw the button's border.
-            e.Graphics.DrawEllipse(System.Drawing.Pens.Black, newRectangle);
+            e.Graphics.DrawEllipse(System.Drawing.Pens.Transparent, newRectangle);
 
             // Increase the size of the rectangle to include the border.
             newRectangle.Inflate(1, 1);
