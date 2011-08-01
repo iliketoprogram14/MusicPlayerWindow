@@ -53,10 +53,7 @@ namespace MusicPlayerWindow
             else {
                 player.pauseUnpauseSong(currentSong);
             }
-            if (currentSong.getSound().Paused == true)
-                playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Play_Black;
-            else
-                playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Pause_Black;
+            switchImagesPlayPause();
             nextButton.Enabled = true;
             prevButton.Enabled = true;
             stopButton.Enabled = true;
@@ -77,6 +74,14 @@ namespace MusicPlayerWindow
             stopButton.Enabled = false;
         }
 
+        private void switchImagesPlayPause()
+        {
+            if (currentSong.getSound().Paused == true)
+                playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Play_Black;
+            else
+                playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Pause_Black;
+        }
+
         public Song getCurrSong()
         {
             return currentSong;
@@ -88,7 +93,7 @@ namespace MusicPlayerWindow
             currentSong = loader.getNextSong();
             player.playCurrSong(currentSong);
             loader.updateNextQueue();
-            playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Pause;
+            switchImagesPlayPause();
         }
 
         private void nextButton_Click(object sender, EventArgs e)

@@ -102,25 +102,25 @@
     <None Include="Resources\Small Glass Pause.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Small Glass Forward.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Small Glass Previous.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Small Glass Play Black.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Small Glass Stop1 Black.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Small Glass Forward Black.png" />
+    <None Include="Resources\Small Glass Pause Black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Small Glass Previous.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Small Glass Forward.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Small Glass Previous Black.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Small Glass Pause Black.png" />
+    <None Include="Resources\Small Glass Forward Black.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

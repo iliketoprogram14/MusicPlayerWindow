@@ -59,9 +59,10 @@
             // 
             // playlistBox
             // 
-            this.playlistBox.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.playlistBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.playlistBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.playlistBox.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.playlistBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.playlistBox.ForeColor = System.Drawing.Color.White;
             this.playlistBox.FormattingEnabled = true;
             this.playlistBox.Location = new System.Drawing.Point(244, 74);
             this.playlistBox.Name = "playlistBox";
@@ -70,8 +71,7 @@
             // 
             // labelPanel
             // 
-            this.labelPanel.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.labelPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.labelPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.labelPanel.Controls.Add(this.artistAlbumLabel);
             this.labelPanel.Controls.Add(this.songLabel);
             this.labelPanel.Location = new System.Drawing.Point(244, 12);
@@ -83,7 +83,7 @@
             // 
             this.artistAlbumLabel.AutoSize = true;
             this.artistAlbumLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.artistAlbumLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.artistAlbumLabel.ForeColor = System.Drawing.Color.White;
             this.artistAlbumLabel.Location = new System.Drawing.Point(10, 35);
             this.artistAlbumLabel.MinimumSize = new System.Drawing.Size(180, 10);
             this.artistAlbumLabel.Name = "artistAlbumLabel";
@@ -96,7 +96,7 @@
             // 
             this.songLabel.AutoSize = true;
             this.songLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.songLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.songLabel.ForeColor = System.Drawing.Color.White;
             this.songLabel.Location = new System.Drawing.Point(10, 10);
             this.songLabel.MinimumSize = new System.Drawing.Size(180, 0);
             this.songLabel.Name = "songLabel";
@@ -109,7 +109,7 @@
             // 
             this.nextButton.BackColor = System.Drawing.Color.Transparent;
             this.nextButton.Enabled = false;
-            this.nextButton.Image = global::MusicPlayerWindow.Properties.Resources.Small_Glass_Forward_Black;
+            this.nextButton.Image = global::MusicPlayerWindow.Properties.Resources.Small_Glass_Forward_Black1;
             this.nextButton.Location = new System.Drawing.Point(190, 22);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(40, 40);
@@ -122,7 +122,7 @@
             // 
             this.prevButton.BackColor = System.Drawing.Color.Transparent;
             this.prevButton.Enabled = false;
-            this.prevButton.Image = global::MusicPlayerWindow.Properties.Resources.Small_Glass_Previous_Black;
+            this.prevButton.Image = global::MusicPlayerWindow.Properties.Resources.Small_Glass_Previous_Black1;
             this.prevButton.Location = new System.Drawing.Point(13, 22);
             this.prevButton.MaximumSize = new System.Drawing.Size(40, 40);
             this.prevButton.MinimumSize = new System.Drawing.Size(40, 40);
@@ -163,7 +163,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(456, 113);
             this.Controls.Add(this.labelPanel);
             this.Controls.Add(this.volumeBar);
