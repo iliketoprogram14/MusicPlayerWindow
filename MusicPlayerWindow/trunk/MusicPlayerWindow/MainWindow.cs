@@ -54,9 +54,9 @@ namespace MusicPlayerWindow
                 player.pauseUnpauseSong(currentSong);
             }
             if (currentSong.getSound().Paused == true)
-                playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Play;
+                playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Play_Black;
             else
-                playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Pause;
+                playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Pause_Black;
             nextButton.Enabled = true;
             prevButton.Enabled = true;
             stopButton.Enabled = true;
