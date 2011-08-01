@@ -60,100 +60,37 @@ namespace MusicPlayerWindow.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap Small_Glass_Forward {
-            get {
-                object obj = ResourceManager.GetObject("Small Glass Forward", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap Small_Glass_Forward_Black {
             get {
-                object obj = ResourceManager.GetObject("Small Glass Forward Black", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap Small_Glass_Forward_Black1 {
-            get {
-                object obj = ResourceManager.GetObject("Small Glass Forward Black1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap Small_Glass_Forward1 {
-            get {
-                object obj = ResourceManager.GetObject("Small Glass Forward1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap Small_Glass_Pause {
-            get {
-                object obj = ResourceManager.GetObject("Small Glass Pause", resourceCulture);
+                object obj = ResourceManager.GetObject("Small_Glass_Forward_Black", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         internal static System.Drawing.Bitmap Small_Glass_Pause_Black {
             get {
-                object obj = ResourceManager.GetObject("Small Glass Pause Black", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap Small_Glass_Play {
-            get {
-                object obj = ResourceManager.GetObject("Small Glass Play", resourceCulture);
+                object obj = ResourceManager.GetObject("Small_Glass_Pause_Black", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         internal static System.Drawing.Bitmap Small_Glass_Play_Black {
             get {
-                object obj = ResourceManager.GetObject("Small Glass Play Black", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap Small_Glass_Previous {
-            get {
-                object obj = ResourceManager.GetObject("Small Glass Previous", resourceCulture);
+                object obj = ResourceManager.GetObject("Small_Glass_Play_Black", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         internal static System.Drawing.Bitmap Small_Glass_Previous_Black {
             get {
-                object obj = ResourceManager.GetObject("Small Glass Previous Black", resourceCulture);
+                object obj = ResourceManager.GetObject("Small_Glass_Previous_Black", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap Small_Glass_Previous_Black1 {
+        internal static System.Drawing.Bitmap Small_Glass_Stop_Black {
             get {
-                object obj = ResourceManager.GetObject("Small Glass Previous Black1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap Small_Glass_Previous1 {
-            get {
-                object obj = ResourceManager.GetObject("Small Glass Previous1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap Small_Glass_Stop {
-            get {
-                object obj = ResourceManager.GetObject("Small Glass Stop", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap Small_Glass_Stop1_Black {
-            get {
-                object obj = ResourceManager.GetObject("Small Glass Stop1 Black", resourceCulture);
+                object obj = ResourceManager.GetObject("Small_Glass_Stop_Black", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

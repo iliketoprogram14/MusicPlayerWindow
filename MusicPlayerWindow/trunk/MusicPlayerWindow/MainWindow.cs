@@ -103,7 +103,7 @@ namespace MusicPlayerWindow
             playNextSong();
             if (stopButton.Enabled == false)
             {
-                playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Pause;
+                playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Pause_Black;
                 stopButton.Enabled = true;
                 nextButton.Enabled = true;
                 prevButton.Enabled = true;
@@ -133,7 +133,7 @@ namespace MusicPlayerWindow
         private void resetEngine()
         {
             currentSong = null;
-            playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Play;
+            playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Play_Black;
             nextButton.Enabled = false;
             prevButton.Enabled = false;
             stopButton.Enabled = false;

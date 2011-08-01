@@ -109,7 +109,7 @@
             // 
             this.nextButton.BackColor = System.Drawing.Color.Transparent;
             this.nextButton.Enabled = false;
-            this.nextButton.Image = global::MusicPlayerWindow.Properties.Resources.Small_Glass_Forward_Black1;
+            this.nextButton.Image = global::MusicPlayerWindow.Properties.Resources.Small_Glass_Forward_Black;
             this.nextButton.Location = new System.Drawing.Point(190, 22);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(40, 40);
@@ -122,7 +122,7 @@
             // 
             this.prevButton.BackColor = System.Drawing.Color.Transparent;
             this.prevButton.Enabled = false;
-            this.prevButton.Image = global::MusicPlayerWindow.Properties.Resources.Small_Glass_Previous_Black1;
+            this.prevButton.Image = global::MusicPlayerWindow.Properties.Resources.Small_Glass_Previous_Black;
             this.prevButton.Location = new System.Drawing.Point(13, 22);
             this.prevButton.MaximumSize = new System.Drawing.Size(40, 40);
             this.prevButton.MinimumSize = new System.Drawing.Size(40, 40);
@@ -136,7 +136,7 @@
             // stopButton
             // 
             this.stopButton.Enabled = false;
-            this.stopButton.Image = global::MusicPlayerWindow.Properties.Resources.Small_Glass_Stop1_Black;
+            this.stopButton.Image = global::MusicPlayerWindow.Properties.Resources.Small_Glass_Stop_Black;
             this.stopButton.Location = new System.Drawing.Point(124, 12);
             this.stopButton.MinimumSize = new System.Drawing.Size(60, 60);
             this.stopButton.Name = "stopButton";
