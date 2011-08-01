@@ -14,13 +14,19 @@ namespace MusicPlayerWindow
 {
     public partial class MainWindow : System.Windows.Forms.Form
     {
+        #region Static Fields
+        public static String outputDir = @"Playlists";
+        private static String matchPattern = @"^\s*\d+[\t ]+";
+        private static String matchPattern2 = @"^\s*\d-\d+[\t ]+";
+        #endregion
+
         private MusicPlayer player;
         protected CustomMusicLoader loader;
         private Song currentSong;
-	    public static String outputDir = @"Playlists";
         public String libLocation;
         private int playlistBoxLastIndex;
 
+        #region Constructor and Main()
         public MainWindow()
         {
             player = new MusicPlayer(this);
@@ -37,12 +43,15 @@ namespace MusicPlayerWindow
             Control.CheckForIllegalCrossThreadCalls = false;
         }
 
+
         [STAThread]
         static void Main()
         {
             Application.Run(new MainWindow());
         }
+        #endregion
 
+        #region Event Handlers
         //plays first song, and then pauses/unpauses song
         private void playButton_Click(object sender, EventArgs e)
         {
@@ -57,14 +66,70 @@ namespace MusicPlayerWindow
             nextButton.Enabled = true;
             prevButton.Enabled = true;
             stopButton.Enabled = true;
+            updateLabels();
         }
-        
         private void stopButton_Click(object sender, EventArgs e)
         {
             player.stopSong(currentSong);
             resetEngine();
         }
+        private void nextButton_Click(object sender, EventArgs e)
+        {
+            Song oldSong = currentSong;
+            playNextSong();
+            loader.updatePrevQueue(oldSong);
+        }
+        private void prevButton_Click(object sender, EventArgs e)
+        {
+            player.stopSong(currentSong);
+            Song oldSong = currentSong;
+            currentSong = loader.getPrevSong();
+            if (currentSong == null) { resetEngine(); return; } //prevQueue is empty, so stop playing
+            player.playCurrSong(currentSong);
+            loader.addSongToNextQueueFront(oldSong);
+            updateLabels();
+        }
+        private void volumeBar_Scroll(object sender, EventArgs e)
+        {
+            if (currentSong != null)
+                currentSong.getSound().Volume = volumeBar.Value / 100.0f;
+        }
+        private void playlistBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (playlistBox.SelectedIndex == playlistBoxLastIndex) { return; }
+            playlistBoxLastIndex = playlistBox.SelectedIndex;
+            String playlistToPlay = playlistBox.SelectedItem.ToString();
+            loader.switchToPlaylist(playlistToPlay, currentSong);
+            playNextSong();
+            if (stopButton.Enabled == false)
+            {
+                playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Pause;
+                stopButton.Enabled = true;
+                nextButton.Enabled = true;
+                prevButton.Enabled = true;
+            }
+        }
+        public void MainWindow_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            player.destroyPlayer();
+            loader.destroyStoreAndExit();
+            this.Dispose();
+            Application.Exit();
+        }
+        #endregion
 
+        #region Accessors
+        public Song getCurrSong()
+        {
+            return currentSong;
+        }
+        public int getVolume()
+        {
+            return volumeBar.Value;
+        }
+        #endregion
+        
+        #region Helpers
         private void resetEngine()
         {
             currentSong = null;
@@ -82,11 +147,23 @@ namespace MusicPlayerWindow
                 playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Pause_Black;
         }
 
-        public Song getCurrSong()
+        private void updateLabels()
         {
-            return currentSong;
-        }
+            String[] fields = currentSong.getPath().Split('\\');
 
+            String nameFiltered = fields[fields.Length - 1].Replace(".mp3", "").Replace(".aac", "").Replace(".mp4", "");
+            String nameTmp2 = System.Text.RegularExpressions.Regex.Replace(nameFiltered, matchPattern, "");
+            String name = System.Text.RegularExpressions.Regex.Replace(nameTmp2, matchPattern2, "");
+
+            String album = fields[fields.Length - 2];
+            String artist = fields[fields.Length - 3];
+
+            songLabel.Text = name;
+            artistAlbumLabel.Text = artist + " - " + album;
+        }
+        #endregion
+
+        #region Public Methods/Interface
         public void playNextSong()
         {
             if (currentSong != null) { player.stopSong(currentSong); }
@@ -94,38 +171,11 @@ namespace MusicPlayerWindow
             player.playCurrSong(currentSong);
             loader.updateNextQueue();
             switchImagesPlayPause();
+            updateLabels();
         }
+        #endregion
 
-        private void nextButton_Click(object sender, EventArgs e)
-        {
-            Song oldSong = currentSong;
-            playNextSong();
-            loader.updatePrevQueue(oldSong);
-        }
-
-        private void prevButton_Click(object sender, EventArgs e)
-        {
-            player.stopSong(currentSong);
-            Song oldSong = currentSong;
-            currentSong = loader.getPrevSong();
-            if (currentSong == null) { resetEngine(); return; } //prevQueue is empty, so stop playing
-            player.playCurrSong(currentSong);
-            loader.addSongToNextQueueFront(oldSong);
-        }
-
-        private void volumeBar_Scroll(object sender, EventArgs e)
-        {
-            if (currentSong != null)
-            {
-                currentSong.getSound().Volume = volumeBar.Value / 100.0f;
-            }
-        }
-
-        public int getVolume()
-        {
-            return volumeBar.Value;
-        }
-        
+        #region Library-related Methods
         ///<summary>
         /// Executes a process and waits for it to end. 
         ///</summary>
@@ -147,7 +197,6 @@ namespace MusicPlayerWindow
             p.WaitForExit(timeout);
             return p.ExitCode;
         }
-
         private int getiTunesSongs()
         {
             String outputString;
@@ -162,7 +211,6 @@ namespace MusicPlayerWindow
                 out outputString);
             return exitCode;
         }
-
         private void parseiTunesSongs(String outputDir)
         {
             String[] playlistPaths = System.IO.Directory.GetFiles(outputDir);
@@ -198,23 +246,6 @@ namespace MusicPlayerWindow
                 w.Close();
                 System.IO.File.Delete(file);
             }
-
-        }
-
-        private void playlistBox_SelectedValueChanged(object sender, EventArgs e)
-        {
-            if (playlistBox.SelectedIndex == playlistBoxLastIndex) { return; }
-            playlistBoxLastIndex = playlistBox.SelectedIndex;
-            String playlistToPlay = playlistBox.SelectedItem.ToString();
-            loader.switchToPlaylist(playlistToPlay, currentSong);
-            playNextSong();
-            if (stopButton.Enabled == false)
-            {
-                playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Pause;
-                stopButton.Enabled = true;
-                nextButton.Enabled = true;
-                prevButton.Enabled = true;
-            }
         }
         private void getLibLocation()
         {
@@ -234,14 +265,6 @@ namespace MusicPlayerWindow
             if (shouldExit) { this.Close(); System.Environment.Exit(1); return; }
             libLocation = browser.SelectedPath;
         }
-        
-        public void MainWindow_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            player.destroyPlayer();
-            loader.destroyStoreAndExit();
-            this.Dispose();
-            Application.Exit();
-        }
-
+        #endregion
     }
 }

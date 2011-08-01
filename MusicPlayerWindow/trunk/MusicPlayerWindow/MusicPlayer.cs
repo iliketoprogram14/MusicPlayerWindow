@@ -12,12 +12,14 @@ namespace MusicPlayerWindow
     {
         private ISoundEngine engine;
         private MainWindow window;
+
         public MusicPlayer(MainWindow window)
         {
             engine = new ISoundEngine();
             this.window = window;
         }
 
+        #region Interface
         public void playCurrSong(Song song)
         {
             ISound sound = engine.Play2D(song.getPath());
@@ -25,17 +27,22 @@ namespace MusicPlayerWindow
             sound.setSoundStopEventReceiver(this);
             song.setSound(sound);
         }
-
         public void pauseUnpauseSong(Song song)
         {
             song.getSound().Paused = !song.getSound().Paused;
         }
-
         public void stopSong(Song song)
         {
             song.getSound().Stop();
         }
+        public void destroyPlayer()
+        {
+            engine.RemoveAllSoundSources();
+            engine.Dispose();
+        }
+        #endregion
 
+        #region Event Handlers
         public void OnSoundStopped(ISound sound, StopEventCause cause, object userData)
         {
             if (cause == StopEventCause.SoundFinishedPlaying)
@@ -48,11 +55,7 @@ namespace MusicPlayerWindow
             }
             else return;
         }
+        #endregion
 
-        public void destroyPlayer()
-        {
-            engine.RemoveAllSoundSources();
-            engine.Dispose();
-        }
     }
 }

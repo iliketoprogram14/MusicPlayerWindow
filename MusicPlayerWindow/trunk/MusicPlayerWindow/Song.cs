@@ -10,36 +10,39 @@ namespace MusicPlayerWindow
         private String path;
         private IrrKlang.ISound sound;
 
+        #region Constructors
         public Song(String path)
         {
             this.path = path;
             this.sound = null;
         }
-
         public Song(Song prevSong)
         {
             this.path = prevSong.getPath();
             this.sound = prevSong.getSound();
         }
+        #endregion
 
-        public String getPath()
-        {
-            return this.path;
-        }
-
+        #region Interface
         public void setPath(String newPath)
         {
             this.path = newPath;
         }
-
-        public IrrKlang.ISound getSound()
-        {
-            return sound;
-        }
-
         public void setSound(IrrKlang.ISound sound)
         {
             this.sound = sound;
         }
+        #endregion
+
+        #region Accessors
+        public String getPath()
+        {
+            return this.path;
+        }
+        public IrrKlang.ISound getSound()
+        {
+            return sound;
+        }
+        #endregion
     }
 }

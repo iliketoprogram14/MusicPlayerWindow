@@ -10,6 +10,7 @@ namespace MusicPlayerWindow
         private String name;
         private String path;
         private int len;
+
         public Playlist(String path, int len)
         {
             this.path = path;
@@ -17,6 +18,8 @@ namespace MusicPlayerWindow
             String[] tmp = path.Split('\\');
             this.name = (tmp[tmp.Length - 1].Split('.'))[0];
         }
+
+        #region Accessors
         public String getName()
         {
             return name;
@@ -29,5 +32,6 @@ namespace MusicPlayerWindow
         {
             return len;
         }
+        #endregion
     }
 }

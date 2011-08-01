@@ -10,9 +10,11 @@ namespace MusicPlayerWindow
     public class Queue
     {
         public Playlist playlist;
+        public List<Song> nextSongQueue;
         public List<Song> prevSongQueue;
         public int prevSongLimit;
-        public List<Song> nextSongQueue;
+
+        #region Constructors
         public Queue(Playlist playlist, int songLimit)
         {
             this.playlist = playlist;
@@ -29,22 +31,28 @@ namespace MusicPlayerWindow
             foreach (Song song in nextSongs) { this.nextSongQueue.Add(song); }
             this.prevSongLimit = prevQ.prevSongLimit;
         }
+        #endregion
+
+        #region Interface
         public void addNextSong(Song newSong)
         {
             if (nextSongQueue.Contains(newSong)) { return; }
             nextSongQueue.Add(newSong);
-        }
-        public Song getNextSong()
-        {
-            Song song = nextSongQueue[0];
-            nextSongQueue.RemoveAt(0);
-            return song;
         }
         public void addPrevSong(Song oldSong)
         {
             if (prevSongQueue.Contains(oldSong)) { return; }
             if (prevSongQueue.Count == prevSongLimit) { prevSongQueue.RemoveAt(0); } //remove least recent song
             prevSongQueue.Add(oldSong);
+        }
+        #endregion
+
+        #region Accessors
+        public Song getNextSong()
+        {
+            Song song = nextSongQueue[0];
+            nextSongQueue.RemoveAt(0);
+            return song;
         }
         public Song getPrevSong()
         {
@@ -66,5 +74,6 @@ namespace MusicPlayerWindow
         {
             return playlist.getName();
         }
+        #endregion
     }
 }

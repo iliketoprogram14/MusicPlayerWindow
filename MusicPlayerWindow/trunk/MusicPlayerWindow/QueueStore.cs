@@ -12,6 +12,8 @@ namespace MusicPlayerWindow
         private Dictionary<String,Queue> playlistQueues;
         private Queue currentQueue;
         private CustomMusicLoader loader;
+
+        #region Constructor
         public QueueStore(String outputDir, CustomMusicLoader loader)
         {
             this.loader = loader;
@@ -35,21 +37,28 @@ namespace MusicPlayerWindow
                 q.addNextSong(loader.getOneSong(q));
             }
 	    }
+        #endregion
+
+        #region Interface
         public void addSongToNextQueue(Song newSong)
         {
             currentQueue.addNextSong(newSong);
         }
-
         public void addSongToPrevQueue(Song oldSong)
         {
             currentQueue.addPrevSong(oldSong);
         }
-
         public void addSongToNextQueueFront(Song song)
         {
             currentQueue.nextSongQueue.Insert(0, song);
         }
+        public void switchPlaylist(String next_playlist_name)
+        {
+            currentQueue = playlistQueues[next_playlist_name];
+        }
+        #endregion
 
+        #region Accessors
         public Song getSongFromNextQueue()
         {
             return currentQueue.getNextSong();
@@ -57,10 +66,6 @@ namespace MusicPlayerWindow
         public Song getSongFromPrevQueue()
         {
             return currentQueue.getPrevSong();
-        }
-        public void switchPlaylist(String next_playlist_name)
-        {
-            currentQueue = playlistQueues[next_playlist_name];
         }
         internal Queue getCurrentQueue()
         {
@@ -70,5 +75,6 @@ namespace MusicPlayerWindow
         {
             return new List<String>(playlistQueues.Keys);
         }
+        #endregion
     }
 }

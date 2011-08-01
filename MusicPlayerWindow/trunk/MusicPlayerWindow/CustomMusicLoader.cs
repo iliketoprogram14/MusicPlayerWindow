@@ -8,7 +8,8 @@ namespace MusicPlayerWindow
 {
     public class CustomMusicLoader
     {
-        enum QueueOp { UPDATE_NEXT_Q, UPDATE_PREV_Q, NEXT_Q_FRONT, SWITCH_PLAYLIST, WRITE_PLAYLIST, DESTROY, NO_OP };
+        #region Definitions
+        private enum QueueOp { UPDATE_NEXT_Q, UPDATE_PREV_Q, NEXT_Q_FRONT, SWITCH_PLAYLIST, WRITE_PLAYLIST, DESTROY, NO_OP };
         private class OperationObject
         {
             public QueueOp next_operation;
@@ -21,6 +22,8 @@ namespace MusicPlayerWindow
                 song_for_op = song;
             }
         }
+        #endregion
+
         Thread loaderThread;
         QueueStore store;
         OperationObject opObject;
@@ -33,6 +36,7 @@ namespace MusicPlayerWindow
             loaderThread.Start();
         }
 
+        #region Thread Method
         private void ThreadActivity()
         {
             Monitor.Enter(opObject);
@@ -57,8 +61,9 @@ namespace MusicPlayerWindow
             }
             Monitor.Exit(opObject);
         }
+        #endregion
 
-        //INTERFACE
+        #region Interface
         public void updateNextQueue()
         {
             Monitor.Enter(opObject);
@@ -92,18 +97,6 @@ namespace MusicPlayerWindow
             Monitor.Pulse(opObject);
             Monitor.Exit(opObject);
         }
-        public Song getNextSong()
-        {
-            return store.getSongFromNextQueue();
-        }
-        public Song getPrevSong()
-        {
-            return store.getSongFromPrevQueue();
-        }
-        public List<String> getPlaylistNames()
-        {
-            return store.getPlaylistNames();
-        }
         public void destroyStoreAndExit()
         {
             Monitor.Enter(opObject);
@@ -112,22 +105,9 @@ namespace MusicPlayerWindow
             Monitor.Exit(opObject);
             loaderThread.Join(500);
         }
+        #endregion
 
-
-        //INTERNAL AND PRIVATE METHODS/HELPERS
-        internal Song getOneSong(Queue q)
-        {
-            //get song from playlist
-            String path = q.getPlaylistPath();
-            System.Xml.XPath.XPathDocument doc = new System.Xml.XPath.XPathDocument(q.getPlaylistPath());
-            System.Xml.XPath.XPathNavigator nav = doc.CreateNavigator();
-            Random random = new Random();
-            int num = random.Next(0, q.getPlaylistLen());
-            String id = String.Format("{0:000000}", num);
-            nav.MoveToId(id);
-            Song newSong = new Song(nav.Value);
-            return newSong;
-        }
+        #region Internal Methods (implement the interface)
         private void _updateNextQueue()
         {
             Song newSong = getOneSong(store.getCurrentQueue());
@@ -147,14 +127,38 @@ namespace MusicPlayerWindow
             store.addSongToPrevQueue(opObject.song_for_op);
             store.switchPlaylist(opObject.playlist_name_for_op);
         }
-        /*private void _writePlaylistToStore()
-        {
-            store.writeCurrentPlaylistToStore();
-        }*/
         private void _destroyStore()
         {
             store = null;
         }
+        #endregion
 
+        #region Accessors
+        internal Song getOneSong(Queue q)
+        {
+            //get song from playlist
+            String path = q.getPlaylistPath();
+            System.Xml.XPath.XPathDocument doc = new System.Xml.XPath.XPathDocument(q.getPlaylistPath());
+            System.Xml.XPath.XPathNavigator nav = doc.CreateNavigator();
+            Random random = new Random();
+            int num = random.Next(0, q.getPlaylistLen());
+            String id = String.Format("{0:000000}", num);
+            nav.MoveToId(id);
+            Song newSong = new Song(nav.Value);
+            return newSong;
+        }
+        public Song getNextSong()
+        {
+            return store.getSongFromNextQueue();
+        }
+        public Song getPrevSong()
+        {
+            return store.getSongFromPrevQueue();
+        }
+        public List<String> getPlaylistNames()
+        {
+            return store.getPlaylistNames();
+        }
+        #endregion
     }
 }
