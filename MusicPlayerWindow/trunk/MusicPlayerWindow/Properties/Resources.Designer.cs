@@ -60,6 +60,13 @@ namespace MusicPlayerWindow.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Small_Glass_Forward {
+            get {
+                object obj = ResourceManager.GetObject("Small Glass Forward", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Small_Glass_Pause {
             get {
                 object obj = ResourceManager.GetObject("Small Glass Pause", resourceCulture);
@@ -70,6 +77,13 @@ namespace MusicPlayerWindow.Properties {
         internal static System.Drawing.Bitmap Small_Glass_Play {
             get {
                 object obj = ResourceManager.GetObject("Small Glass Play", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Small_Glass_Previous {
+            get {
+                object obj = ResourceManager.GetObject("Small Glass Previous", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

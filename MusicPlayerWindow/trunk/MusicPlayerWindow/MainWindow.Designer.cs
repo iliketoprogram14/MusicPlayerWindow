@@ -28,44 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.prevButton = new System.Windows.Forms.Button();
-            this.nextButton = new System.Windows.Forms.Button();
             this.volumeBar = new System.Windows.Forms.TrackBar();
             this.playlistBox = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.artistAlbumLabel = new System.Windows.Forms.Label();
             this.songLabel = new System.Windows.Forms.Label();
+            this.nextButton = new System.Windows.Forms.Button();
+            this.prevButton = new System.Windows.Forms.Button();
             this.stopButton = new System.Windows.Forms.Button();
             this.playButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.volumeBar)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // prevButton
-            // 
-            this.prevButton.Enabled = false;
-            this.prevButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.prevButton.Location = new System.Drawing.Point(13, 22);
-            this.prevButton.MaximumSize = new System.Drawing.Size(40, 40);
-            this.prevButton.MinimumSize = new System.Drawing.Size(40, 40);
-            this.prevButton.Name = "prevButton";
-            this.prevButton.Size = new System.Drawing.Size(40, 40);
-            this.prevButton.TabIndex = 3;
-            this.prevButton.Text = "Prev";
-            this.prevButton.UseVisualStyleBackColor = true;
-            this.prevButton.Click += new System.EventHandler(this.prevButton_Click);
-            // 
-            // nextButton
-            // 
-            this.nextButton.Enabled = false;
-            this.nextButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.nextButton.Location = new System.Drawing.Point(190, 22);
-            this.nextButton.Name = "nextButton";
-            this.nextButton.Size = new System.Drawing.Size(40, 40);
-            this.nextButton.TabIndex = 4;
-            this.nextButton.Text = "Next";
-            this.nextButton.UseVisualStyleBackColor = true;
-            this.nextButton.Click += new System.EventHandler(this.nextButton_Click);
             // 
             // volumeBar
             // 
@@ -129,6 +103,34 @@
             this.songLabel.TabIndex = 6;
             this.songLabel.Text = "Song goes here";
             this.songLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // nextButton
+            // 
+            this.nextButton.BackColor = System.Drawing.Color.Transparent;
+            this.nextButton.Enabled = false;
+            this.nextButton.Image = global::MusicPlayerWindow.Properties.Resources.Small_Glass_Forward;
+            this.nextButton.Location = new System.Drawing.Point(190, 22);
+            this.nextButton.Name = "nextButton";
+            this.nextButton.Size = new System.Drawing.Size(40, 40);
+            this.nextButton.TabIndex = 4;
+            this.nextButton.UseVisualStyleBackColor = false;
+            this.nextButton.Click += new System.EventHandler(this.nextButton_Click);
+            this.nextButton.Paint += new System.Windows.Forms.PaintEventHandler(this.nextButton_Paint);
+            // 
+            // prevButton
+            // 
+            this.prevButton.BackColor = System.Drawing.Color.Transparent;
+            this.prevButton.Enabled = false;
+            this.prevButton.Image = global::MusicPlayerWindow.Properties.Resources.Small_Glass_Previous;
+            this.prevButton.Location = new System.Drawing.Point(13, 22);
+            this.prevButton.MaximumSize = new System.Drawing.Size(40, 40);
+            this.prevButton.MinimumSize = new System.Drawing.Size(40, 40);
+            this.prevButton.Name = "prevButton";
+            this.prevButton.Size = new System.Drawing.Size(40, 40);
+            this.prevButton.TabIndex = 3;
+            this.prevButton.UseVisualStyleBackColor = false;
+            this.prevButton.Click += new System.EventHandler(this.prevButton_Click);
+            this.prevButton.Paint += new System.Windows.Forms.PaintEventHandler(this.prevButton_Paint);
             // 
             // stopButton
             // 
@@ -206,6 +208,16 @@
         private void stopButton_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
         {
             button_Paint(stopButton, e);
+        }
+
+        private void prevButton_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+        {
+            button_Paint(prevButton, e);
+        }
+
+        private void nextButton_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+        {
+            button_Paint(nextButton, e);
         }
 
         private void button_Paint(System.Windows.Forms.Button button, System.Windows.Forms.PaintEventArgs e)
