@@ -34,9 +34,6 @@ namespace MusicPlayerWindow
         public String libLocation;
         private int playlistBoxLastIndex;
         Thread scrollThread;
-
-        public delegate void ScrollDelegate();
-        private ScrollDelegate scrollDelegate;
         private LabelBool labelHasChanged;
 
         #region Constructor and Main()
@@ -56,9 +53,6 @@ namespace MusicPlayerWindow
             Control.CheckForIllegalCrossThreadCalls = false;
             labelHasChanged = new LabelBool(true);
             scrollThread = new Thread(new ThreadStart(ScrollText));
-
-            scrollDelegate = new ScrollDelegate(ScrollText);
-            scrollDelegate.BeginInvoke(null, null);
         }
         [STAThread]
         static void Main()
@@ -181,11 +175,6 @@ namespace MusicPlayerWindow
             labelHasChanged.setBoolean(true);
             Monitor.Pulse(labelHasChanged);
             Monitor.Exit(labelHasChanged);
-/*            int len = scrollDelegate.GetInvocationList().Length;
-            if (scrollDelegate.GetInvocationList().Length != 1)
-                System.Threading.Monitor.Wait(artistAlbumLabel);
-            System.Threading.Monitor.Exit(artistAlbumLabel);
-            scrollDelegate.BeginInvoke(null, null);*/
         }
         private void ScrollText()
         {
@@ -253,31 +242,39 @@ namespace MusicPlayerWindow
         ///<param name="timeout">Time to wait for process to end</param>
         ///<param name="stdOutput">Redirected standard output of process</param>
         ///<returns>Process exit code</returns>
-        private int ExecuteProcess(string cmd, string cmdParams, string workingDirectory, int timeout, out string stdOutput)
+        private int ExecuteProcess(string cmd, string cmdParams, string workingDirectory, int timeout)
         {
             ProcessStartInfo pInfo = new ProcessStartInfo(cmd, cmdParams);
             pInfo.WorkingDirectory = workingDirectory;
             pInfo.UseShellExecute = false;
             pInfo.RedirectStandardOutput = true;
-            pInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            pInfo.WindowStyle = ProcessWindowStyle.Normal;
             Process p = Process.Start(pInfo);
-            stdOutput = p.StandardOutput.ReadToEnd();
+            String stdOutput = p.StandardOutput.ReadToEnd();
             p.WaitForExit(timeout);
             return p.ExitCode;
         }
-        private int getiTunesSongs()
+        private void ExecuteThread()
         {
-            String outputString;
-            int timeout = 10000;
+            int timeout = 30000;
             System.IO.Directory.CreateDirectory(outputDir);
             String cmdArgs = String.Format("-mx1024m -jar ..\\..\\itunesexport.jar -playlistType=M3U -library=\"{0}\\..\\iTunes Music Library.xml\" -outputDir=\"{1}\" -includeBuiltInPlaylists -excludePlaylist=\"iTunes DJ, Movies, iTunes U, Purchased on iPod touch, Purchased, Purchased on iPhone, Podcasts, Recently Played\"",
-                libLocation, outputDir);
-            int exitCode = ExecuteProcess(@"C:\Program Files (x86)\Java\jre6\bin\java.exe",
+                libLocation, outputDir); 
+            int exitcode = ExecuteProcess(@"C:\Program Files (x86)\Java\jre6\bin\java.exe",
                 cmdArgs,
                 System.IO.Directory.GetCurrentDirectory(),
-                timeout,
-                out outputString);
-            return exitCode;
+                timeout);
+        }
+        private void getiTunesSongs()
+        {
+            Thread t = new Thread(new ThreadStart(ExecuteThread));
+            t.Start();
+            MessageBox.Show("The application is importing your iTunes playlists right now.  " +
+                "When the black command line window disappears, the application has finished importing your songs and the shuffler will launch.  " +
+                "Click OK to continue.",
+                "Importing your iTunes songs right now",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            t.Join(30000);
         }
         private void parseiTunesSongs(String outputDir)
         {
@@ -291,7 +288,6 @@ namespace MusicPlayerWindow
                 String file_to_write = tmp.Replace("/","_");
                 file_to_write = outputDir + "/" + file_to_write + ".xml";
 
-                //String file_to_write = String.Format("{0}xml", file.TrimEnd('m', '3', 'u'));
                 System.IO.TextWriter w = new System.IO.StreamWriter(file_to_write);
                 w.WriteLine("<?xml version='1.0' ?>");
                 w.WriteLine("<!DOCTYPE playlist [");
@@ -317,17 +313,23 @@ namespace MusicPlayerWindow
         }
         private void getLibLocation()
         {
-            MessageBox.Show("Please specify the location of your iTunes Music folder.\n\n" +
-            "An example is C:/Users/YOUR_NAME/Music/iTunes/Music.  If that doesn't exist, your music may be in C:/Users/YOUR_NAME/Music/iTunes.\n\n" +
-            "Please note that I assume that all your iTunes music is in the same place.", "Specify iTunes Music Location");
+            MessageBox.Show("Please specify the location of your iTunes Music folder in order to import your playlists.\n\n" +
+                "For example, C:/Users/YOUR_NAME/Music/iTunes/Music would work.\n\n" +
+                "The application assumes that all your iTunes music is in the same place. Click OK to continue.", "Specify iTunes Music Location",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
             FolderBrowserDialog browser;
             bool shouldExit = false;
             while (true)
             {
                 browser = new FolderBrowserDialog();
+                browser.Description = "Please specify the location of your iTunes Music library (ie C:/....../iTunes/Music).\n";
                 DialogResult result = browser.ShowDialog();
                 if (result == DialogResult.OK) { break; }
-                DialogResult retry = MessageBox.Show("Click OK to try again.  To exit setup, please click Cancel", "Specify iTunes Music Location", MessageBoxButtons.OKCancel);
+                DialogResult retry = MessageBox.Show("You have cancelled specifying your iTunes library.  The application cannot complete setup without importing the iTunes playlists.\n\n" +
+                    "If you do not have an iTunes Music folder, exit setup, open iTunes, "+
+                    "and under Edit->Preferences->Advanced, check \"Keep iTunes Media Folder organized\" and \" Copy files to iTunes Media Folder when adding to library\".\n\n" +
+                    "Click OK to try specifying the folder again.  To exit setup, please click Cancel",
+                    "Specify iTunes Music Location", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (retry == DialogResult.Cancel) { shouldExit = true; break;  }
             }
             if (shouldExit) { this.Close(); System.Environment.Exit(1); return; }

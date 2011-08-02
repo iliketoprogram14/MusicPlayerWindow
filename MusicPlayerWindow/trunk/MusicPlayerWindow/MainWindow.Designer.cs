@@ -49,7 +49,7 @@ namespace MusicPlayerWindow
             // volumeBar
             // 
             this.volumeBar.AutoSize = false;
-            this.volumeBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.volumeBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.volumeBar.Cursor = System.Windows.Forms.Cursors.Default;
             this.volumeBar.Location = new System.Drawing.Point(10, 70);
             this.volumeBar.Maximum = 100;
