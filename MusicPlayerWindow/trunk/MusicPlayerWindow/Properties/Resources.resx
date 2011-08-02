@@ -127,12 +127,6 @@
   <data name="Small_Glass_Previous_Black" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Small Glass Previous Black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Small_Glass_Forward_Black" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Small Glass Forward Black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Small_Glass_Stop_Black40" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Media Player Button Icons\Small Glass Stop1 Black40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="NextIconWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NextIconWhite.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -147,5 +141,11 @@
   </data>
   <data name="StopIconWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\StopIconWhite.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Small_Glass_Forward_Black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Small Glass Forward Black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Small_Glass_Stop_Black40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Small Glass Stop1 Black40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

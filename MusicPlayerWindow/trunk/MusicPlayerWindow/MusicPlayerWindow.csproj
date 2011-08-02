@@ -101,28 +101,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Small Glass Play.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Small Glass Stop1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Small Glass Pause.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Small Glass Play Black.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Small Glass Stop1 Black.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Small Glass Pause Black.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Small Glass Previous.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Small Glass Forward.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Small Glass Previous Black.png" />
@@ -131,28 +113,7 @@
     <None Include="Resources\Small Glass Forward Black.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Media Player Button Icons\Small Glass Stop1 Black40.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\favicon.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\favicon.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\NextIconBlack.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\PauseIconBlack.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\PlayIconBlack.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\PrevIconBlack.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\StopIconBlack.ico" />
+    <None Include="Resources\Small Glass Stop1 Black40.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PlayIconWhite.ico" />
@@ -168,6 +129,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\StopIconWhite.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Media Player Button Icons\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
