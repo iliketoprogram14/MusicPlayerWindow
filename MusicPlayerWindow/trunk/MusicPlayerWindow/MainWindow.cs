@@ -15,9 +15,9 @@ namespace MusicPlayerWindow
 {
     public partial class MainWindow : System.Windows.Forms.Form
     {
-        private class LabelBool {
+        private class BoolObject {
             private bool boolean;
-            public LabelBool(bool val) { boolean = val; }
+            public BoolObject(bool val) { boolean = val; }
             public void setBoolean(bool val) { boolean = val; }
             public bool getBoolean() { return boolean; }
         }
@@ -34,7 +34,8 @@ namespace MusicPlayerWindow
         public String libLocation;
         private int playlistBoxLastIndex;
         Thread scrollThread;
-        private LabelBool labelHasChanged;
+        private BoolObject labelHasChanged;
+        private BoolObject scrollThreadShouldExit;
 
         #region Constructor and Main()
         public MainWindow()
@@ -46,13 +47,19 @@ namespace MusicPlayerWindow
                 getiTunesSongs();
                 parseiTunesSongs(outputDir);
             }
+
             loader = new CustomMusicLoader(outputDir);
+
             InitializeComponent();
             InitPlaylistBox();
+            InitThumbnailToolbar();
+
             currentSong = null;
             Control.CheckForIllegalCrossThreadCalls = false;
-            labelHasChanged = new LabelBool(true);
+            labelHasChanged = new BoolObject(true);
+            scrollThreadShouldExit = new BoolObject(false);
             scrollThread = new Thread(new ThreadStart(ScrollText));
+            scrollThread.Start();
         }
         [STAThread]
         static void Main()
@@ -73,9 +80,7 @@ namespace MusicPlayerWindow
                 player.pauseUnpauseSong(currentSong);
             }
             switchImagesPlayPause();
-            nextButton.Enabled = true;
-            prevButton.Enabled = true;
-            stopButton.Enabled = true;
+            toggleButtons(true, playButton.Enabled, true, true);
             updateLabels();
         }
         private void stopButton_Click(object sender, EventArgs e)
@@ -114,15 +119,17 @@ namespace MusicPlayerWindow
             if (stopButton.Enabled == false)
             {
                 playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Pause_Black;
-                stopButton.Enabled = true;
-                nextButton.Enabled = true;
-                prevButton.Enabled = true;
+                toggleButtons(true, playButton.Enabled, true, true);
             }
         }
         public void MainWindow_FormClosed(object sender, FormClosedEventArgs e)
         {
             player.destroyPlayer();
             loader.destroyStoreAndExit();
+            Monitor.Enter(labelHasChanged);
+            scrollThreadShouldExit.setBoolean(true);
+            Monitor.Pulse(labelHasChanged);
+            Monitor.Exit(labelHasChanged);
             this.Dispose();
             Application.Exit();
         }
@@ -144,17 +151,23 @@ namespace MusicPlayerWindow
         {
             currentSong = null;
             playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Play_Black;
-            nextButton.Enabled = false;
-            prevButton.Enabled = false;
-            stopButton.Enabled = false;
+            toggleButtons(false, playButton.Enabled, false, false);
         }
+
         private void switchImagesPlayPause()
         {
             if (currentSong.getSound().Paused == true)
+            {
                 playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Play_Black;
+                thumbButtonPlay.Icon = MusicPlayerWindow.Properties.Resources.PlayIconWhite;
+            }
             else
+            {
                 playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Pause_Black;
+                thumbButtonPlay.Icon = MusicPlayerWindow.Properties.Resources.PauseIconWhite;
+            }
         }
+
         private void updateLabels()
         {
             String[] fields = currentSong.getPath().Split('\\');
@@ -176,16 +189,18 @@ namespace MusicPlayerWindow
             Monitor.Pulse(labelHasChanged);
             Monitor.Exit(labelHasChanged);
         }
+
         private void ScrollText()
         {
             int textLen;
-            int sizeLen = 28;
+            int sizeLen = 24;
             String labelString;
             System.Text.StringBuilder sb = null;
 
             while (true)
             {
                 Monitor.Enter(labelHasChanged);
+                if (scrollThreadShouldExit.getBoolean()) { Monitor.Exit(labelHasChanged); break; }
                 if (labelHasChanged.getBoolean())
                 {
                     labelHasChanged.setBoolean(false);
@@ -217,6 +232,14 @@ namespace MusicPlayerWindow
                 artistAlbumLabel.Refresh();
                 Monitor.Exit(artistAlbumLabel);
             }
+        }
+
+        private void toggleButtons(bool prevEnabled, bool playEnabled, bool stopEnabled, bool nextEnabled)
+        {
+            prevButton.Enabled = prevEnabled; thumbButtonPrev.Enabled = prevEnabled;
+            playButton.Enabled = playEnabled; thumbButtonPlay.Enabled = playEnabled;
+            stopButton.Enabled = stopEnabled; thumbButtonStop.Enabled = stopEnabled;
+            nextButton.Enabled = nextEnabled; thumbButtonNext.Enabled = nextEnabled;
         }
         #endregion
 

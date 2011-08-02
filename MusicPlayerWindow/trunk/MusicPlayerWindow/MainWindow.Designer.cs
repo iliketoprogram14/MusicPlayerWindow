@@ -1,5 +1,9 @@
 ﻿using System.Drawing.Drawing2D;
 using System.Drawing;
+using Microsoft.WindowsAPICodePack;
+using Microsoft.WindowsAPICodePack.Shell;
+using Microsoft.WindowsAPICodePack.Taskbar;
+using System;
 namespace MusicPlayerWindow
 {
     partial class MainWindow
@@ -141,7 +145,7 @@ namespace MusicPlayerWindow
             // 
             this.stopButton.Enabled = false;
             this.stopButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.stopButton.Image = global::MusicPlayerWindow.Properties.Resources.Small_Glass_Stop1_Black40;
+            this.stopButton.Image = global::MusicPlayerWindow.Properties.Resources.Small_Glass_Stop_Black40;
             this.stopButton.Location = new System.Drawing.Point(110, 20);
             this.stopButton.MinimumSize = new System.Drawing.Size(40, 40);
             this.stopButton.Name = "stopButton";
@@ -186,9 +190,6 @@ namespace MusicPlayerWindow
             this.ResumeLayout(false);
 
         }
-
-
-
         #endregion
 
         private System.Windows.Forms.Button playButton;
@@ -197,12 +198,42 @@ namespace MusicPlayerWindow
         private System.Windows.Forms.Button nextButton;
         private System.Windows.Forms.TrackBar volumeBar;
         private System.Windows.Forms.ComboBox playlistBox;
+        private ThumbnailToolBarButton thumbButtonPrev;
+        private ThumbnailToolBarButton thumbButtonNext;
+        private ThumbnailToolBarButton thumbButtonStop;
+        private ThumbnailToolBarButton thumbButtonPlay;
 
-        private void MainWindow_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+        private void InitThumbnailToolbar()
         {
-            System.Drawing.Rectangle rect = new System.Drawing.Rectangle(0, 0, this.ClientSize.Width, this.ClientSize.Height);
-            using (LinearGradientBrush brush = new LinearGradientBrush(rect, Color.Black, Color.FromArgb(40,40,40), 270F))
-                { e.Graphics.FillRectangle(brush, rect); }
+            // Create our Thumbnail toolbar buttons for the Browser doc
+            thumbButtonPrev = new ThumbnailToolBarButton(Properties.Resources.PrevIconWhite, "Previous Song");
+            thumbButtonPrev.Click += new EventHandler<ThumbnailButtonClickedEventArgs>(thumbButtonPrev_Click);
+            thumbButtonNext = new ThumbnailToolBarButton(Properties.Resources.NextIconWhite, "Next Song");
+            thumbButtonNext.Click += new EventHandler<ThumbnailButtonClickedEventArgs>(thumbButtonNext_Click);
+            thumbButtonStop = new ThumbnailToolBarButton(Properties.Resources.StopIconWhite, "Stop");
+            thumbButtonStop.Click += new EventHandler<ThumbnailButtonClickedEventArgs>(thumbButtonStop_Click);
+            thumbButtonPlay = new ThumbnailToolBarButton(Properties.Resources.PlayIconWhite, "Play");
+            thumbButtonPlay.Click += new EventHandler<ThumbnailButtonClickedEventArgs>(thumbButtonPlay_Click);
+
+            TaskbarManager.Instance.ThumbnailToolBars.AddButtons(this.Handle, thumbButtonPrev, thumbButtonPlay, thumbButtonStop, thumbButtonNext);
+            toggleButtons(prevButton.Enabled, playButton.Enabled, stopButton.Enabled, nextButton.Enabled);
+        }
+
+        void thumbButtonPrev_Click(object sender, EventArgs e)
+        {
+            prevButton_Click(sender, e);
+        }
+        void thumbButtonNext_Click(object sender, EventArgs e)
+        {
+            nextButton_Click(sender, e);
+        }
+        void thumbButtonPlay_Click(object sender, EventArgs e)
+        {
+            playButton_Click(sender, e);
+        }
+        void thumbButtonStop_Click(object sender, EventArgs e)
+        {
+            stopButton_Click(sender, e);
         }
 
         private void InitPlaylistBox()
@@ -213,6 +244,7 @@ namespace MusicPlayerWindow
             playlistBoxLastIndex = playlistBox.SelectedIndex;
         }
 
+        #region Paint Methods
         private void playButton_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
         {
             button_Paint(playButton, e);
@@ -257,6 +289,14 @@ namespace MusicPlayerWindow
             // circle region.
             button.Region = new System.Drawing.Region(buttonPath);
         }
+        
+        private void MainWindow_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+        {
+            System.Drawing.Rectangle rect = new System.Drawing.Rectangle(0, 0, this.ClientSize.Width, this.ClientSize.Height);
+            using (LinearGradientBrush brush = new LinearGradientBrush(rect, Color.Black, Color.FromArgb(40, 40, 40), 270F))
+            { e.Graphics.FillRectangle(brush, rect); }
+        }
+        #endregion
 
         private System.Windows.Forms.Panel labelPanel;
         private System.Windows.Forms.Label artistAlbumLabel;

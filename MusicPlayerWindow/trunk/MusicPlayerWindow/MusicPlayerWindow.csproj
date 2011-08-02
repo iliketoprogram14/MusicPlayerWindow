@@ -42,6 +42,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\irrKlang.NET4.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack">
+      <HintPath>..\..\..\..\..\Downloads\Windows API Code Pack 1.1\Windows API Code Pack 1.1\source\WindowsAPICodePack\Shell\bin\Release\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell">
+      <HintPath>..\..\..\..\..\Downloads\Windows API Code Pack 1.1\Windows API Code Pack 1.1\source\WindowsAPICodePack\Shell\bin\Release\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,6 +59,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomMusicLoader.cs" />
@@ -124,6 +132,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Media Player Button Icons\Small Glass Stop1 Black40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NextIconBlack.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PauseIconBlack.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayIconBlack.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PrevIconBlack.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StopIconBlack.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayIconWhite.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NextIconWhite.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PauseIconWhite.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PrevIconWhite.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StopIconWhite.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -121,9 +121,6 @@
   <data name="Small_Glass_Pause_Black" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Small Glass Pause Black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Small_Glass_Stop_Black" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Small Glass Stop1 Black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Small_Glass_Play_Black" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Small Glass Play Black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -133,7 +130,22 @@
   <data name="Small_Glass_Forward_Black" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Small Glass Forward Black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Small Glass Stop1 Black40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Small_Glass_Stop_Black40" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Media Player Button Icons\Small Glass Stop1 Black40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NextIconWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NextIconWhite.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PauseIconWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PauseIconWhite.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PlayIconWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PlayIconWhite.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PrevIconWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PrevIconWhite.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StopIconWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StopIconWhite.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
