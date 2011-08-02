@@ -9,11 +9,19 @@ using System.Windows.Forms;
 
 using IrrKlang;
 using System.Diagnostics;
+using System.Threading;
 
 namespace MusicPlayerWindow
 {
     public partial class MainWindow : System.Windows.Forms.Form
     {
+        private class LabelBool {
+            private bool boolean;
+            public LabelBool(bool val) { boolean = val; }
+            public void setBoolean(bool val) { boolean = val; }
+            public bool getBoolean() { return boolean; }
+        }
+
         #region Static Fields
         public static String outputDir = @"Playlists";
         private static String matchPattern = @"^\s*\d+[\t ]+";
@@ -25,6 +33,11 @@ namespace MusicPlayerWindow
         private Song currentSong;
         public String libLocation;
         private int playlistBoxLastIndex;
+        Thread scrollThread;
+
+        public delegate void ScrollDelegate();
+        private ScrollDelegate scrollDelegate;
+        private LabelBool labelHasChanged;
 
         #region Constructor and Main()
         public MainWindow()
@@ -41,9 +54,12 @@ namespace MusicPlayerWindow
             InitPlaylistBox();
             currentSong = null;
             Control.CheckForIllegalCrossThreadCalls = false;
+            labelHasChanged = new LabelBool(true);
+            scrollThread = new Thread(new ThreadStart(ScrollText));
+
+            scrollDelegate = new ScrollDelegate(ScrollText);
+            scrollDelegate.BeginInvoke(null, null);
         }
-
-
         [STAThread]
         static void Main()
         {
@@ -138,7 +154,6 @@ namespace MusicPlayerWindow
             prevButton.Enabled = false;
             stopButton.Enabled = false;
         }
-
         private void switchImagesPlayPause()
         {
             if (currentSong.getSound().Paused == true)
@@ -146,7 +161,6 @@ namespace MusicPlayerWindow
             else
                 playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Pause_Black;
         }
-
         private void updateLabels()
         {
             String[] fields = currentSong.getPath().Split('\\');
@@ -159,7 +173,61 @@ namespace MusicPlayerWindow
             String artist = fields[fields.Length - 3];
 
             songLabel.Text = name;
+            Monitor.Enter(labelHasChanged);
+            System.Threading.Monitor.Enter(artistAlbumLabel);
             artistAlbumLabel.Text = artist + " - " + album;
+            artistAlbumLabel.Refresh();
+            Monitor.Exit(artistAlbumLabel);
+            labelHasChanged.setBoolean(true);
+            Monitor.Pulse(labelHasChanged);
+            Monitor.Exit(labelHasChanged);
+/*            int len = scrollDelegate.GetInvocationList().Length;
+            if (scrollDelegate.GetInvocationList().Length != 1)
+                System.Threading.Monitor.Wait(artistAlbumLabel);
+            System.Threading.Monitor.Exit(artistAlbumLabel);
+            scrollDelegate.BeginInvoke(null, null);*/
+        }
+        private void ScrollText()
+        {
+            int textLen;
+            int sizeLen = 28;
+            String labelString;
+            System.Text.StringBuilder sb = null;
+
+            while (true)
+            {
+                Monitor.Enter(labelHasChanged);
+                if (labelHasChanged.getBoolean())
+                {
+                    labelHasChanged.setBoolean(false);
+                    Monitor.Enter(artistAlbumLabel);
+                    labelString = artistAlbumLabel.Text;
+                    Monitor.Exit(artistAlbumLabel);
+                    textLen = labelString.Length;
+                    if (sizeLen - textLen > 0)
+                    {
+                        Monitor.Wait(labelHasChanged);
+                        Monitor.Exit(labelHasChanged);
+                        continue;
+                    }
+                    else
+                    {
+                        sb = null;
+                        sb = new System.Text.StringBuilder(labelString+"        ");
+                    }
+                }
+                Monitor.Exit(labelHasChanged);
+                Thread.Sleep(500);
+
+                char ch = sb[0];
+                sb.Remove(0, 1);
+                sb.Insert(sb.Length - 1, ch);
+
+                Monitor.Enter(artistAlbumLabel);
+                artistAlbumLabel.Text = sb.ToString();
+                artistAlbumLabel.Refresh();
+                Monitor.Exit(artistAlbumLabel);
+            }
         }
         #endregion
 

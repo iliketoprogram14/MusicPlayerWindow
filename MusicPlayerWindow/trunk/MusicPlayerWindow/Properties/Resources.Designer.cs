@@ -94,5 +94,12 @@ namespace MusicPlayerWindow.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        internal static System.Drawing.Bitmap Small_Glass_Stop1_Black40 {
+            get {
+                object obj = ResourceManager.GetObject("Small Glass Stop1 Black40", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

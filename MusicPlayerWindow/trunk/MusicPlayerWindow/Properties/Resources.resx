@@ -118,19 +118,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Small_Glass_Pause_Black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Small Glass Pause Black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Small_Glass_Stop_Black" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Small Glass Stop1 Black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Small_Glass_Previous_Black" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Small Glass Previous Black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Small_Glass_Play_Black" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Small Glass Play Black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Small_Glass_Pause_Black" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Small Glass Pause Black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Small_Glass_Previous_Black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Small Glass Previous Black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Small_Glass_Forward_Black" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Small Glass Forward Black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Small Glass Stop1 Black40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Media Player Button Icons\Small Glass Stop1 Black40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

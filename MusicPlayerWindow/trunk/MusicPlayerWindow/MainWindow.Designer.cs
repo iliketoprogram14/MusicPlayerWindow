@@ -1,4 +1,6 @@
-﻿namespace MusicPlayerWindow
+﻿using System.Drawing.Drawing2D;
+using System.Drawing;
+namespace MusicPlayerWindow
 {
     partial class MainWindow
     {
@@ -28,6 +30,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.volumeBar = new System.Windows.Forms.TrackBar();
             this.playlistBox = new System.Windows.Forms.ComboBox();
             this.labelPanel = new System.Windows.Forms.Panel();
@@ -37,19 +41,21 @@
             this.prevButton = new System.Windows.Forms.Button();
             this.stopButton = new System.Windows.Forms.Button();
             this.playButton = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.volumeBar)).BeginInit();
             this.labelPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // volumeBar
             // 
+            this.volumeBar.AutoSize = false;
+            this.volumeBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.volumeBar.Cursor = System.Windows.Forms.Cursors.Default;
-            this.volumeBar.Location = new System.Drawing.Point(13, 74);
+            this.volumeBar.Location = new System.Drawing.Point(10, 70);
             this.volumeBar.Maximum = 100;
-            this.volumeBar.MaximumSize = new System.Drawing.Size(220, 30);
-            this.volumeBar.MinimumSize = new System.Drawing.Size(215, 30);
+            this.volumeBar.MaximumSize = new System.Drawing.Size(180, 20);
             this.volumeBar.Name = "volumeBar";
-            this.volumeBar.Size = new System.Drawing.Size(220, 45);
+            this.volumeBar.Size = new System.Drawing.Size(180, 20);
             this.volumeBar.SmallChange = 5;
             this.volumeBar.TabIndex = 3;
             this.volumeBar.TickFrequency = 10;
@@ -64,7 +70,7 @@
             this.playlistBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.playlistBox.ForeColor = System.Drawing.Color.White;
             this.playlistBox.FormattingEnabled = true;
-            this.playlistBox.Location = new System.Drawing.Point(244, 74);
+            this.playlistBox.Location = new System.Drawing.Point(200, 70);
             this.playlistBox.Name = "playlistBox";
             this.playlistBox.Size = new System.Drawing.Size(200, 21);
             this.playlistBox.TabIndex = 5;
@@ -74,14 +80,13 @@
             this.labelPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.labelPanel.Controls.Add(this.artistAlbumLabel);
             this.labelPanel.Controls.Add(this.songLabel);
-            this.labelPanel.Location = new System.Drawing.Point(244, 12);
+            this.labelPanel.Location = new System.Drawing.Point(200, 10);
             this.labelPanel.Name = "labelPanel";
             this.labelPanel.Size = new System.Drawing.Size(200, 60);
             this.labelPanel.TabIndex = 6;
             // 
             // artistAlbumLabel
             // 
-            this.artistAlbumLabel.AutoSize = true;
             this.artistAlbumLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.artistAlbumLabel.ForeColor = System.Drawing.Color.White;
             this.artistAlbumLabel.Location = new System.Drawing.Point(10, 35);
@@ -94,23 +99,22 @@
             // 
             // songLabel
             // 
-            this.songLabel.AutoSize = true;
             this.songLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.songLabel.ForeColor = System.Drawing.Color.White;
-            this.songLabel.Location = new System.Drawing.Point(10, 10);
-            this.songLabel.MinimumSize = new System.Drawing.Size(180, 0);
+            this.songLabel.Location = new System.Drawing.Point(5, 10);
+            this.songLabel.MinimumSize = new System.Drawing.Size(190, 0);
             this.songLabel.Name = "songLabel";
-            this.songLabel.Size = new System.Drawing.Size(180, 16);
+            this.songLabel.Size = new System.Drawing.Size(190, 16);
             this.songLabel.TabIndex = 6;
-            this.songLabel.Text = "Song goes here";
+            this.songLabel.Text = "Song";
             this.songLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // nextButton
             // 
             this.nextButton.BackColor = System.Drawing.Color.Transparent;
             this.nextButton.Enabled = false;
-            this.nextButton.Image = global::MusicPlayerWindow.Properties.Resources.Small_Glass_Forward_Black;
-            this.nextButton.Location = new System.Drawing.Point(190, 22);
+            this.nextButton.Image = ((System.Drawing.Image)(resources.GetObject("nextButton.Image")));
+            this.nextButton.Location = new System.Drawing.Point(150, 20);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(40, 40);
             this.nextButton.TabIndex = 4;
@@ -122,8 +126,8 @@
             // 
             this.prevButton.BackColor = System.Drawing.Color.Transparent;
             this.prevButton.Enabled = false;
-            this.prevButton.Image = global::MusicPlayerWindow.Properties.Resources.Small_Glass_Previous_Black;
-            this.prevButton.Location = new System.Drawing.Point(13, 22);
+            this.prevButton.Image = ((System.Drawing.Image)(resources.GetObject("prevButton.Image")));
+            this.prevButton.Location = new System.Drawing.Point(10, 20);
             this.prevButton.MaximumSize = new System.Drawing.Size(40, 40);
             this.prevButton.MinimumSize = new System.Drawing.Size(40, 40);
             this.prevButton.Name = "prevButton";
@@ -136,11 +140,12 @@
             // stopButton
             // 
             this.stopButton.Enabled = false;
-            this.stopButton.Image = global::MusicPlayerWindow.Properties.Resources.Small_Glass_Stop_Black;
-            this.stopButton.Location = new System.Drawing.Point(124, 12);
-            this.stopButton.MinimumSize = new System.Drawing.Size(60, 60);
+            this.stopButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.stopButton.Image = global::MusicPlayerWindow.Properties.Resources.Small_Glass_Stop1_Black40;
+            this.stopButton.Location = new System.Drawing.Point(110, 20);
+            this.stopButton.MinimumSize = new System.Drawing.Size(40, 40);
             this.stopButton.Name = "stopButton";
-            this.stopButton.Size = new System.Drawing.Size(60, 60);
+            this.stopButton.Size = new System.Drawing.Size(40, 40);
             this.stopButton.TabIndex = 2;
             this.stopButton.UseVisualStyleBackColor = true;
             this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
@@ -149,8 +154,8 @@
             // playButton
             // 
             this.playButton.BackColor = System.Drawing.Color.Transparent;
-            this.playButton.Image = global::MusicPlayerWindow.Properties.Resources.Small_Glass_Play_Black;
-            this.playButton.Location = new System.Drawing.Point(58, 12);
+            this.playButton.Image = ((System.Drawing.Image)(resources.GetObject("playButton.Image")));
+            this.playButton.Location = new System.Drawing.Point(50, 10);
             this.playButton.MinimumSize = new System.Drawing.Size(60, 60);
             this.playButton.Name = "playButton";
             this.playButton.Size = new System.Drawing.Size(60, 60);
@@ -164,7 +169,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.ClientSize = new System.Drawing.Size(456, 113);
+            this.ClientSize = new System.Drawing.Size(414, 102);
             this.Controls.Add(this.labelPanel);
             this.Controls.Add(this.volumeBar);
             this.Controls.Add(this.playlistBox);
@@ -173,13 +178,12 @@
             this.Controls.Add(this.stopButton);
             this.Controls.Add(this.playButton);
             this.Name = "MainWindow";
-            this.Text = "Music Shuffler";
+            this.Text = "Playlist Shuffler";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainWindow_FormClosed);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.MainWindow_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.volumeBar)).EndInit();
             this.labelPanel.ResumeLayout(false);
-            this.labelPanel.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -193,6 +197,13 @@
         private System.Windows.Forms.Button nextButton;
         private System.Windows.Forms.TrackBar volumeBar;
         private System.Windows.Forms.ComboBox playlistBox;
+
+        private void MainWindow_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+        {
+            System.Drawing.Rectangle rect = new System.Drawing.Rectangle(0, 0, this.ClientSize.Width, this.ClientSize.Height);
+            using (LinearGradientBrush brush = new LinearGradientBrush(rect, Color.Black, Color.FromArgb(40,40,40), 270F))
+                { e.Graphics.FillRectangle(brush, rect); }
+        }
 
         private void InitPlaylistBox()
         {
@@ -250,6 +261,7 @@
         private System.Windows.Forms.Panel labelPanel;
         private System.Windows.Forms.Label artistAlbumLabel;
         private System.Windows.Forms.Label songLabel;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
