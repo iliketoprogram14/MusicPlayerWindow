@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicPlayerWindow", "MusicPlayerWindow\MusicPlayerWindow.csproj", "{77B8777E-0737-4AE2-8CDB-FD3B4DA61FC4}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "InstallWizard", "InstallWizard\InstallWizard.vdproj", "{D9766771-85C7-4577-A7F7-5515CC5ECD96}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Playlist Shuffler", "Playlist Shuffler\Playlist Shuffler.vdproj", "{23583B2C-D144-4BC0-A435-1818D3EFB002}"
 EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
@@ -19,9 +19,8 @@ Global
 		{77B8777E-0737-4AE2-8CDB-FD3B4DA61FC4}.Debug|x86.Build.0 = Debug|x86
 		{77B8777E-0737-4AE2-8CDB-FD3B4DA61FC4}.Release|x86.ActiveCfg = Release|x86
 		{77B8777E-0737-4AE2-8CDB-FD3B4DA61FC4}.Release|x86.Build.0 = Release|x86
-		{D9766771-85C7-4577-A7F7-5515CC5ECD96}.Debug|x86.ActiveCfg = Debug
-		{D9766771-85C7-4577-A7F7-5515CC5ECD96}.Release|x86.ActiveCfg = Release
-		{D9766771-85C7-4577-A7F7-5515CC5ECD96}.Release|x86.Build.0 = Release
+		{23583B2C-D144-4BC0-A435-1818D3EFB002}.Debug|x86.ActiveCfg = Debug
+		{23583B2C-D144-4BC0-A435-1818D3EFB002}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

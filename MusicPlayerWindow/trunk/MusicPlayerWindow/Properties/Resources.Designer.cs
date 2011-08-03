@@ -60,6 +60,20 @@ namespace MusicPlayerWindow.Properties {
             }
         }
         
+        internal static byte[] ikpMP3 {
+            get {
+                object obj = ResourceManager.GetObject("ikpMP3", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        internal static byte[] itunesexport {
+            get {
+                object obj = ResourceManager.GetObject("itunesexport", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
         internal static System.Drawing.Icon NextIconWhite {
             get {
                 object obj = ResourceManager.GetObject("NextIconWhite", resourceCulture);
@@ -85,6 +99,13 @@ namespace MusicPlayerWindow.Properties {
             get {
                 object obj = ResourceManager.GetObject("PrevIconWhite", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        internal static byte[] scala_library {
+            get {
+                object obj = ResourceManager.GetObject("scala_library", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
