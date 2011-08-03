@@ -181,6 +181,7 @@ namespace MusicPlayerWindow
             this.Controls.Add(this.prevButton);
             this.Controls.Add(this.stopButton);
             this.Controls.Add(this.playButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainWindow";
             this.Text = "Playlist Shuffler";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainWindow_FormClosed);

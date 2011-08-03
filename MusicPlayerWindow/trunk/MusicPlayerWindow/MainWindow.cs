@@ -152,6 +152,16 @@ namespace MusicPlayerWindow
             currentSong = null;
             playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Play_Black;
             toggleButtons(false, playButton.Enabled, false, false);
+
+            songLabel.Text = "Song";
+            Monitor.Enter(labelHasChanged);
+            Monitor.Enter(artistAlbumLabel);
+            artistAlbumLabel.Text = "Artist - Album";
+            artistAlbumLabel.Refresh();
+            Monitor.Exit(artistAlbumLabel);
+            labelHasChanged.setBoolean(true);
+            Monitor.Pulse(labelHasChanged);
+            Monitor.Exit(labelHasChanged);
         }
 
         private void switchImagesPlayPause()
@@ -181,7 +191,7 @@ namespace MusicPlayerWindow
 
             songLabel.Text = name;
             Monitor.Enter(labelHasChanged);
-            System.Threading.Monitor.Enter(artistAlbumLabel);
+            Monitor.Enter(artistAlbumLabel);
             artistAlbumLabel.Text = artist + " - " + album;
             artistAlbumLabel.Refresh();
             Monitor.Exit(artistAlbumLabel);
@@ -227,10 +237,13 @@ namespace MusicPlayerWindow
                 sb.Remove(0, 1);
                 sb.Insert(sb.Length - 1, ch);
 
+                Monitor.Enter(labelHasChanged);
+                if (labelHasChanged.getBoolean()) { Monitor.Exit(labelHasChanged); continue; }
                 Monitor.Enter(artistAlbumLabel);
                 artistAlbumLabel.Text = sb.ToString();
                 artistAlbumLabel.Refresh();
                 Monitor.Exit(artistAlbumLabel);
+                Monitor.Exit(labelHasChanged);
             }
         }
 
