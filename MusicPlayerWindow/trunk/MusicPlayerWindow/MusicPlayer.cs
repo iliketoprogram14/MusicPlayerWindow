@@ -13,6 +13,10 @@ namespace MusicPlayerWindow
         private ISoundEngine engine;
         private MainWindow window;
 
+        /// <summary>
+        /// Constructor that initializes irrKlang 2D music player
+        /// </summary>
+        /// <param name="window">reference to the main window</param>
         public MusicPlayer(MainWindow window)
         {
             engine = new ISoundEngine();
@@ -20,21 +24,39 @@ namespace MusicPlayerWindow
         }
 
         #region Interface
+        /// <summary>
+        /// Plays given song
+        /// </summary>
+        /// <param name="song">the song to be played</param>
         public void playCurrSong(Song song)
         {
             ISound sound = engine.Play2D(song.getPath());
             sound.Volume = window.getVolume();
-            sound.setSoundStopEventReceiver(this);
+            sound.setSoundStopEventReceiver(this); //set stop handler
             song.setSound(sound);
         }
+
+        /// <summary>
+        /// Pauses or unpauses a song
+        /// </summary>
+        /// <param name="song">the song to be paused or unpaused</param>
         public void pauseUnpauseSong(Song song)
         {
             song.getSound().Paused = !song.getSound().Paused;
         }
+
+        /// <summary>
+        /// Stops the playing song
+        /// </summary>
+        /// <param name="song">the song to be stopped</param>
         public void stopSong(Song song)
         {
             song.getSound().Stop();
         }
+
+        /// <summary>
+        /// Stops the player and removes it from memory
+        /// </summary>
         public void destroyPlayer()
         {
             engine.RemoveAllSoundSources();
@@ -45,14 +67,12 @@ namespace MusicPlayerWindow
         #region Event Handlers
         public void OnSoundStopped(ISound sound, StopEventCause cause, object userData)
         {
+            //play the next song if song finished naturally
             if (cause == StopEventCause.SoundFinishedPlaying)
-            {
                 window.playNextSong();
-            }
+            //the stop button has pressed, so stop playing permanently
             else if (cause == StopEventCause.SoundStoppedByUser)
-            {
                 return;
-            }
             else return;
         }
         #endregion

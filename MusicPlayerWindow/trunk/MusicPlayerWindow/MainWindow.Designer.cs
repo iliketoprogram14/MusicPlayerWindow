@@ -45,7 +45,6 @@ namespace MusicPlayerWindow
             this.prevButton = new System.Windows.Forms.Button();
             this.stopButton = new System.Windows.Forms.Button();
             this.playButton = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.volumeBar)).BeginInit();
             this.labelPanel.SuspendLayout();
             this.SuspendLayout();
@@ -199,11 +198,29 @@ namespace MusicPlayerWindow
         private System.Windows.Forms.Button nextButton;
         private System.Windows.Forms.TrackBar volumeBar;
         private System.Windows.Forms.ComboBox playlistBox;
+        private System.Windows.Forms.Panel labelPanel;
+        private System.Windows.Forms.Label artistAlbumLabel;
+        private System.Windows.Forms.Label songLabel;
         private ThumbnailToolBarButton thumbButtonPrev;
         private ThumbnailToolBarButton thumbButtonNext;
         private ThumbnailToolBarButton thumbButtonStop;
         private ThumbnailToolBarButton thumbButtonPlay;
 
+        ///<summary>
+        ///Adds playlists names to the playlist combo box and adds its event handler
+        ///</summary>
+        private void InitPlaylistBox()
+        {
+            this.playlistBox.Items.AddRange(loader.getPlaylistNames().ToArray());
+            this.playlistBox.SelectedItem = "Music";
+            this.playlistBox.SelectedValueChanged += new System.EventHandler(this.playlistBox_SelectedValueChanged);
+            playlistBoxLastIndex = playlistBox.SelectedIndex;
+        }
+
+        #region Thumbnail Toolbar
+        ///<summary>
+        ///Initializes and the thumbnail controls and adds them to the event handlers and matches them to the real buttons
+        ///</summary>
         private void InitThumbnailToolbar()
         {
             // Create our Thumbnail toolbar buttons for the Browser doc
@@ -220,30 +237,46 @@ namespace MusicPlayerWindow
             toggleButtons(prevButton.Enabled, playButton.Enabled, stopButton.Enabled, nextButton.Enabled);
         }
 
+        ///<summary>
+        ///Same functionality as the regular previous button
+        ///</summary>
+        ///<param name="sender">the object sending the event</param>
+        ///<param name="e">the event itself</param>
         void thumbButtonPrev_Click(object sender, EventArgs e)
         {
             prevButton_Click(sender, e);
         }
+
+        ///<summary>
+        ///Same functionality as the regular next button
+        ///</summary>
+        ///<param name="sender">the object sending the event</param>
+        ///<param name="e">the event itself</param>
         void thumbButtonNext_Click(object sender, EventArgs e)
         {
             nextButton_Click(sender, e);
         }
+
+        ///<summary>
+        ///Same functionality as the regular play button
+        ///</summary>
+        ///<param name="sender">the object sending the event</param>
+        ///<param name="e">the event itself</param>
         void thumbButtonPlay_Click(object sender, EventArgs e)
         {
             playButton_Click(sender, e);
         }
+
+        ///<summary>
+        ///Same functionality as the regular stop button
+        ///</summary>
+        ///<param name="sender">the object sending the event</param>
+        ///<param name="e">the event itself</param>
         void thumbButtonStop_Click(object sender, EventArgs e)
         {
             stopButton_Click(sender, e);
         }
-
-        private void InitPlaylistBox()
-        {
-            this.playlistBox.Items.AddRange(loader.getPlaylistNames().ToArray());
-            this.playlistBox.SelectedItem = "Music";
-            this.playlistBox.SelectedValueChanged += new System.EventHandler(this.playlistBox_SelectedValueChanged);
-            playlistBoxLastIndex = playlistBox.SelectedIndex;
-        }
+        #endregion
 
         #region Paint Methods
         private void playButton_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
@@ -266,6 +299,11 @@ namespace MusicPlayerWindow
             button_Paint(nextButton, e);
         }
 
+        ///<summary>
+        ///Makes a square button round
+        ///</summary>
+        ///<param name="sender">the object sending the event</param>
+        ///<param name="e">the event itself</param>
         private void button_Paint(System.Windows.Forms.Button button, System.Windows.Forms.PaintEventArgs e)
         {
             System.Drawing.Drawing2D.GraphicsPath buttonPath = new System.Drawing.Drawing2D.GraphicsPath();
@@ -290,7 +328,12 @@ namespace MusicPlayerWindow
             // circle region.
             button.Region = new System.Drawing.Region(buttonPath);
         }
-        
+
+        ///<summary>
+        ///Puts a gradient on the MainWindow (the main form)
+        ///</summary>
+        ///<param name="sender">the object sending the event</param>
+        ///<param name="e">the event itself</param>
         private void MainWindow_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
         {
             System.Drawing.Rectangle rect = new System.Drawing.Rectangle(0, 0, this.ClientSize.Width, this.ClientSize.Height);
@@ -298,11 +341,6 @@ namespace MusicPlayerWindow
             { e.Graphics.FillRectangle(brush, rect); }
         }
         #endregion
-
-        private System.Windows.Forms.Panel labelPanel;
-        private System.Windows.Forms.Label artistAlbumLabel;
-        private System.Windows.Forms.Label songLabel;
-        private System.Windows.Forms.Timer timer1;
     }
 }
 

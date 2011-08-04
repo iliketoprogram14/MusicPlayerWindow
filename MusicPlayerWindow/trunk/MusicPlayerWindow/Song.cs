@@ -11,11 +11,20 @@ namespace MusicPlayerWindow
         private IrrKlang.ISound sound;
 
         #region Constructors
+        ///<summary>
+        ///Normal constructor; song is null until set
+        ///</summary>
+        ///<param name="path">the path to the song for playback</param>
         public Song(String path)
         {
             this.path = path;
             this.sound = null;
         }
+
+        ///<summary>
+        ///For deep copying
+        ///</summary>
+        ///<param name="prevSong">the song that is deep copied</param>
         public Song(Song prevSong)
         {
             this.path = prevSong.getPath();
@@ -24,10 +33,19 @@ namespace MusicPlayerWindow
         #endregion
 
         #region Interface
+        ///<summary>
+        ///Changes path of song
+        ///</summary>
+        ///<param name="newPath">the path to the song; overwrites old path</param>
         public void setPath(String newPath)
         {
             this.path = newPath;
         }
+
+        ///<summary>
+        ///Changes the irrKlang sound of the song
+        ///</summary>
+        ///<param name="sound">the irrKlang sound played that is associated with the song/path</param>
         public void setSound(IrrKlang.ISound sound)
         {
             this.sound = sound;
@@ -35,10 +53,17 @@ namespace MusicPlayerWindow
         #endregion
 
         #region Accessors
+        ///<summary>
+        ///Gets path of song
+        ///</summary>
         public String getPath()
         {
             return this.path;
         }
+
+        ///<summary>
+        ///Gets irrKlang sound of song
+        ///</summary>
         public IrrKlang.ISound getSound()
         {
             return sound;

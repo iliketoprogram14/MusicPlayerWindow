@@ -15,17 +15,20 @@ namespace MusicPlayerWindow
 {
     public partial class MainWindow : System.Windows.Forms.Form
     {
+        #region Definitions
+        public static String outputDir = @"Playlists";
+        private static String matchPattern = @"^\s*\d+[\t ]+";
+        private static String matchPattern2 = @"^\s*\d-\d+[\t ]+";
+
+        /// <summary>
+        /// For some reason, .NET doesn't think Boolean are thread-safe (which they define as thread-safe), so this is a bool wrapper that's thread-safe
+        /// </summary>
         private class BoolObject {
             private bool boolean;
             public BoolObject(bool val) { boolean = val; }
             public void setBoolean(bool val) { boolean = val; }
             public bool getBoolean() { return boolean; }
         }
-
-        #region Static Fields
-        public static String outputDir = @"Playlists";
-        private static String matchPattern = @"^\s*\d+[\t ]+";
-        private static String matchPattern2 = @"^\s*\d-\d+[\t ]+";
         #endregion
 
         private MusicPlayer player;
@@ -38,9 +41,14 @@ namespace MusicPlayerWindow
         private BoolObject scrollThreadShouldExit;
 
         #region Constructor and Main()
+        /// <summary>
+        /// Initializes music player, music loader thread, the GUI, and the artist/album scroller thread
+        /// If the iTunes playlists haven't been imported, it calls the appropriate methods to do so
+        /// </summary>
         public MainWindow()
         {
-            player = new MusicPlayer(this);
+            
+            //import the iTunes playlists if they don't already exist
             if (!System.IO.Directory.Exists(outputDir) || System.IO.Directory.GetFiles(outputDir).Length == 0)
             {
                 getLibLocation();
@@ -48,19 +56,28 @@ namespace MusicPlayerWindow
                 parseiTunesSongs(outputDir);
             }
 
+            //init the player and music loader thread
+            player = new MusicPlayer(this);
             loader = new CustomMusicLoader(outputDir);
 
+            //init the GUI
             InitializeComponent();
             InitPlaylistBox();
             InitThumbnailToolbar();
 
             currentSong = null;
             Control.CheckForIllegalCrossThreadCalls = false;
+            
+            //init the artist/album scroller thread and its related objects
             labelHasChanged = new BoolObject(true);
             scrollThreadShouldExit = new BoolObject(false);
             scrollThread = new Thread(new ThreadStart(ScrollText));
             scrollThread.Start();
         }
+
+        /// <summary>
+        /// Runs the application by calling the MainWindow constructor
+        /// </summary>
         [STAThread]
         static void Main()
         {
@@ -69,59 +86,114 @@ namespace MusicPlayerWindow
         #endregion
 
         #region Event Handlers
-        //plays first song, and then pauses/unpauses song
+        /// <summary>
+        /// The Play/Pause button has been clicked
+        /// Pauses and unpauses songs (if a song is already playing) and updates the GUI
+        /// </summary>
+        /// <param name="sender">the object sending the event</param>
+        /// <param name="e">the event itself</param>
         private void playButton_Click(object sender, EventArgs e)
         {
+            //no song is playing, so play a new song
             if (currentSong == null) {
                 currentSong = loader.getNextSong();
                 player.playCurrSong(currentSong);
             }
+            //a song is playing, so pause/unpause it
             else {
                 player.pauseUnpauseSong(currentSong);
             }
+
+            //update the GUI
             switchImagesPlayPause();
             toggleButtons(true, playButton.Enabled, true, true);
             updateLabels();
         }
+
+        /// <summary>
+        /// Stops the currently playing song, and resets the GUI
+        /// </summary>
+        /// <param name="sender">the object sending the event</param>
+        /// <param name="e">the event itself</param>
         private void stopButton_Click(object sender, EventArgs e)
         {
             player.stopSong(currentSong);
             resetEngine();
         }
+
+        /// <summary>
+        /// Plays the next song and adds the last song to its previous queue
+        /// </summary>
+        /// <param name="sender">the object sending the event</param>
+        /// <param name="e">the event itself</param>
         private void nextButton_Click(object sender, EventArgs e)
         {
             Song oldSong = currentSong;
             playNextSong();
             loader.updatePrevQueue(oldSong);
         }
+
+        /// <summary>
+        /// Plays the last song played, or stops everything if the previous queue is empty, and then updates the GUI
+        /// </summary>
+        /// <param name="sender">the object sending the event</param>
+        /// <param name="e">the event itself</param>
         private void prevButton_Click(object sender, EventArgs e)
         {
             player.stopSong(currentSong);
+
             Song oldSong = currentSong;
             currentSong = loader.getPrevSong();
-            if (currentSong == null) { resetEngine(); return; } //prevQueue is empty, so stop playing
+            
+            if (currentSong == null) { resetEngine(); return; } //prevQueue is empty, so stop everything
+
+            //play the previous song and update the queues and the GUI
             player.playCurrSong(currentSong);
             loader.addSongToNextQueueFront(oldSong);
             updateLabels();
         }
+
+        /// <summary>
+        /// Adjusts the volume of the player
+        /// </summary>
+        /// <param name="sender">the object sending the event</param>
+        /// <param name="e">the event itself</param>
         private void volumeBar_Scroll(object sender, EventArgs e)
         {
             if (currentSong != null)
                 currentSong.getSound().Volume = volumeBar.Value / 100.0f;
         }
+
+        /// <summary>
+        /// The playlist has been changed, so begin shuffling songs of that playlist
+        /// </summary>
+        /// <param name="sender">the object sending the event</param>
+        /// <param name="e">the event itself</param>
         private void playlistBox_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (playlistBox.SelectedIndex == playlistBoxLastIndex) { return; }
+            if (playlistBox.SelectedIndex == playlistBoxLastIndex) { return; } //same playlist has been selected
+
+            //save the last playlist to compare against later (see previous line)
             playlistBoxLastIndex = playlistBox.SelectedIndex;
+
+            //switch playlists and shuffle songs
             String playlistToPlay = playlistBox.SelectedItem.ToString();
             loader.switchToPlaylist(playlistToPlay, currentSong);
             playNextSong();
+
+            //update the GUI
             if (stopButton.Enabled == false)
             {
                 playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Pause_Black;
                 toggleButtons(true, playButton.Enabled, true, true);
             }
         }
+
+        /// <summary>
+        /// Destroy the player, the music loader thread, and the artist/album scroller thread, and then the application
+        /// </summary>
+        /// <param name="sender">the object sending the event</param>
+        /// <param name="e">the event itself</param>
         public void MainWindow_FormClosed(object sender, FormClosedEventArgs e)
         {
             player.destroyPlayer();
@@ -136,10 +208,19 @@ namespace MusicPlayerWindow
         #endregion
 
         #region Accessors
+        /// <summary>
+        /// Gets the currently playing song (paused or playing, but not stopped)
+        /// </summary>
+        /// <returns></returns>
         public Song getCurrSong()
         {
             return currentSong;
         }
+
+        /// <summary>
+        /// Gets the current volume of the trackbar
+        /// </summary>
+        /// <returns>the volume</returns>
         public int getVolume()
         {
             return volumeBar.Value;
@@ -147,12 +228,17 @@ namespace MusicPlayerWindow
         #endregion
         
         #region Helpers
+        /// <summary>
+        /// Stops all music and resets the GUI
+        /// </summary>
         private void resetEngine()
         {
+            //reset the buttons
             currentSong = null;
             playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Play_Black;
             toggleButtons(false, playButton.Enabled, false, false);
 
+            //reset the info pane
             songLabel.Text = "Song";
             Monitor.Enter(labelHasChanged);
             Monitor.Enter(artistAlbumLabel);
@@ -164,6 +250,9 @@ namespace MusicPlayerWindow
             Monitor.Exit(labelHasChanged);
         }
 
+        /// <summary>
+        /// Switches the play and the pause icons on the play button
+        /// </summary>
         private void switchImagesPlayPause()
         {
             if (currentSong.getSound().Paused == true)
@@ -178,8 +267,13 @@ namespace MusicPlayerWindow
             }
         }
 
+        /// <summary>
+        /// Updates the song label and the artist/album label
+        /// Specifically, it parses the current song's path to get this information, and then calls the scroller thread to scroll the label
+        /// </summary>
         private void updateLabels()
         {
+            //parse path to get name, album, and artist
             String[] fields = currentSong.getPath().Split('\\');
 
             String nameFiltered = fields[fields.Length - 1].Replace(".mp3", "").Replace(".aac", "").Replace(".mp4", "");
@@ -189,6 +283,7 @@ namespace MusicPlayerWindow
             String album = fields[fields.Length - 2];
             String artist = fields[fields.Length - 3];
 
+            //update labels and notify scroller thread
             songLabel.Text = name;
             Monitor.Enter(labelHasChanged);
             Monitor.Enter(artistAlbumLabel);
@@ -200,17 +295,25 @@ namespace MusicPlayerWindow
             Monitor.Exit(labelHasChanged);
         }
 
+        /// <summary>
+        /// The artist/album scrolling happens here, executed by a dedicated thread
+        /// Basically, the thread checks if the artist/album label is too long and shifts the string over and over again
+        /// </summary>
         private void ScrollText()
         {
-            int textLen;
-            int sizeLen = 24;
-            String labelString;
-            System.Text.StringBuilder sb = null;
+            int textLen;        //number of characters in the label
+            int sizeLen = 24;   //approximate label component size in characters
+            String labelString; //the text of the artist/album label
+            System.Text.StringBuilder sb = null; //used to shift the characters
 
             while (true)
             {
                 Monitor.Enter(labelHasChanged);
-                if (scrollThreadShouldExit.getBoolean()) { Monitor.Exit(labelHasChanged); break; }
+                if (scrollThreadShouldExit.getBoolean()) { Monitor.Exit(labelHasChanged); break; } //kill this thread
+
+                //label has changed, so update labelString and textLen
+                //if the length of the text exceeds the label size, then update the string builder and scroll the text
+                //otherwise, sleep until notified that the label has been changed again
                 if (labelHasChanged.getBoolean())
                 {
                     labelHasChanged.setBoolean(false);
@@ -218,12 +321,15 @@ namespace MusicPlayerWindow
                     labelString = artistAlbumLabel.Text;
                     Monitor.Exit(artistAlbumLabel);
                     textLen = labelString.Length;
+
+                    //the label's text length is smaller than the label itself, so sleep until notified that the label has changed again
                     if (sizeLen - textLen > 0)
                     {
                         Monitor.Wait(labelHasChanged);
                         Monitor.Exit(labelHasChanged);
                         continue;
                     }
+                    //otherwise, update the string builder
                     else
                     {
                         sb = null;
@@ -231,12 +337,14 @@ namespace MusicPlayerWindow
                     }
                 }
                 Monitor.Exit(labelHasChanged);
-                Thread.Sleep(500);
+                Thread.Sleep(500); //this gives the scrolling effect
 
+                //move the first character to the end of the string
                 char ch = sb[0];
                 sb.Remove(0, 1);
                 sb.Insert(sb.Length - 1, ch);
 
+                //udpate the label with the new string
                 Monitor.Enter(labelHasChanged);
                 if (labelHasChanged.getBoolean()) { Monitor.Exit(labelHasChanged); continue; }
                 Monitor.Enter(artistAlbumLabel);
@@ -247,6 +355,13 @@ namespace MusicPlayerWindow
             }
         }
 
+        /// <summary>
+        /// Toggles both the form's buttons and the thumbnail's buttons, keeping them in sync
+        /// </summary>
+        /// <param name="prevEnabled">the previous button's enabled status</param>
+        /// <param name="playEnabled">the play button's enabled status</param>
+        /// <param name="stopEnabled">the stop button's enabled status</param>
+        /// <param name="nextEnabled">the next button's enabled status</param>
         private void toggleButtons(bool prevEnabled, bool playEnabled, bool stopEnabled, bool nextEnabled)
         {
             prevButton.Enabled = prevEnabled; thumbButtonPrev.Enabled = prevEnabled;
@@ -257,9 +372,14 @@ namespace MusicPlayerWindow
         #endregion
 
         #region Public Methods/Interface
+        /// <summary>
+        /// Plays the next song in the playlist
+        /// </summary>
         public void playNextSong()
         {
-            if (currentSong != null) { player.stopSong(currentSong); }
+            if (currentSong != null) { player.stopSong(currentSong); } //stop current song to play the next one
+
+            //grab the next song, play it, ask the loader to update the next song queue, and update the GUI
             currentSong = loader.getNextSong();
             player.playCurrSong(currentSong);
             loader.updateNextQueue();
@@ -290,6 +410,11 @@ namespace MusicPlayerWindow
             p.WaitForExit(timeout);
             return p.ExitCode;
         }
+
+        /// <summary>
+        /// Called in a separate thread
+        /// It executes a java process to import the iTunes playlists using Eric Daugherty's iTunes Exporter <see cref="http://www.ericdaugherty.com/dev/itunesexport/"/>
+        /// </summary>
         private void ExecuteThread()
         {
             int timeout = 30000;
@@ -301,6 +426,10 @@ namespace MusicPlayerWindow
                 System.IO.Directory.GetCurrentDirectory(),
                 timeout);
         }
+
+        /// <summary>
+        /// Inits the thread to import the playlists and advises the user what's going on before waiting for the importing to finish
+        /// </summary>
         private void getiTunesSongs()
         {
             Thread t = new Thread(new ThreadStart(ExecuteThread));
@@ -312,6 +441,12 @@ namespace MusicPlayerWindow
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
             t.Join(30000);
         }
+
+        /// <summary>
+        /// Converts the playlist files from .m3u format to xml, adding an id to each song within the playlist
+        /// 
+        /// </summary>
+        /// <param name="outputDir"></param>
         private void parseiTunesSongs(String outputDir)
         {
             String[] playlistPaths = System.IO.Directory.GetFiles(outputDir);
@@ -320,10 +455,12 @@ namespace MusicPlayerWindow
                 System.IO.TextReader tr = new System.IO.StreamReader(file);
                 String tmp = tr.ReadLine();
 
+                //remove extra text
                 tmp = tmp.Replace("#Playlist: '","").Replace("' exported by iTunesExport-Scala v2.2.2 http://www.ericdaugherty.com/dev/itunesexport/scala/", "");
                 String file_to_write = tmp.Replace("/","_");
                 file_to_write = outputDir + "/" + file_to_write + ".xml";
 
+                //write the xml header
                 System.IO.TextWriter w = new System.IO.StreamWriter(file_to_write);
                 w.WriteLine("<?xml version='1.0' ?>");
                 w.WriteLine("<!DOCTYPE playlist [");
@@ -332,8 +469,10 @@ namespace MusicPlayerWindow
                 w.WriteLine("  <!ATTLIST song id ID #REQUIRED>");
                 w.WriteLine("]>");
                 w.WriteLine("<playlist>");
+
                 String line;
                 int count = 0;
+                //write each song to the playlist xml file
                 while ((line = tr.ReadLine()) != null)
                 {
                     line = line.Replace("&", "&amp;");
@@ -341,18 +480,25 @@ namespace MusicPlayerWindow
                     w.WriteLine(line_to_write);
                     count++;
                 }
+
+                //wrap up the playlist files
                 w.WriteLine("</playlist>");
                 tr.Close();
                 w.Close();
-                System.IO.File.Delete(file);
+                System.IO.File.Delete(file); //deletes old playlist
             }
         }
+
+        /// <summary>
+        /// Asks the user for the location of their iTunes/Music directory so that the application can find the iTunes Music Library.xml file to import the iTunes playlists
+        /// </summary>
         private void getLibLocation()
         {
             MessageBox.Show("Please specify the location of your iTunes Music folder in order to import your playlists.\n\n" +
                 "For example, C:/Users/YOUR_NAME/Music/iTunes/Music would work.\n\n" +
                 "The application assumes that all your iTunes music is in the same place. Click OK to continue.", "Specify iTunes Music Location",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
             FolderBrowserDialog browser;
             bool shouldExit = false;
             while (true)
@@ -368,6 +514,7 @@ namespace MusicPlayerWindow
                     "Specify iTunes Music Location", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (retry == DialogResult.Cancel) { shouldExit = true; break;  }
             }
+            
             if (shouldExit) { this.Close(); System.Environment.Exit(1); return; }
             libLocation = browser.SelectedPath;
         }
