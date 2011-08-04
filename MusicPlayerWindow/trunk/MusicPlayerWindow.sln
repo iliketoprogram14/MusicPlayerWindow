@@ -5,6 +5,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicPlayerWindow", "MusicP
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Playlist Shuffler", "Playlist Shuffler\Playlist Shuffler.vdproj", "{23583B2C-D144-4BC0-A435-1818D3EFB002}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C324D879-3BD5-4B79-9DFD-6F0D41824C92}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation.shfbproj = Documentation.shfbproj
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
