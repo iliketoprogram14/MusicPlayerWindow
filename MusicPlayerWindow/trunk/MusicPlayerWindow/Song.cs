@@ -5,6 +5,9 @@ using System.Text;
 
 namespace MusicPlayerWindow
 {
+    /// <summary>
+    /// Internal song representation; includes the path to the song and an irrKlang sound
+    /// </summary>
     public class Song
     {
         private String path;

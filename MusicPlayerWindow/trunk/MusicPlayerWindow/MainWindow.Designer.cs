@@ -6,6 +6,9 @@ using Microsoft.WindowsAPICodePack.Taskbar;
 using System;
 namespace MusicPlayerWindow
 {
+    /// <summary>
+    /// The GUI and the main delegator of activity
+    /// </summary>
     partial class MainWindow
     {
         /// <summary>
@@ -302,7 +305,7 @@ namespace MusicPlayerWindow
         ///<summary>
         ///Makes a square button round
         ///</summary>
-        ///<param name="sender">the object sending the event</param>
+        ///<param name="button">the button to be made round</param>
         ///<param name="e">the event itself</param>
         private void button_Paint(System.Windows.Forms.Button button, System.Windows.Forms.PaintEventArgs e)
         {

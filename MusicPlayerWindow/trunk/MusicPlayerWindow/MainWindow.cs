@@ -16,6 +16,7 @@ namespace MusicPlayerWindow
     public partial class MainWindow : System.Windows.Forms.Form
     {
         #region Definitions
+        /// <summary>the directory where the playlist xml files are stored</summary>
         public static String outputDir = @"Playlists";
         private static String matchPattern = @"^\s*\d+[\t ]+";
         private static String matchPattern2 = @"^\s*\d-\d+[\t ]+";
@@ -32,11 +33,16 @@ namespace MusicPlayerWindow
         #endregion
 
         private MusicPlayer player;
+        /// <summary>the object that is responsible for updating the queues</summary>
         protected CustomMusicLoader loader;
         private Song currentSong;
+
+        /// <summary>the location of the iTunes Music Library xml file</summary>
         public String libLocation;
+        
         private int playlistBoxLastIndex;
-        Thread scrollThread;
+        
+        private Thread scrollThread;
         private BoolObject labelHasChanged;
         private BoolObject scrollThreadShouldExit;
 
@@ -396,7 +402,6 @@ namespace MusicPlayerWindow
         ///<param name="cmdParams">Command Line params of process</param>
         ///<param name="workingDirectory">Process' working directory</param>
         ///<param name="timeout">Time to wait for process to end</param>
-        ///<param name="stdOutput">Redirected standard output of process</param>
         ///<returns>Process exit code</returns>
         private int ExecuteProcess(string cmd, string cmdParams, string workingDirectory, int timeout)
         {
@@ -413,7 +418,7 @@ namespace MusicPlayerWindow
 
         /// <summary>
         /// Called in a separate thread
-        /// It executes a java process to import the iTunes playlists using Eric Daugherty's iTunes Exporter <see cref="http://www.ericdaugherty.com/dev/itunesexport/"/>
+        /// It executes a java process to import the iTunes playlists using Eric Daugherty's iTunes Exporter <see href="http://www.ericdaugherty.com/dev/itunesexport/"/>
         /// </summary>
         private void ExecuteThread()
         {

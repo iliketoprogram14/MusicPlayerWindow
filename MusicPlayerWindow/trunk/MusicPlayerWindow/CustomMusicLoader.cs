@@ -135,7 +135,7 @@ namespace MusicPlayerWindow
         }
 
         /// <summary>
-        /// Asks loader to destroy the store and then exits <see cref="MusicPlayerWindow.CustomMusicLoader._destroyStoreAndExit()"/>
+        /// Asks loader to destroy the store and then exits <see cref="MusicPlayerWindow.CustomMusicLoader._destroyStore()"/>
         /// </summary>
         public void destroyStoreAndExit()
         {

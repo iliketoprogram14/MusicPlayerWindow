@@ -7,6 +7,9 @@ using System.IO;
 
 namespace MusicPlayerWindow
 {
+    /// <summary>
+    /// Holds every single playlist's queue object
+    /// </summary>
     public class QueueStore
     {
         private Dictionary<String, Queue> playlistQueues;
@@ -53,7 +56,7 @@ namespace MusicPlayerWindow
         ///<summary>
         ///Adds a song to the end of the next song queue
         ///</summary>
-        ///<param name="newSpmg">the song to be added to the next song queue</param>
+        ///<param name="newSong">the song to be added to the next song queue</param>
         public void addSongToNextQueue(Song newSong)
         {
             currentQueue.addNextSong(newSong);

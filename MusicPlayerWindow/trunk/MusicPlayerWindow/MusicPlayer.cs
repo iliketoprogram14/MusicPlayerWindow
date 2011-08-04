@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace MusicPlayerWindow
 {
+    /// <summary>
+    /// Plays the music
+    /// </summary>
     public class MusicPlayer : MusicPlayerInterface, ISoundStopEventReceiver
     {
         private ISoundEngine engine;
@@ -65,6 +68,12 @@ namespace MusicPlayerWindow
         #endregion
 
         #region Event Handlers
+        /// <summary>
+        /// The event handler for when the music engine stops playing a sound
+        /// </summary>
+        /// <param name="sound">the sound that was stopped</param>
+        /// <param name="cause">the reason why the sound was stopped</param>
+        /// <param name="userData">extra data (unused)</param>
         public void OnSoundStopped(ISound sound, StopEventCause cause, object userData)
         {
             //play the next song if song finished naturally

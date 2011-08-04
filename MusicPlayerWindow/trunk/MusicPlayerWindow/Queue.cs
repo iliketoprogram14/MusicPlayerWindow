@@ -6,12 +6,18 @@ using System.Collections;
 
 namespace MusicPlayerWindow
 {
-    
+    /// <summary>
+    /// Holds a playlist and its next and previous song queues
+    /// </summary>
     public class Queue
     {
+        /// <summary>the playlist for which this queue was created</summary>
         public Playlist playlist;
+        /// <summary>the next song queue for the playlist</summary>
         public List<Song> nextSongQueue;
+        /// <summary>the previous song queue for the playlist</summary>
         public List<Song> prevSongQueue;
+        /// <summary>the number of songs the previous song queue can hold</summary>
         public int prevSongLimit;
 
         #region Constructors

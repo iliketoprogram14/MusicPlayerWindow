@@ -5,6 +5,9 @@ using System.Text;
 
 namespace MusicPlayerWindow
 {
+    /// <summary>
+    /// Reference the playlist xml file that contains paths to the playlist's songs
+    /// </summary>
     public class Playlist
     {
         private String name;
