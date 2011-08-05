@@ -425,8 +425,9 @@ namespace MusicPlayerWindow
             int timeout = 30000;
             System.IO.Directory.CreateDirectory(outputDir);
             String cmdArgs = String.Format("-mx1024m -jar itunesexport.jar -playlistType=M3U -library=\"{0}\\..\\iTunes Music Library.xml\" -outputDir=\"{1}\" -includeBuiltInPlaylists -excludePlaylist=\"iTunes DJ, Movies, iTunes U, Purchased on iPod touch, Purchased, Purchased on iPhone, Podcasts, Recently Played\"",
-                libLocation, outputDir); 
-            int exitcode = ExecuteProcess(@"C:\Program Files (x86)\Java\jre6\bin\java.exe",
+                libLocation, outputDir);
+            String javaLoc = (System.IO.Directory.Exists(@"C:\Program Files (x86)")) ? @"C:\Program Files (x86)\Java\jre6\bin\java.exe" : @"C:\Program Files\Java\jre6\bin\java.exe";
+            int exitcode = ExecuteProcess(javaLoc,
                 cmdArgs,
                 System.IO.Directory.GetCurrentDirectory(),
                 timeout);
