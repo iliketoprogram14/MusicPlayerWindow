@@ -52,8 +52,7 @@ namespace MusicPlayerWindow
         /// If the iTunes playlists haven't been imported, it calls the appropriate methods to do so
         /// </summary>
         public MainWindow()
-        {
-            
+        {            
             //import the iTunes playlists if they don't already exist
             if (!System.IO.Directory.Exists(outputDir) || System.IO.Directory.GetFiles(outputDir).Length == 0)
             {
