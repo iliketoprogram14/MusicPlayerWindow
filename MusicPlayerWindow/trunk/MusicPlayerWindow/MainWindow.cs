@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using IrrKlang;
 using System.Diagnostics;
 using System.Threading;
+using Microsoft.WindowsAPICodePack.Shell;
+using Microsoft.WindowsAPICodePack.Taskbar;
+using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace MusicPlayerWindow
 {
@@ -32,14 +35,11 @@ namespace MusicPlayerWindow
         }
         #endregion
 
-        private MusicPlayer player;
         /// <summary>the object that is responsible for updating the queues</summary>
         protected CustomMusicLoader loader;
+        private MusicPlayer player;
         private Song currentSong;
-
-        /// <summary>the location of the iTunes Music Library xml file</summary>
-        public String libLocation;
-        
+        private String libLocation;        
         private int playlistBoxLastIndex;
         
         private Thread scrollThread;
@@ -68,7 +68,6 @@ namespace MusicPlayerWindow
             //init the GUI
             InitializeComponent();
             InitPlaylistBox();
-            InitThumbnailToolbar();
 
             currentSong = null;
             Control.CheckForIllegalCrossThreadCalls = false;
@@ -264,11 +263,13 @@ namespace MusicPlayerWindow
             {
                 playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Play_Black;
                 thumbButtonPlay.Icon = MusicPlayerWindow.Properties.Resources.PlayIconWhite;
+                thumbButtonPlay.Tooltip = "Play";
             }
             else
             {
                 playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Pause_Black;
                 thumbButtonPlay.Icon = MusicPlayerWindow.Properties.Resources.PauseIconWhite;
+                thumbButtonPlay.Tooltip = "Pause";
             }
         }
 
@@ -369,10 +370,18 @@ namespace MusicPlayerWindow
         /// <param name="nextEnabled">the next button's enabled status</param>
         private void toggleButtons(bool prevEnabled, bool playEnabled, bool stopEnabled, bool nextEnabled)
         {
-            prevButton.Enabled = prevEnabled; thumbButtonPrev.Enabled = prevEnabled;
-            playButton.Enabled = playEnabled; thumbButtonPlay.Enabled = playEnabled;
-            stopButton.Enabled = stopEnabled; thumbButtonStop.Enabled = stopEnabled;
-            nextButton.Enabled = nextEnabled; thumbButtonNext.Enabled = nextEnabled;
+            prevButton.Enabled = prevEnabled; 
+            playButton.Enabled = playEnabled; 
+            stopButton.Enabled = stopEnabled; 
+            nextButton.Enabled = nextEnabled;
+
+            if (TaskbarManager.IsPlatformSupported)
+            {
+                thumbButtonPrev.Enabled = prevEnabled;
+                thumbButtonPlay.Enabled = playEnabled;
+                thumbButtonStop.Enabled = stopEnabled;
+                thumbButtonNext.Enabled = nextEnabled;
+            }
         }
         #endregion
 
@@ -423,7 +432,7 @@ namespace MusicPlayerWindow
         {
             int timeout = 30000;
             System.IO.Directory.CreateDirectory(outputDir);
-            String cmdArgs = String.Format("-mx1024m -jar itunesexport.jar -playlistType=M3U -library=\"{0}\\..\\iTunes Music Library.xml\" -outputDir=\"{1}\" -includeBuiltInPlaylists -excludePlaylist=\"iTunes DJ, Movies, iTunes U, Purchased on iPod touch, Purchased, Purchased on iPhone, Podcasts, Recently Played\"",
+            String cmdArgs = String.Format("-mx1024m -jar itunesexport.jar -playlistType=M3U -library=\"{0}\" -outputDir=\"{1}\" -includeBuiltInPlaylists -excludePlaylist=\"iTunes DJ, Movies, iTunes U, Purchased on iPod touch, Purchased, Purchased on iPhone, Podcasts, Recently Played\"",
                 libLocation, outputDir);
             String javaLoc = (System.IO.Directory.Exists(@"C:\Program Files (x86)")) ? @"C:\Program Files (x86)\Java\jre6\bin\java.exe" : @"C:\Program Files\Java\jre6\bin\java.exe";
             int exitcode = ExecuteProcess(javaLoc,
@@ -499,29 +508,43 @@ namespace MusicPlayerWindow
         /// </summary>
         private void getLibLocation()
         {
-            MessageBox.Show("Please specify the location of your iTunes Music folder in order to import your playlists.\n\n" +
-                "For example, C:/Users/YOUR_NAME/Music/iTunes/Music would work.\n\n" +
-                "The application assumes that all your iTunes music is in the same place. Click OK to continue.", "Specify iTunes Music Location",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            TaskDialog.Show("For example, \"C:/Users/YOUR_NAME/Music/iTunes/iTunes Music Library.xml\" would work.\n\n" +
+                "The application assumes that all your iTunes music is in the same place. Click OK to continue.",
+                "Please specify the location of your iTunes Library\n\n",
+                "Specify iTunes Music Location");
+
+            TaskDialog td = new TaskDialog();
+            td.Caption = "Specify iTunes Music Location";
+            td.InstructionText = "Please specify the location of your iTunes Music Library.\n\n";
+            td.Text =  "For example, \"C:/Users/YOUR_NAME/Music/iTunes/iTunes Music Library.xml\" would work." +
+                "The application assumes that all your iTunes music is in the same place. Click OK to continue.";
+            td.StandardButtons = TaskDialogStandardButtons.Ok;
+            td.Icon = TaskDialogStandardIcon.Error;
+            td.Show();
             
-            FolderBrowserDialog browser;
+            OpenFileDialog browser;
             bool shouldExit = false;
             while (true)
             {
-                browser = new FolderBrowserDialog();
-                browser.Description = "Please specify the location of your iTunes Music library (ie C:/....../iTunes/Music).\n";
+                browser = new OpenFileDialog();
+                browser.Title = "Please specify the location of your iTunes Music library (ie C:/....../iTunes/iTunes Music Library.xml).\n";
                 DialogResult result = browser.ShowDialog();
                 if (result == DialogResult.OK) { break; }
-                DialogResult retry = MessageBox.Show("You have cancelled specifying your iTunes library.  The application cannot complete setup without importing the iTunes playlists.\n\n" +
-                    "If you do not have an iTunes Music folder, exit setup, open iTunes, "+
+                TaskDialog tdRetry = new TaskDialog();
+                tdRetry.Caption = "Specify your iTunes Music Library XML file Location";
+                tdRetry.InstructionText = "Are you sure you want to exit setup?";
+                tdRetry.Text = "The application cannot complete setup without importing the iTunes playlists.\n\n" +
+                    "If you do not have an iTunes Music folder, exit setup, open iTunes, " +
                     "and under Edit->Preferences->Advanced, check \"Keep iTunes Media Folder organized\" and \" Copy files to iTunes Media Folder when adding to library\".\n\n" +
-                    "Click OK to try specifying the folder again.  To exit setup, please click Cancel",
-                    "Specify iTunes Music Location", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                if (retry == DialogResult.Cancel) { shouldExit = true; break;  }
+                    "Click OK to try specifying the folder again.  To exit setup, please click Cancel";
+                tdRetry.StandardButtons = TaskDialogStandardButtons.Yes | TaskDialogStandardButtons.No;
+                tdRetry.Icon = TaskDialogStandardIcon.Warning;
+                TaskDialogResult retry = tdRetry.Show();
+                if (retry == TaskDialogResult.Yes) { shouldExit = true; break; }
             }
             
             if (shouldExit) { this.Close(); System.Environment.Exit(1); return; }
-            libLocation = browser.SelectedPath;
+            libLocation = browser.FileName;
         }
         #endregion
     }

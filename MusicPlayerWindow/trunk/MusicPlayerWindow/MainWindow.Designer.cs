@@ -1,8 +1,8 @@
 ﻿using System.Drawing.Drawing2D;
 using System.Drawing;
-using Microsoft.WindowsAPICodePack;
 using Microsoft.WindowsAPICodePack.Shell;
 using Microsoft.WindowsAPICodePack.Taskbar;
+
 using System;
 namespace MusicPlayerWindow
 {
@@ -37,7 +37,6 @@ namespace MusicPlayerWindow
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.volumeBar = new System.Windows.Forms.TrackBar();
             this.playlistBox = new System.Windows.Forms.ComboBox();
@@ -159,7 +158,7 @@ namespace MusicPlayerWindow
             // 
             // playButton
             // 
-            this.playButton.BackColor = System.Drawing.Color.Transparent;
+            this.playButton.BackColor = System.Drawing.Color.Black;
             this.playButton.Image = ((System.Drawing.Image)(resources.GetObject("playButton.Image")));
             this.playButton.Location = new System.Drawing.Point(50, 10);
             this.playButton.MinimumSize = new System.Drawing.Size(60, 60);
@@ -187,6 +186,7 @@ namespace MusicPlayerWindow
             this.Name = "MainWindow";
             this.Text = "Playlist Shuffler";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainWindow_FormClosed);
+            this.Shown += new System.EventHandler(this.MainWindow_Shown);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.MainWindow_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.volumeBar)).EndInit();
             this.labelPanel.ResumeLayout(false);
@@ -228,15 +228,16 @@ namespace MusicPlayerWindow
         {
             // Create our Thumbnail toolbar buttons for the Browser doc
             thumbButtonPrev = new ThumbnailToolBarButton(Properties.Resources.PrevIconWhite, "Previous Song");
-            thumbButtonPrev.Click += new EventHandler<ThumbnailButtonClickedEventArgs>(thumbButtonPrev_Click);
+            thumbButtonPrev.Click += new System.EventHandler<ThumbnailButtonClickedEventArgs>(this.thumbButtonPrev_Click);
             thumbButtonNext = new ThumbnailToolBarButton(Properties.Resources.NextIconWhite, "Next Song");
-            thumbButtonNext.Click += new EventHandler<ThumbnailButtonClickedEventArgs>(thumbButtonNext_Click);
+            thumbButtonNext.Click += new System.EventHandler<ThumbnailButtonClickedEventArgs>(this.thumbButtonNext_Click);
             thumbButtonStop = new ThumbnailToolBarButton(Properties.Resources.StopIconWhite, "Stop");
-            thumbButtonStop.Click += new EventHandler<ThumbnailButtonClickedEventArgs>(thumbButtonStop_Click);
+            thumbButtonStop.Click += new System.EventHandler<ThumbnailButtonClickedEventArgs>(this.thumbButtonStop_Click);
             thumbButtonPlay = new ThumbnailToolBarButton(Properties.Resources.PlayIconWhite, "Play");
-            thumbButtonPlay.Click += new EventHandler<ThumbnailButtonClickedEventArgs>(thumbButtonPlay_Click);
-
-            TaskbarManager.Instance.ThumbnailToolBars.AddButtons(this.Handle, thumbButtonPrev, thumbButtonPlay, thumbButtonStop, thumbButtonNext);
+            thumbButtonPlay.Click += new System.EventHandler<ThumbnailButtonClickedEventArgs>(this.thumbButtonPlay_Click);
+            
+            TaskbarManager.Instance.ThumbnailToolBars.AddButtons(this.Handle,
+                thumbButtonPrev, thumbButtonPlay, thumbButtonStop, thumbButtonNext);
             toggleButtons(prevButton.Enabled, playButton.Enabled, stopButton.Enabled, nextButton.Enabled);
         }
 
@@ -245,7 +246,7 @@ namespace MusicPlayerWindow
         ///</summary>
         ///<param name="sender">the object sending the event</param>
         ///<param name="e">the event itself</param>
-        void thumbButtonPrev_Click(object sender, EventArgs e)
+        void thumbButtonPrev_Click(object sender, ThumbnailButtonClickedEventArgs e)
         {
             prevButton_Click(sender, e);
         }
@@ -255,7 +256,7 @@ namespace MusicPlayerWindow
         ///</summary>
         ///<param name="sender">the object sending the event</param>
         ///<param name="e">the event itself</param>
-        void thumbButtonNext_Click(object sender, EventArgs e)
+        void thumbButtonNext_Click(object sender, ThumbnailButtonClickedEventArgs e)
         {
             nextButton_Click(sender, e);
         }
@@ -265,7 +266,7 @@ namespace MusicPlayerWindow
         ///</summary>
         ///<param name="sender">the object sending the event</param>
         ///<param name="e">the event itself</param>
-        void thumbButtonPlay_Click(object sender, EventArgs e)
+        private void thumbButtonPlay_Click(object sender, ThumbnailButtonClickedEventArgs e)
         {
             playButton_Click(sender, e);
         }
@@ -275,9 +276,13 @@ namespace MusicPlayerWindow
         ///</summary>
         ///<param name="sender">the object sending the event</param>
         ///<param name="e">the event itself</param>
-        void thumbButtonStop_Click(object sender, EventArgs e)
+        void thumbButtonStop_Click(object sender, ThumbnailButtonClickedEventArgs e)
         {
             stopButton_Click(sender, e);
+        }
+
+        void MainWindow_Shown(object sender, System.EventArgs e) {
+            InitThumbnailToolbar();
         }
         #endregion
 
@@ -316,13 +321,13 @@ namespace MusicPlayerWindow
             System.Drawing.Rectangle newRectangle = button.ClientRectangle;
 
             // Decrease the size of the rectangle.
-            newRectangle.Inflate(-4, -4);
+            newRectangle.Inflate(-5, -5);
 
             // Draw the button's border.
             e.Graphics.DrawEllipse(System.Drawing.Pens.Transparent, newRectangle);
 
             // Increase the size of the rectangle to include the border.
-            newRectangle.Inflate(1, 1);
+            newRectangle.Inflate(0, 0);
 
             // Create a circle within the new rectangle.
             buttonPath.AddEllipse(newRectangle);

@@ -27,26 +27,44 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_405AD489151212CF56F2817194FB6558"
-        "OwnerKey" = "8:_FD167BF67D1A4ED0A51C8D2E860B945C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_503BD27FA5744547B22396CBFDBBFD3D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_5F2E387BAB4240F997FFAC4507AE0251"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_69BD4AFC542347E866B7ED1A0ABD6CD1"
+        "OwnerKey" = "8:_9E1350EBA0D24837A3387A324D8B71D3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_69BD4AFC542347E866B7ED1A0ABD6CD1"
+        "OwnerKey" = "8:_7EB427C82FB254934C80717F0CBB34AA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_6D051FD14CB763A6BAE1FE9EFD7B99E7"
-        "OwnerKey" = "8:_FD167BF67D1A4ED0A51C8D2E860B945C"
+        "OwnerKey" = "8:_9E1350EBA0D24837A3387A324D8B71D3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7A680AF3281042F08F1E2FCB5B20FDD8"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7B6A3207786F4136B82528A506518E57"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7EB427C82FB254934C80717F0CBB34AA"
+        "OwnerKey" = "8:_9E1350EBA0D24837A3387A324D8B71D3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -57,25 +75,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_BFC2782229C7B8B8131CD8F1F09E1450"
-        "OwnerKey" = "8:_FD167BF67D1A4ED0A51C8D2E860B945C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_E89BC2E29D7641DB8BE40D5FE90F09C8"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_E96548960FA744419BE1643ACE462A86"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_FD167BF67D1A4ED0A51C8D2E860B945C"
+        "MsmKey" = "8:_9E1350EBA0D24837A3387A324D8B71D3"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -88,49 +88,31 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E89BC2E29D7641DB8BE40D5FE90F09C8"
+        "OwnerKey" = "8:_7B6A3207786F4136B82528A506518E57"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_BFC2782229C7B8B8131CD8F1F09E1450"
+        "OwnerKey" = "8:_7A680AF3281042F08F1E2FCB5B20FDD8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_BFC2782229C7B8B8131CD8F1F09E1450"
+        "OwnerKey" = "8:_9E1350EBA0D24837A3387A324D8B71D3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_5F2E387BAB4240F997FFAC4507AE0251"
+        "OwnerKey" = "8:_7EB427C82FB254934C80717F0CBB34AA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_405AD489151212CF56F2817194FB6558"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_FD167BF67D1A4ED0A51C8D2E860B945C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E96548960FA744419BE1643ACE462A86"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_FD167BF67D1A4ED0A51C8D2E860B945C"
+        "OwnerKey" = "8:_69BD4AFC542347E866B7ED1A0ABD6CD1"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -278,14 +260,34 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_405AD489151212CF56F2817194FB6558"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_503BD27FA5744547B22396CBFDBBFD3D"
+            {
+            "SourcePath" = "8:..\\MusicPlayerWindow\\PlayIconBlack.ico"
+            "TargetName" = "8:PlayIconBlack.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_BD36DBBC48A24C4B8D988F10CFB48B94"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_69BD4AFC542347E866B7ED1A0ABD6CD1"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_405AD489151212CF56F2817194FB6558"
+                    "_69BD4AFC542347E866B7ED1A0ABD6CD1"
                     {
                     "Name" = "8:Microsoft.WindowsAPICodePack.dll"
                     "Attributes" = "3:512"
@@ -307,57 +309,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_503BD27FA5744547B22396CBFDBBFD3D"
-            {
-            "SourcePath" = "8:..\\MusicPlayerWindow\\PlayIconBlack.ico"
-            "TargetName" = "8:PlayIconBlack.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_BD36DBBC48A24C4B8D988F10CFB48B94"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5F2E387BAB4240F997FFAC4507AE0251"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:PresentationCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
-                "ScatterAssemblies"
-                {
-                    "_5F2E387BAB4240F997FFAC4507AE0251"
-                    {
-                    "Name" = "8:PresentationCore.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\PresentationCore.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_BD36DBBC48A24C4B8D988F10CFB48B94"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6D051FD14CB763A6BAE1FE9EFD7B99E7"
@@ -391,10 +342,21 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8BFEB1BF8F5B4385A04F61AFDBA2E1AF"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_7A680AF3281042F08F1E2FCB5B20FDD8"
             {
-            "SourcePath" = "8:..\\MusicPlayerWindow\\ikpMP3.dll"
-            "TargetName" = "8:ikpMP3.dll"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:PresentationCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+                "ScatterAssemblies"
+                {
+                    "_7A680AF3281042F08F1E2FCB5B20FDD8"
+                    {
+                    "Name" = "8:PresentationCore.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\PresentationCore.dll"
+            "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_BD36DBBC48A24C4B8D988F10CFB48B94"
             "Condition" = "8:"
@@ -411,45 +373,14 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BFC2782229C7B8B8131CD8F1F09E1450"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_BFC2782229C7B8B8131CD8F1F09E1450"
-                    {
-                    "Name" = "8:Microsoft.WindowsAPICodePack.Shell.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Microsoft.WindowsAPICodePack.Shell.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_BD36DBBC48A24C4B8D988F10CFB48B94"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E89BC2E29D7641DB8BE40D5FE90F09C8"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_7B6A3207786F4136B82528A506518E57"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
                 "ScatterAssemblies"
                 {
-                    "_E89BC2E29D7641DB8BE40D5FE90F09C8"
+                    "_7B6A3207786F4136B82528A506518E57"
                     {
                     "Name" = "8:WindowsBase.dll"
                     "Attributes" = "3:512"
@@ -473,21 +404,41 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E96548960FA744419BE1643ACE462A86"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_7EB427C82FB254934C80717F0CBB34AA"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+            "AssemblyAsmDisplayName" = "8:Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_E96548960FA744419BE1643ACE462A86"
+                    "_7EB427C82FB254934C80717F0CBB34AA"
                     {
-                    "Name" = "8:PresentationFramework.dll"
+                    "Name" = "8:Microsoft.WindowsAPICodePack.Shell.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:C:\\Program Files (x86)\\Reference Assemblies\\Microsoft\\Framework\\.NETFramework\\v4.0\\PresentationFramework.dll"
+            "SourcePath" = "8:Microsoft.WindowsAPICodePack.Shell.dll"
             "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_BD36DBBC48A24C4B8D988F10CFB48B94"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8BFEB1BF8F5B4385A04F61AFDBA2E1AF"
+            {
+            "SourcePath" = "8:..\\MusicPlayerWindow\\ikpMP3.dll"
+            "TargetName" = "8:ikpMP3.dll"
             "Tag" = "8:"
             "Folder" = "8:_BD36DBBC48A24C4B8D988F10CFB48B94"
             "Condition" = "8:"
@@ -572,7 +523,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Playlist Shuffler"
         "ProductCode" = "8:{45EABA04-CC2D-4D81-B8AF-0C02E065E265}"
-        "PackageCode" = "8:{9007F7F1-D81C-47EF-A8F4-A62B89AFFC7B}"
+        "PackageCode" = "8:{40577265-BE41-48B2-A78D-7E8E6D5BB1CC}"
         "UpgradeCode" = "8:{213E8DCC-6DF2-4558-BE56-EB16A44A41AA}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -692,7 +643,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_4F6D5418717D49D0AB979CD98EC07841"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_3AD24706004E42F6BA212147F8680085"
             {
             "Name" = "8:Playlist Shuffler"
             "Arguments" = "8:"
@@ -700,10 +651,10 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_FD167BF67D1A4ED0A51C8D2E860B945C"
+            "Target" = "8:_9E1350EBA0D24837A3387A324D8B71D3"
             "Folder" = "8:_C32DEFC39704418987F675A36B61546F"
             "WorkingFolder" = "8:_BD36DBBC48A24C4B8D988F10CFB48B94"
-            "Icon" = "8:_503BD27FA5744547B22396CBFDBBFD3D"
+            "Icon" = "8:"
             "Feature" = "8:"
             }
         }
@@ -1105,7 +1056,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_FD167BF67D1A4ED0A51C8D2E860B945C"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_9E1350EBA0D24837A3387A324D8B71D3"
             {
             "SourcePath" = "8:..\\MusicPlayerWindow\\obj\\x86\\Debug\\MusicPlayerWindow.exe"
             "TargetName" = "8:"
