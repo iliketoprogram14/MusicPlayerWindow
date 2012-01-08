@@ -45,9 +45,19 @@ namespace MusicPlayerWindow
         ///<param name="q">the queue to be filled with songs</param>
         private void initNextQueue(Queue q)
         {
-            for (int i = 0; i < 5; i++)
-            {
-                q.addNextSong(loader.getOneSong(q));
+            List<String> songsInQueue = new List<String>();
+            Song tmp;
+
+            for (int i = 0; i < 5; i++) {
+                Boolean gotNewSong = false;
+                do {
+                    tmp = loader.getOneSong(q);
+                    if (!songsInQueue.Contains(tmp.getPath())) {
+                        q.addNextSong(tmp);
+                        songsInQueue.Add(tmp.getPath());
+                        gotNewSong = true;
+                    }
+                } while (!gotNewSong);
             }
         }
         #endregion

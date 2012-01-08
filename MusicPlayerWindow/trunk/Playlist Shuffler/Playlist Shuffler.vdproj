@@ -34,12 +34,6 @@
         "Entry"
         {
         "MsmKey" = "8:_36527E19895D3E922AF20BBCEBF3C265"
-        "OwnerKey" = "8:_7EB427C82FB254934C80717F0CBB34AA"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_36527E19895D3E922AF20BBCEBF3C265"
         "OwnerKey" = "8:_17F4B3F715C8AA641B8FD888C17D280C"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -47,12 +41,6 @@
         {
         "MsmKey" = "8:_503BD27FA5744547B22396CBFDBBFD3D"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_69BD4AFC542347E866B7ED1A0ABD6CD1"
-        "OwnerKey" = "8:_9E1350EBA0D24837A3387A324D8B71D3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -71,12 +59,6 @@
         {
         "MsmKey" = "8:_7B6A3207786F4136B82528A506518E57"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_7EB427C82FB254934C80717F0CBB34AA"
-        "OwnerKey" = "8:_9E1350EBA0D24837A3387A324D8B71D3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -118,12 +100,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_7EB427C82FB254934C80717F0CBB34AA"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_7B6A3207786F4136B82528A506518E57"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -131,12 +107,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_7A680AF3281042F08F1E2FCB5B20FDD8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_69BD4AFC542347E866B7ED1A0ABD6CD1"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -381,37 +351,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_69BD4AFC542347E866B7ED1A0ABD6CD1"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_69BD4AFC542347E866B7ED1A0ABD6CD1"
-                    {
-                    "Name" = "8:Microsoft.WindowsAPICodePack.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Microsoft.WindowsAPICodePack.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_BD36DBBC48A24C4B8D988F10CFB48B94"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6D051FD14CB763A6BAE1FE9EFD7B99E7"
             {
             "AssemblyRegister" = "3:1"
@@ -503,37 +442,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_7EB427C82FB254934C80717F0CBB34AA"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_7EB427C82FB254934C80717F0CBB34AA"
-                    {
-                    "Name" = "8:Microsoft.WindowsAPICodePack.Shell.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Microsoft.WindowsAPICodePack.Shell.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_BD36DBBC48A24C4B8D988F10CFB48B94"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8BFEB1BF8F5B4385A04F61AFDBA2E1AF"
@@ -683,15 +591,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Playlist Shuffler"
-        "ProductCode" = "8:{45EABA04-CC2D-4D81-B8AF-0C02E065E265}"
-        "PackageCode" = "8:{40577265-BE41-48B2-A78D-7E8E6D5BB1CC}"
+        "ProductCode" = "8:{0E4E2FB5-61EB-4041-99EE-A01D2112C214}"
+        "PackageCode" = "8:{DE8FE99F-BBA8-4056-9784-17EA9FB795C5}"
         "UpgradeCode" = "8:{213E8DCC-6DF2-4558-BE56-EB16A44A41AA}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.1.0"
         "Manufacturer" = "8:Randy Miller"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
