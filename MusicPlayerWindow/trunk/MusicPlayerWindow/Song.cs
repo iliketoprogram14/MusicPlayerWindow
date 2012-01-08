@@ -11,7 +11,7 @@ namespace MusicPlayerWindow
     public class Song
     {
         private String path;
-        private IrrKlang.ISound sound;
+        private Sound sound;
 
         #region Constructors
         ///<summary>
@@ -21,7 +21,6 @@ namespace MusicPlayerWindow
         public Song(String path)
         {
             this.path = path;
-            this.sound = null;
         }
 
         ///<summary>
@@ -49,7 +48,7 @@ namespace MusicPlayerWindow
         ///Changes the irrKlang sound of the song
         ///</summary>
         ///<param name="sound">the irrKlang sound played that is associated with the song/path</param>
-        public void setSound(IrrKlang.ISound sound)
+        public void setSound(Sound sound)
         {
             this.sound = sound;
         }
@@ -67,7 +66,7 @@ namespace MusicPlayerWindow
         ///<summary>
         ///Gets irrKlang sound of song
         ///</summary>
-        public IrrKlang.ISound getSound()
+        public Sound getSound()
         {
             return sound;
         }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 
 using IrrKlang;
+using Un4seen.Bass;
 using System.Diagnostics;
 using System.Threading;
 using Microsoft.WindowsAPICodePack.Shell;
@@ -37,7 +38,7 @@ namespace MusicPlayerWindow
 
         /// <summary>the object that is responsible for updating the queues</summary>
         protected CustomMusicLoader loader;
-        private MusicPlayer player;
+        private MusicPlayer_Bass player;
         private Song currentSong;
         private String libLocation;        
         private int playlistBoxLastIndex;
@@ -62,7 +63,7 @@ namespace MusicPlayerWindow
             }
 
             //init the player and music loader thread
-            player = new MusicPlayer(this);
+            player = new MusicPlayer_Bass(this);
             loader = new CustomMusicLoader(outputDir);
 
             //init the GUI
@@ -165,7 +166,7 @@ namespace MusicPlayerWindow
         private void volumeBar_Scroll(object sender, EventArgs e)
         {
             if (currentSong != null)
-                currentSong.getSound().Volume = volumeBar.Value / 100.0f;
+                currentSong.getSound().setVolume(volumeBar.Value / 100.0f);
         }
 
         /// <summary>
@@ -259,7 +260,7 @@ namespace MusicPlayerWindow
         /// </summary>
         private void switchImagesPlayPause()
         {
-            if (currentSong.getSound().Paused == true)
+            if (currentSong.getSound().isPaused())
             {
                 playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Play_Black;
                 thumbButtonPlay.Icon = MusicPlayerWindow.Properties.Resources.PlayIconWhite;
@@ -280,9 +281,9 @@ namespace MusicPlayerWindow
         private void updateLabels()
         {
             //parse path to get name, album, and artist
-            String[] fields = currentSong.getPath().Split('\\');
+            String[] fields = currentSong.getPath().Split('/');
 
-            String nameFiltered = fields[fields.Length - 1].Replace(".mp3", "").Replace(".aac", "").Replace(".mp4", "");
+            String nameFiltered = fields[fields.Length - 1].Replace(".mp3", "").Replace(".aac", "").Replace(".mp4", "").Replace(".m4a", "");
             String nameTmp2 = System.Text.RegularExpressions.Regex.Replace(nameFiltered, matchPattern, "");
             String name = System.Text.RegularExpressions.Regex.Replace(nameTmp2, matchPattern2, "");
 
@@ -403,7 +404,7 @@ namespace MusicPlayerWindow
         #endregion
 
         #region Library-related Methods
-        ///<summary>
+        /*///<summary>
         /// Executes a process and waits for it to end. 
         ///</summary>
         ///<param name="cmd">Full Path of process to execute.</param>
@@ -411,7 +412,7 @@ namespace MusicPlayerWindow
         ///<param name="workingDirectory">Process' working directory</param>
         ///<param name="timeout">Time to wait for process to end</param>
         ///<returns>Process exit code</returns>
-        /*private int ExecuteProcess(string cmd, string cmdParams, string workingDirectory, int timeout)
+        private int ExecuteProcess(string cmd, string cmdParams, string workingDirectory, int timeout)
         {
             ProcessStartInfo pInfo = new ProcessStartInfo(cmd, cmdParams);
             pInfo.WorkingDirectory = workingDirectory;
@@ -424,11 +425,11 @@ namespace MusicPlayerWindow
             return p.ExitCode;
         }*/
 
-        /// <summary>
+        /*/// <summary>
         /// Called in a separate thread
         /// It executes a java process to import the iTunes playlists using Eric Daugherty's iTunes Exporter <see href="http://www.ericdaugherty.com/dev/itunesexport/"/>
         /// </summary>
-        /*private void ExecuteThread()
+        private void ExecuteThread()
         {
             int timeout = 30000;
             System.IO.Directory.CreateDirectory(outputDir);
@@ -441,10 +442,10 @@ namespace MusicPlayerWindow
                 timeout);
         }*/
 
-        /// <summary>
+        /*/// <summary>
         /// Inits the thread to import the playlists and advises the user what's going on before waiting for the importing to finish
         /// </summary>
-        /*private void getiTunesSongs()
+        private void getiTunesSongs()
         {
             Thread t = new Thread(new ThreadStart(ExecuteThread));
             t.Start();

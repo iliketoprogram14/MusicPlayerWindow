@@ -147,7 +147,7 @@ namespace MusicPlayerWindow
         }
         #endregion
 
-        #region Internal Methods (they actually implement the above methods the interface)
+        #region Internal Methods (they actually implement the above methods in the interface)
         /// <summary>
         /// The loader adds a song to the next song queue
         /// </summary>
@@ -202,7 +202,7 @@ namespace MusicPlayerWindow
         {
             //get song from playlist
             String path = q.getPlaylistPath();
-            System.Xml.XPath.XPathDocument doc = new System.Xml.XPath.XPathDocument(q.getPlaylistPath());
+            System.Xml.XPath.XPathDocument doc = new System.Xml.XPath.XPathDocument(path);
             System.Xml.XPath.XPathNavigator nav = doc.CreateNavigator();
             Random random = new Random();
             int num = random.Next(0, q.getPlaylistLen());

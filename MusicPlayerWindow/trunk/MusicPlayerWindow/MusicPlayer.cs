@@ -33,10 +33,11 @@ namespace MusicPlayerWindow
         /// <param name="song">the song to be played</param>
         public void playCurrSong(Song song)
         {
-            ISound sound = engine.Play2D(song.getPath());
+            //ISound sound = engine.Play2D(song.getPath());
+            ISound sound = engine.Play2D(@"D:/Music/iTunes/Music/Yes/Fragile/01 Roundabout.mp3");
             sound.Volume = window.getVolume();
             sound.setSoundStopEventReceiver(this); //set stop handler
-            song.setSound(sound);
+            song.setSound(new Sound(sound));
         }
 
         /// <summary>
@@ -45,7 +46,7 @@ namespace MusicPlayerWindow
         /// <param name="song">the song to be paused or unpaused</param>
         public void pauseUnpauseSong(Song song)
         {
-            song.getSound().Paused = !song.getSound().Paused;
+            song.getSound().pauseUnpause();
         }
 
         /// <summary>
@@ -54,7 +55,17 @@ namespace MusicPlayerWindow
         /// <param name="song">the song to be stopped</param>
         public void stopSong(Song song)
         {
-            song.getSound().Stop();
+            song.getSound().stop();
+        }
+
+        public void setVolume(Song song, float volume)
+        {
+            song.getSound().setVolume(volume);
+        }
+
+        public Boolean isPaused(Song song)
+        {
+            return song.getSound().isPaused();
         }
 
         /// <summary>
