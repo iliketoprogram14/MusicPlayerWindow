@@ -57,7 +57,7 @@ namespace MusicPlayerWindow
             if (!System.IO.Directory.Exists(outputDir) || System.IO.Directory.GetFiles(outputDir).Length == 0)
             {
                 getLibLocation();
-                getiTunesSongs();
+                //getiTunesSongs();
                 parseiTunesSongs(outputDir);
             }
 
@@ -463,7 +463,9 @@ namespace MusicPlayerWindow
         /// <param name="outputDir"></param>
         private void parseiTunesSongs(String outputDir)
         {
-            String[] playlistPaths = System.IO.Directory.GetFiles(outputDir);
+            PlaylistParser parser = new PlaylistParser(libLocation, outputDir);
+            parser.createPlaylists();
+            /*String[] playlistPaths = System.IO.Directory.GetFiles(outputDir);
             foreach (String file in playlistPaths)
             {
                 System.IO.TextReader tr = new System.IO.StreamReader(file);
@@ -500,7 +502,7 @@ namespace MusicPlayerWindow
                 tr.Close();
                 w.Close();
                 System.IO.File.Delete(file); //deletes old playlist
-            }
+            }*/
         }
 
         /// <summary>
