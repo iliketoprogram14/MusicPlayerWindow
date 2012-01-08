@@ -411,7 +411,7 @@ namespace MusicPlayerWindow
         ///<param name="workingDirectory">Process' working directory</param>
         ///<param name="timeout">Time to wait for process to end</param>
         ///<returns>Process exit code</returns>
-        private int ExecuteProcess(string cmd, string cmdParams, string workingDirectory, int timeout)
+        /*private int ExecuteProcess(string cmd, string cmdParams, string workingDirectory, int timeout)
         {
             ProcessStartInfo pInfo = new ProcessStartInfo(cmd, cmdParams);
             pInfo.WorkingDirectory = workingDirectory;
@@ -422,13 +422,13 @@ namespace MusicPlayerWindow
             String stdOutput = p.StandardOutput.ReadToEnd();
             p.WaitForExit(timeout);
             return p.ExitCode;
-        }
+        }*/
 
         /// <summary>
         /// Called in a separate thread
         /// It executes a java process to import the iTunes playlists using Eric Daugherty's iTunes Exporter <see href="http://www.ericdaugherty.com/dev/itunesexport/"/>
         /// </summary>
-        private void ExecuteThread()
+        /*private void ExecuteThread()
         {
             int timeout = 30000;
             System.IO.Directory.CreateDirectory(outputDir);
@@ -439,12 +439,12 @@ namespace MusicPlayerWindow
                 cmdArgs,
                 System.IO.Directory.GetCurrentDirectory(),
                 timeout);
-        }
+        }*/
 
         /// <summary>
         /// Inits the thread to import the playlists and advises the user what's going on before waiting for the importing to finish
         /// </summary>
-        private void getiTunesSongs()
+        /*private void getiTunesSongs()
         {
             Thread t = new Thread(new ThreadStart(ExecuteThread));
             t.Start();
@@ -454,7 +454,7 @@ namespace MusicPlayerWindow
                 "Importing your iTunes songs right now",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
             t.Join(30000);
-        }
+        }*/
 
         /// <summary>
         /// Converts the playlist files from .m3u format to xml, adding an id to each song within the playlist
@@ -510,40 +510,36 @@ namespace MusicPlayerWindow
         /// </summary>
         private void getLibLocation()
         {
+            //Show dialog to ask for the xml library.
             TaskDialog.Show("For example, \"C:/Users/YOUR_NAME/Music/iTunes/iTunes Music Library.xml\" would work.\n\n" +
                 "The application assumes that all your iTunes music is in the same place. Click OK to continue.",
                 "Please specify the location of your iTunes Library\n\n",
                 "Specify iTunes Music Location");
-
-            TaskDialog td = new TaskDialog();
-            td.Caption = "Specify iTunes Music Location";
-            td.InstructionText = "Please specify the location of your iTunes Music Library.\n\n";
-            td.Text =  "For example, \"C:/Users/YOUR_NAME/Music/iTunes/iTunes Music Library.xml\" would work." +
-                "The application assumes that all your iTunes music is in the same place. Click OK to continue.";
-            td.StandardButtons = TaskDialogStandardButtons.Ok;
-            td.Icon = TaskDialogStandardIcon.Error;
-            td.Show();
             
             OpenFileDialog browser;
-            bool shouldExit = false;
-            while (true)
-            {
+            Boolean shouldExit = false;
+            //open a file browser, and display a retry dialog if the user exits out of the file browser
+            do {
+                //show file browser
                 browser = new OpenFileDialog();
                 browser.Title = "Please specify the location of your iTunes Music library (ie C:/....../iTunes/iTunes Music Library.xml).\n";
                 DialogResult result = browser.ShowDialog();
-                if (result == DialogResult.OK) { break; }
+                if (result == DialogResult.OK)
+                    break;
+
+                //display a retry dialog
                 TaskDialog tdRetry = new TaskDialog();
                 tdRetry.Caption = "Specify your iTunes Music Library XML file Location";
                 tdRetry.InstructionText = "Are you sure you want to exit setup?";
                 tdRetry.Text = "The application cannot complete setup without importing the iTunes playlists.\n\n" +
                     "If you do not have an iTunes Music folder, exit setup, open iTunes, " +
-                    "and under Edit->Preferences->Advanced, check \"Keep iTunes Media Folder organized\" and \" Copy files to iTunes Media Folder when adding to library\".\n\n" +
-                    "Click OK to try specifying the folder again.  To exit setup, please click Cancel";
+                    "and under Edit->Preferences->Advanced, check \"Keep iTunes Media Folder organized\" and \" Copy files to iTunes Media Folder when adding to library\".";
                 tdRetry.StandardButtons = TaskDialogStandardButtons.Yes | TaskDialogStandardButtons.No;
                 tdRetry.Icon = TaskDialogStandardIcon.Warning;
                 TaskDialogResult retry = tdRetry.Show();
-                if (retry == TaskDialogResult.Yes) { shouldExit = true; break; }
-            }
+                if (retry == TaskDialogResult.Yes)
+                    shouldExit = true;
+            } while (!shouldExit);
             
             if (shouldExit) { this.Close(); System.Environment.Exit(1); return; }
             libLocation = browser.FileName;
