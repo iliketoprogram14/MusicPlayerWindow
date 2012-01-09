@@ -7,6 +7,10 @@ using Un4seen.Bass;
 
 namespace MusicPlayerWindow
 {
+    /// <summary>
+    /// Encapsulates the underlying representation of a song;
+    /// Currently encapsulates IrrKlang ISounds and Bass.Net streams
+    /// </summary>
     public class Sound
     {
         #region Properties

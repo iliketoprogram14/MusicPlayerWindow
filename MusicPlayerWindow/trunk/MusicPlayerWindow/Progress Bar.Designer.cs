@@ -29,38 +29,38 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Progress_Bar));
-            this.label1 = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.infoLabel = new System.Windows.Forms.Label();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(21, 43);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(225, 52);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Creating song index...";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.infoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.infoLabel.Location = new System.Drawing.Point(21, 43);
+            this.infoLabel.Name = "label1";
+            this.infoLabel.Size = new System.Drawing.Size(225, 52);
+            this.infoLabel.TabIndex = 1;
+            this.infoLabel.Text = "Creating song index...";
+            this.infoLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(21, 98);
-            this.progressBar1.MarqueeAnimationSpeed = 50;
-            this.progressBar1.Maximum = 1000;
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(225, 29);
-            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.progressBar1.TabIndex = 0;
-            this.progressBar1.UseWaitCursor = true;
+            this.progressBar.Location = new System.Drawing.Point(21, 98);
+            this.progressBar.MarqueeAnimationSpeed = 50;
+            this.progressBar.Maximum = 1000;
+            this.progressBar.Name = "progressBar1";
+            this.progressBar.Size = new System.Drawing.Size(225, 29);
+            this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progressBar.TabIndex = 0;
+            this.progressBar.UseWaitCursor = true;
             // 
             // Progress_Bar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(271, 175);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.infoLabel);
+            this.Controls.Add(this.progressBar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Progress_Bar";
             this.Text = "Creating Playlists";
@@ -70,8 +70,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label infoLabel;
+        private System.Windows.Forms.ProgressBar progressBar;
 
     }
 }

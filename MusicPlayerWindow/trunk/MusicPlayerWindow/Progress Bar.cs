@@ -9,8 +9,14 @@ using System.Windows.Forms;
 
 namespace MusicPlayerWindow
 {
+    /// <summary>
+    /// A form that consists of a progress bar and an information label
+    /// </summary>
     public partial class Progress_Bar : Form
     {
+        /// <summary>
+        /// Constructor for the Progress_Bar form; initializes the progress bar and the information label
+        /// </summary>
         public Progress_Bar()
         {
             InitializeComponent();
@@ -24,7 +30,7 @@ namespace MusicPlayerWindow
         /// <param name="msg">The message to be put in the information label</param>
         public void setLabel(String msg)
         {
-            label1.Text = msg;
+            infoLabel.Text = msg;
         }
 
         /// <summary>
@@ -33,7 +39,7 @@ namespace MusicPlayerWindow
         /// <param name="value">The new value of the progress bar</param>
         public void setValue(int value)
         {
-            progressBar1.Value = value;
+            progressBar.Value = value;
         }
     }
 }
