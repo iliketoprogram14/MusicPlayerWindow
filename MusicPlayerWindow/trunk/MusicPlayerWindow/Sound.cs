@@ -9,30 +9,47 @@ namespace MusicPlayerWindow
 {
     public class Sound
     {
+        #region Properties
+
         private int stream;            //for Bass
         private IrrKlang.ISound sound; //for IrrKlang
         private enum Engines { Bass, IrrKlang };
         private Engines engine;
 
+        #endregion
+
         #region Constructors
+
+        /// <summary>
+        /// Sound constructor for a Bass.Net stream
+        /// </summary>
+        /// <param name="stream"></param>
         public Sound(int stream)
         {
             this.stream = stream;
             engine = Engines.Bass;
         }
 
+        /// <summary>
+        /// Sound constructor for a IrrKlang ISound
+        /// </summary>
+        /// <param name="sound"></param>
         public Sound(IrrKlang.ISound sound)
         {
             this.sound = sound;
             engine = Engines.IrrKlang;
         }
+
         #endregion
 
         #region Interface
+
+        /// <summary>
+        /// Stops the sound permanently
+        /// </summary>
         public void stop()
         {
-            switch (engine)
-            {
+            switch (engine) {
                 case Engines.Bass:
                     Bass.BASS_ChannelStop(stream);
                     break;
@@ -42,6 +59,9 @@ namespace MusicPlayerWindow
             }
         }
 
+        /// <summary>
+        /// Pause or unpause the sound
+        /// </summary>
         public void pauseUnpause()
         {
             switch (engine)
@@ -58,14 +78,19 @@ namespace MusicPlayerWindow
                     break;
             }
         }
+
         #endregion
 
         #region Accessors
+
+        /// <summary>
+        /// Accessor for the volume of the current sound
+        /// </summary>
+        /// <returns>Volume of the current sound</returns>
         public float getVolume()
         {
             float volume = 100;
-            switch (engine)
-            {
+            switch (engine) {
                 case Engines.Bass:
                     volume = Bass.BASS_GetVolume();
                     break;
@@ -76,11 +101,14 @@ namespace MusicPlayerWindow
             return volume;
         }
 
+        /// <summary>
+        /// Accessor for whether the sound is paused or not
+        /// </summary>
+        /// <returns>A boolean that's true when the sound is paused and false otherwise</returns>
         public Boolean isPaused()
         {
             Boolean isPaused = false;
-            switch (engine)
-            {
+            switch (engine) {
                 case Engines.Bass:
                     isPaused = (Bass.BASS_ChannelIsActive(stream) == Un4seen.Bass.BASSActive.BASS_ACTIVE_PAUSED);
                     break;
@@ -93,6 +121,11 @@ namespace MusicPlayerWindow
         #endregion
 
         #region Setters
+
+        /// <summary>
+        /// Setter method for changing the volume of the sound
+        /// </summary>
+        /// <param name="vol">The new volume</param>
         public void setVolume(float vol)
         {
             switch (engine)
@@ -105,6 +138,7 @@ namespace MusicPlayerWindow
                     break;
             }
         }
+
         #endregion
     }
 }

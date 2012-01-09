@@ -16,25 +16,29 @@ namespace MusicPlayerWindow
         private ISoundEngine engine;
         private MainWindow window;
 
+        #region Constructor
+
         /// <summary>
         /// Constructor that initializes irrKlang 2D music player
         /// </summary>
-        /// <param name="window">reference to the main window</param>
+        /// <param name="window">Reference to the main window</param>
         public MusicPlayer(MainWindow window)
         {
             engine = new ISoundEngine();
             this.window = window;
         }
 
+        #endregion
+
         #region Interface
+
         /// <summary>
         /// Plays given song
         /// </summary>
         /// <param name="song">the song to be played</param>
         public void playCurrSong(Song song)
         {
-            //ISound sound = engine.Play2D(song.getPath());
-            ISound sound = engine.Play2D(@"D:/Music/iTunes/Music/Yes/Fragile/01 Roundabout.mp3");
+            ISound sound = engine.Play2D(song.getPath());
             sound.Volume = window.getVolume();
             sound.setSoundStopEventReceiver(this); //set stop handler
             song.setSound(new Sound(sound));
@@ -58,11 +62,21 @@ namespace MusicPlayerWindow
             song.getSound().stop();
         }
 
+        /// <summary>
+        /// Changes the volume of the song playing
+        /// </summary>
+        /// <param name="song">The current song playing</param>
+        /// <param name="volume">The new volume</param>
         public void setVolume(Song song, float volume)
         {
             song.getSound().setVolume(volume);
         }
 
+        /// <summary>
+        /// Checks to see whether the current song is paused or not
+        /// </summary>
+        /// <param name="song">The current song</param>
+        /// <returns>A boolean that specifies whether current song is paused or not</returns>
         public Boolean isPaused(Song song)
         {
             return song.getSound().isPaused();
@@ -76,9 +90,11 @@ namespace MusicPlayerWindow
             engine.RemoveAllSoundSources();
             engine.Dispose();
         }
+
         #endregion
 
         #region Event Handlers
+
         /// <summary>
         /// The event handler for when the music engine stops playing a sound
         /// </summary>
@@ -95,6 +111,7 @@ namespace MusicPlayerWindow
                 return;
             else return;
         }
+
         #endregion
 
     }
