@@ -592,7 +592,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Playlist Shuffler"
         "ProductCode" = "8:{0E4E2FB5-61EB-4041-99EE-A01D2112C214}"
-        "PackageCode" = "8:{DE8FE99F-BBA8-4056-9784-17EA9FB795C5}"
+        "PackageCode" = "8:{914521B5-132F-4332-9DAA-355B9F96A5B4}"
         "UpgradeCode" = "8:{213E8DCC-6DF2-4558-BE56-EB16A44A41AA}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -712,7 +712,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_3AD24706004E42F6BA212147F8680085"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_3721AD4A98D9477DBA6D7CF57E3A791B"
             {
             "Name" = "8:Playlist Shuffler"
             "Arguments" = "8:"
@@ -723,7 +723,21 @@
             "Target" = "8:_9E1350EBA0D24837A3387A324D8B71D3"
             "Folder" = "8:_C32DEFC39704418987F675A36B61546F"
             "WorkingFolder" = "8:_BD36DBBC48A24C4B8D988F10CFB48B94"
-            "Icon" = "8:"
+            "Icon" = "8:_503BD27FA5744547B22396CBFDBBFD3D"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_666D37D198A84F5895FB5862687BCB8C"
+            {
+            "Name" = "8:Playlist Shuffler"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_9E1350EBA0D24837A3387A324D8B71D3"
+            "Folder" = "8:_C031C0017E9A4E2291828F78B4E44AEF"
+            "WorkingFolder" = "8:_BD36DBBC48A24C4B8D988F10CFB48B94"
+            "Icon" = "8:_503BD27FA5744547B22396CBFDBBFD3D"
             "Feature" = "8:"
             }
         }
