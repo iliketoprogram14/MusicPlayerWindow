@@ -5,6 +5,7 @@ using System.Text;
 using System.Xml;
 using System.IO;
 using System.Web;
+using System.ComponentModel;
 
 namespace MusicPlayerWindow
 {
@@ -17,8 +18,11 @@ namespace MusicPlayerWindow
         private XmlTextReader reader;
         private String songsFile = "iTunes Songs.xml";
         private String outputDir;
+        private Progress_Bar bar;
+        BackgroundWorker bgWorker;
         private System.Xml.XPath.XPathDocument playlistDoc;
         private System.Xml.XPath.XPathNavigator playlistNav;
+        String status = "";
         private HashSet<String> excludedPlaylists = new HashSet<string>(new String[] { "Books", "iTunes DJ", "iTunes U", "Library", "Movies", "Music Videos", "Purchased", "Recently Added", "Recently Played", "Top 25 Most Played", });
         #endregion
 
@@ -32,6 +36,15 @@ namespace MusicPlayerWindow
         {
             reader = new XmlTextReader(path);
             outputDir = dir;
+            bgWorker = new BackgroundWorker();
+            bgWorker.DoWork += new DoWorkEventHandler(_createPlaylists);
+            bgWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(parsingCompleted);
+            bar = new Progress_Bar();
+        }
+
+        void parsingCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            bar.Close();
         }
 
         #endregion
@@ -42,11 +55,37 @@ namespace MusicPlayerWindow
         /// </summary>
         public void createPlaylists()
         {
-            while (reader.Read()) {
-                switch (reader.NodeType) {
+            bar.Show();
+            bgWorker.RunWorkerAsync();
+            int count = 0;
+            while (reader.ReadState != ReadState.Closed)
+            {
+                count = (count + 4) % 999;
+                bar.setValue(count);
+                if (status != "") {
+                    bar.setLabel(status);
+                    status = "";
+                }
+                bar.Update();
+                System.Threading.Thread.Sleep(10);
+            }
+            bar.Close();
+        }
+        #endregion
+
+        #region Background Interface
+        private void _createPlaylists(object sender, DoWorkEventArgs e)
+        {
+            while (reader.Read())
+            {
+                switch (reader.NodeType)
+                {
                     case XmlNodeType.Text:
-                        if (reader.Value == "Tracks") {
+                        if (reader.Value == "Tracks")
+                        {
+                            status = "Creating song index...";
                             getSongs();
+                            status = "Creating playlists...";
                             getPlaylists();
                         }
                         break;
@@ -54,8 +93,10 @@ namespace MusicPlayerWindow
                         break;
                 }
             }
+            //bar.setLabel("Finishing up parsing...");
             reader.Close();
             File.Delete(songsFile);
+            //bar.Close();
         }
         #endregion
 
@@ -162,7 +203,7 @@ namespace MusicPlayerWindow
         {
             if (excludedPlaylists.Contains(playlistName))
                 return;
-
+            status = "Creating the "+playlistName+" playlist...";
             int count = 0;
             Boolean nextElementIsID = false;
             String loc = "";
@@ -218,14 +259,7 @@ namespace MusicPlayerWindow
         private void writePlaylistXML(TextWriter playlistWriter, int id, String loc)
         {
             loc = loc.Replace("&", "&amp;");
-            loc = loc.Replace("%C3%B6", @"\u00F6"); //umlaut o
-            loc = loc.Replace("%C3%BC", @"\u00FC"); //umlaut u
-            loc = loc.Replace("%5B", "[").Replace("%5D", "]");
-            loc = loc.Replace("%23", "#");
-            loc = loc.Replace("%7B", "{");
-            loc = loc.Replace("%60", "`");
-            loc = loc.Replace("%C3%A9", "\u00EA"); //e with accent*/
-            //loc = Uri.UnescapeDataString(loc);
+            loc = Uri.UnescapeDataString(loc);
             
             playlistWriter.WriteLine("  <song id=\'{0:000000}\'>{1}</song>", id, loc);
         }
