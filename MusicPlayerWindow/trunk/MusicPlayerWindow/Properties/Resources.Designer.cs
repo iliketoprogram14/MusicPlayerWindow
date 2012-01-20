@@ -67,9 +67,23 @@ namespace MusicPlayerWindow.Properties {
             }
         }
         
+        internal static System.Drawing.Icon NextIconDisabled {
+            get {
+                object obj = ResourceManager.GetObject("NextIconDisabled", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
         internal static System.Drawing.Icon NextIconWhite {
             get {
                 object obj = ResourceManager.GetObject("NextIconWhite", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Icon PauseIconDisabled {
+            get {
+                object obj = ResourceManager.GetObject("PauseIconDisabled", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -81,9 +95,23 @@ namespace MusicPlayerWindow.Properties {
             }
         }
         
+        internal static System.Drawing.Icon PlayIconDisabled {
+            get {
+                object obj = ResourceManager.GetObject("PlayIconDisabled", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
         internal static System.Drawing.Icon PlayIconWhite {
             get {
                 object obj = ResourceManager.GetObject("PlayIconWhite", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Icon PrevIconDisabled {
+            get {
+                object obj = ResourceManager.GetObject("PrevIconDisabled", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -127,6 +155,13 @@ namespace MusicPlayerWindow.Properties {
             get {
                 object obj = ResourceManager.GetObject("Small_Glass_Stop_Black40", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Icon StopIconDisabled {
+            get {
+                object obj = ResourceManager.GetObject("StopIconDisabled", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         

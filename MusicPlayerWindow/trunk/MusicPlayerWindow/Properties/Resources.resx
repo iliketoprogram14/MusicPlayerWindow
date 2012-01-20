@@ -151,4 +151,19 @@
   <data name="ikpMP3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\ikpMP3.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="NextIconDisabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Media Player Button Icons\NextIconDisabled.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PauseIconDisabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Media Player Button Icons\PauseIconDisabled.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PlayIconDisabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Media Player Button Icons\PlayIconDisabled.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PrevIconDisabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Media Player Button Icons\PrevIconDisabled.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StopIconDisabled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Media Player Button Icons\StopIconDisabled.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

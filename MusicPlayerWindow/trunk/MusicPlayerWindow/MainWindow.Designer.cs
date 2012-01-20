@@ -3,7 +3,6 @@ using System.Drawing;
 using Microsoft.WindowsAPICodePack.Shell;
 using Microsoft.WindowsAPICodePack.Taskbar;
 
-using System;
 namespace MusicPlayerWindow
 {
     /// <summary>

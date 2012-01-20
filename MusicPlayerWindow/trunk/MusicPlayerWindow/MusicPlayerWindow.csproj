@@ -170,9 +170,7 @@
   <ItemGroup>
     <None Include="Resources\StopIconWhite.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Media Player Button Icons\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
       <Visible>False</Visible>
@@ -201,7 +199,18 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Media Player Button Icons\NextIconDisabled.ico" />
+    <None Include="Media Player Button Icons\PauseIconDisabled.ico" />
+    <None Include="Media Player Button Icons\PlayIconDisabled.ico" />
+    <None Include="Media Player Button Icons\PrevIconDisabled.ico" />
+    <None Include="Media Player Button Icons\StopIconDisabled.ico" />
     <Content Include="PlayIconBlack.ico" />
+    <None Include="Resources\StopIconBlack.ico" />
+    <None Include="Resources\PrevIconBlack.ico" />
+    <None Include="Resources\PauseIconBlack.ico" />
+    <None Include="Resources\NextIconBlack.ico" />
+    <None Include="Resources\PlayIconBlack.ico" />
+    <None Include="Resources\PlayIconDisabled.ico" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\..\Downloads\Windows API Code Pack 1.1\Windows API Code Pack 1.1\source\WindowsAPICodePack\Core\Core.csproj">

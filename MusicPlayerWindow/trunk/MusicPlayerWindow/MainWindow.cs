@@ -11,12 +11,17 @@ using IrrKlang;
 using Un4seen.Bass;
 using System.Diagnostics;
 using System.Threading;
+using System.Runtime.InteropServices;
 using Microsoft.WindowsAPICodePack.Shell;
 using Microsoft.WindowsAPICodePack.Taskbar;
 using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace MusicPlayerWindow
 {
+
+    /// <summary>
+    /// Main class.  Holds the GUI and is responsible for delegating functionality to different objects like the music player and the music database.
+    /// </summary>
     public partial class MainWindow : System.Windows.Forms.Form
     {
         #region Definitions
@@ -47,6 +52,18 @@ namespace MusicPlayerWindow
         private BoolObject labelHasChanged;
         private BoolObject scrollThreadShouldExit;
 
+        [DllImport("user32.dll", SetLastError = true)]
+
+        /// <summary>
+        /// Modifies the User Interface Privilege Isolation (UIPI) message filter for a specified window.
+        /// </summary>
+        /// <param name="hWnd">A handle to the window whose UIPI message filter is to be modified</param>
+        /// <param name="message">The message that the message filter allows through or blocks</param>
+        /// <param name="action">The action to be performed (allow, disallow, etc)</param>
+        /// <param name="pChangeFilterStruct">Optional pointer to a CHANGEFILTERSTRUCT structure</param>
+        public static extern bool ChangeWindowMessageFilterEx(IntPtr hWnd, uint msg, 
+            uint action, [Optional] IntPtr str);
+
         #region Constructor and Main()
         /// <summary>
         /// Initializes music player, music loader thread, the GUI, and the artist/album scroller thread
@@ -65,6 +82,10 @@ namespace MusicPlayerWindow
             //init the player and music loader thread
             player = new MusicPlayer_Bass(this);
             loader = new CustomMusicLoader(outputDir);
+
+            //create hole in admin priveleges for messages to the taskbar
+            //params: handle, WM_COMMAND, allow, null
+            ChangeWindowMessageFilterEx(this.Handle, 0x0111, 1, IntPtr.Zero);
 
             //init the GUI
             InitializeComponent();
@@ -241,6 +262,8 @@ namespace MusicPlayerWindow
             //reset the buttons
             currentSong = null;
             playButton.Image = MusicPlayerWindow.Properties.Resources.Small_Glass_Play_Black;
+            thumbButtonPlay.Icon = MusicPlayerWindow.Properties.Resources.PlayIconWhite;
+            thumbButtonPlay.Tooltip = "Play";
             toggleButtons(false, playButton.Enabled, false, false);
 
             //reset the info pane
@@ -379,9 +402,19 @@ namespace MusicPlayerWindow
             if (TaskbarManager.IsPlatformSupported)
             {
                 thumbButtonPrev.Enabled = prevEnabled;
+                thumbButtonPrev.Icon = !prevEnabled ? MusicPlayerWindow.Properties.Resources.PrevIconDisabled : MusicPlayerWindow.Properties.Resources.PrevIconWhite;
+
                 thumbButtonPlay.Enabled = playEnabled;
+                if (currentSong == null || currentSong.getSound().isPaused())
+                    thumbButtonPlay.Icon = !playEnabled ? MusicPlayerWindow.Properties.Resources.PlayIconDisabled : MusicPlayerWindow.Properties.Resources.PlayIconWhite;
+                else
+                    thumbButtonPlay.Icon = !playEnabled ? MusicPlayerWindow.Properties.Resources.PauseIconDisabled : MusicPlayerWindow.Properties.Resources.PauseIconWhite;
+                
                 thumbButtonStop.Enabled = stopEnabled;
+                thumbButtonStop.Icon = !stopEnabled ? MusicPlayerWindow.Properties.Resources.StopIconDisabled : MusicPlayerWindow.Properties.Resources.StopIconWhite;
+                
                 thumbButtonNext.Enabled = nextEnabled;
+                thumbButtonNext.Icon = !nextEnabled ? MusicPlayerWindow.Properties.Resources.NextIconDisabled : MusicPlayerWindow.Properties.Resources.NextIconWhite;
             }
         }
         #endregion
