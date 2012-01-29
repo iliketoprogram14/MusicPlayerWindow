@@ -88,6 +88,8 @@ namespace MusicPlayerWindow
         public void addSongToNextQueueFront(Song song)
         {
             currentQueue.nextSongQueue.Insert(0, song);
+            int last_song = currentQueue.nextSongQueue.Count - 1;
+            currentQueue.nextSongQueue.RemoveAt(last_song);
         }
 
         ///<summary>

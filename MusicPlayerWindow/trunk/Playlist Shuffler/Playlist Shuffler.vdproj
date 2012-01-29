@@ -16,19 +16,25 @@
         "Entry"
         {
         "MsmKey" = "8:_071C6D968C15D21B402C3BF963F405FB"
-        "OwnerKey" = "8:_9FF5F8FB4D704DCCBBAFC6F49E7631BA"
+        "OwnerKey" = "8:_1D6B7D1AAA2846A2BE1C4A0D0D5B7BE9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_17F4B3F715C8AA641B8FD888C17D280C"
-        "OwnerKey" = "8:_9FF5F8FB4D704DCCBBAFC6F49E7631BA"
+        "OwnerKey" = "8:_1D6B7D1AAA2846A2BE1C4A0D0D5B7BE9"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1D6B7D1AAA2846A2BE1C4A0D0D5B7BE9"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_36527E19895D3E922AF20BBCEBF3C265"
-        "OwnerKey" = "8:_9FF5F8FB4D704DCCBBAFC6F49E7631BA"
+        "OwnerKey" = "8:_1D6B7D1AAA2846A2BE1C4A0D0D5B7BE9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -69,14 +75,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_9FF5F8FB4D704DCCBBAFC6F49E7631BA"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_A2546AA7376F4FF84CE0C444C33A358D"
-        "OwnerKey" = "8:_9FF5F8FB4D704DCCBBAFC6F49E7631BA"
+        "OwnerKey" = "8:_1D6B7D1AAA2846A2BE1C4A0D0D5B7BE9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -100,7 +100,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_9FF5F8FB4D704DCCBBAFC6F49E7631BA"
+        "OwnerKey" = "8:_071C6D968C15D21B402C3BF963F405FB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_1D6B7D1AAA2846A2BE1C4A0D0D5B7BE9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -119,12 +125,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_36527E19895D3E922AF20BBCEBF3C265"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_071C6D968C15D21B402C3BF963F405FB"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -720,7 +720,7 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_9FF5F8FB4D704DCCBBAFC6F49E7631BA"
+            "Target" = "8:_1D6B7D1AAA2846A2BE1C4A0D0D5B7BE9"
             "Folder" = "8:_C031C0017E9A4E2291828F78B4E44AEF"
             "WorkingFolder" = "8:_BD36DBBC48A24C4B8D988F10CFB48B94"
             "Icon" = "8:_503BD27FA5744547B22396CBFDBBFD3D"
@@ -734,7 +734,7 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_9FF5F8FB4D704DCCBBAFC6F49E7631BA"
+            "Target" = "8:_1D6B7D1AAA2846A2BE1C4A0D0D5B7BE9"
             "Folder" = "8:_C32DEFC39704418987F675A36B61546F"
             "WorkingFolder" = "8:_BD36DBBC48A24C4B8D988F10CFB48B94"
             "Icon" = "8:_503BD27FA5744547B22396CBFDBBFD3D"
@@ -1139,7 +1139,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_9FF5F8FB4D704DCCBBAFC6F49E7631BA"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_1D6B7D1AAA2846A2BE1C4A0D0D5B7BE9"
             {
             "SourcePath" = "8:..\\MusicPlayerWindow\\obj\\x86\\Release\\MusicPlayerWindow.exe"
             "TargetName" = "8:"

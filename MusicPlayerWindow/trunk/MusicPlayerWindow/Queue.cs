@@ -58,6 +58,7 @@ namespace MusicPlayerWindow
         {
             if (nextSongQueue.Contains(newSong)) { return; } //the next song queue already holds the given song, so don't add
             nextSongQueue.Add(newSong);
+            Console.WriteLine(nextSongQueue.Count);
         }
 
         /// <summary>
@@ -67,7 +68,7 @@ namespace MusicPlayerWindow
         public void addPrevSong(Song oldSong)
         {
             if (prevSongQueue.Contains(oldSong)) { return; } //don't add the song if it's already in the queue
-            if (prevSongQueue.Count == prevSongLimit) { prevSongQueue.RemoveAt(0); } //remove least recent song if over the limit
+            if (prevSongQueue.Count >= prevSongLimit) { prevSongQueue.RemoveAt(0); } //remove least recent song if over the limit
             prevSongQueue.Add(oldSong);
         }
         #endregion

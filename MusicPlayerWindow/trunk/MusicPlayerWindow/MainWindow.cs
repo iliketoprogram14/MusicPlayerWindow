@@ -58,9 +58,9 @@ namespace MusicPlayerWindow
         /// Modifies the User Interface Privilege Isolation (UIPI) message filter for a specified window.
         /// </summary>
         /// <param name="hWnd">A handle to the window whose UIPI message filter is to be modified</param>
-        /// <param name="message">The message that the message filter allows through or blocks</param>
+        /// <param name="msg">The message that the message filter allows through or blocks</param>
         /// <param name="action">The action to be performed (allow, disallow, etc)</param>
-        /// <param name="pChangeFilterStruct">Optional pointer to a CHANGEFILTERSTRUCT structure</param>
+        /// <param name="str">Optional pointer to a CHANGEFILTERSTRUCT structure</param>
         public static extern bool ChangeWindowMessageFilterEx(IntPtr hWnd, uint msg, 
             uint action, [Optional] IntPtr str);
 

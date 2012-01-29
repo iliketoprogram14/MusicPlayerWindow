@@ -75,6 +75,7 @@ namespace MusicPlayerWindow
                 if (shouldExit) { break; }
                 Monitor.Pulse(opObject);
                 Monitor.Wait(opObject);
+                GC.Collect();
             }
             Monitor.Exit(opObject);
         }
@@ -209,6 +210,7 @@ namespace MusicPlayerWindow
             String id = String.Format("{0:000000}", num);
             nav.MoveToId(id);
             Song newSong = new Song(nav.Value);
+            
             return newSong;
         }
 
