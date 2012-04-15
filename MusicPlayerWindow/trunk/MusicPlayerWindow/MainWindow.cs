@@ -157,6 +157,7 @@ namespace MusicPlayerWindow
             Song oldSong = currentSong;
             playNextSong();
             loader.updatePrevQueue(oldSong);
+            oldSong = null;
         }
 
         /// <summary>
@@ -177,6 +178,7 @@ namespace MusicPlayerWindow
             player.playCurrSong(currentSong);
             loader.addSongToNextQueueFront(oldSong);
             updateLabels();
+            oldSong = null;
         }
 
         /// <summary>
@@ -333,8 +335,9 @@ namespace MusicPlayerWindow
         {
             int textLen;        //number of characters in the label
             int sizeLen = 24;   //approximate label component size in characters
-            String labelString; //the text of the artist/album label
-            System.Text.StringBuilder sb = null; //used to shift the characters
+            char ch;
+            String labelString = null; //the text of the artist/album label
+            System.Text.StringBuilder sb = new System.Text.StringBuilder(""); //used to shift the characters
 
             while (true)
             {
@@ -362,15 +365,15 @@ namespace MusicPlayerWindow
                     //otherwise, update the string builder
                     else
                     {
-                        sb = null;
-                        sb = new System.Text.StringBuilder(labelString+"        ");
+                        sb.Clear();
+                        sb.Insert(0, labelString + "        ");
                     }
                 }
                 Monitor.Exit(labelHasChanged);
                 Thread.Sleep(500); //this gives the scrolling effect
 
                 //move the first character to the end of the string
-                char ch = sb[0];
+                ch = sb[0];
                 sb.Remove(0, 1);
                 sb.Insert(sb.Length - 1, ch);
 
@@ -382,6 +385,7 @@ namespace MusicPlayerWindow
                 artistAlbumLabel.Refresh();
                 Monitor.Exit(artistAlbumLabel);
                 Monitor.Exit(labelHasChanged);
+                GC.Collect();
             }
         }
 
@@ -426,7 +430,7 @@ namespace MusicPlayerWindow
         public void playNextSong()
         {
             if (currentSong != null) { player.stopSong(currentSong); } //stop current song to play the next one
-
+            
             //grab the next song, play it, ask the loader to update the next song queue, and update the GUI
             currentSong = loader.getNextSong();
             player.playCurrSong(currentSong);

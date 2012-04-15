@@ -41,6 +41,7 @@ namespace MusicPlayerWindow
         ///<param name="newPath">the path to the song; overwrites old path</param>
         public void setPath(String newPath)
         {
+            this.path = null;
             this.path = newPath;
         }
 
@@ -50,6 +51,7 @@ namespace MusicPlayerWindow
         ///<param name="sound">the irrKlang sound played that is associated with the song/path</param>
         public void setSound(Sound sound)
         {
+            this.sound = null;
             this.sound = sound;
         }
         #endregion
@@ -68,7 +70,7 @@ namespace MusicPlayerWindow
         ///</summary>
         public Sound getSound()
         {
-            return sound;
+            return this.sound;
         }
         #endregion
     }

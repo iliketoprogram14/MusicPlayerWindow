@@ -47,9 +47,10 @@ namespace MusicPlayerWindow
         {
             List<String> songsInQueue = new List<String>();
             Song tmp;
+            Boolean gotNewSong = false;
 
             for (int i = 0; i < 5; i++) {
-                Boolean gotNewSong = false;
+                gotNewSong = false;
                 do {
                     tmp = loader.getOneSong(q);
                     if (!songsInQueue.Contains(tmp.getPath())) {

@@ -42,10 +42,13 @@ namespace MusicPlayerWindow
         {
             this.playlist = new Playlist(prevQ.playlist.getPath(), prevQ.playlist.getLen());
             Song[] prevSongs = (Song[])prevQ.prevSongQueue.ToArray();
-            foreach (Song song in prevSongs) { this.prevSongQueue.Add(song); }
-            Song[] nextSongs = (Song[])prevQ.nextSongQueue.ToArray();
-            foreach (Song song in nextSongs) { this.nextSongQueue.Add(song); }
+            foreach (Song song in prevSongs)
+                    this.prevSongQueue.Add(song);
             this.prevSongLimit = prevQ.prevSongLimit;
+
+            Song[] nextSongs = (Song[])prevQ.nextSongQueue.ToArray();
+            foreach (Song song in nextSongs)
+                this.nextSongQueue.Add(song);
         }
         #endregion
 
@@ -56,9 +59,8 @@ namespace MusicPlayerWindow
         /// <param name="newSong">the song to be added to the next queue</param>
         public void addNextSong(Song newSong)
         {
-            if (nextSongQueue.Contains(newSong)) { return; } //the next song queue already holds the given song, so don't add
+            if (nextSongQueue.Contains(newSong)) return; //the next song queue already holds the given song, so don't add
             nextSongQueue.Add(newSong);
-            Console.WriteLine(nextSongQueue.Count);
         }
 
         /// <summary>

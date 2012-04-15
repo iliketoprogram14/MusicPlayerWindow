@@ -210,6 +210,7 @@ namespace MusicPlayerWindow
             String id = String.Format("{0:000000}", num);
             nav.MoveToId(id);
             Song newSong = new Song(nav.Value);
+            doc = null;
             
             return newSong;
         }
