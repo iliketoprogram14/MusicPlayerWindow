@@ -56,7 +56,6 @@ namespace MusicPlayerWindow
             switch (engine) {
                 case Engines.Bass:
                     Bass.BASS_ChannelStop(stream);
-                    Bass.BASS_StreamFree(stream);
                     break;
                 case Engines.IrrKlang:
                     sound.Stop();

@@ -53,7 +53,7 @@ namespace MusicPlayerWindow
         public void playCurrSong(Song song)
         {
             //Create the stream and play it using a channel
-            int stream = Bass.BASS_StreamCreateFile(song.getPath(), 0, 0, BASSFlag.BASS_DEFAULT);
+            int stream = Bass.BASS_StreamCreateFile(song.getPath(), 0, 0, BASSFlag.BASS_DEFAULT | BASSFlag.BASS_STREAM_AUTOFREE);
             Bass.BASS_ChannelPlay(stream, false);
             
             //Set up the syncer, and update the song and the volume
