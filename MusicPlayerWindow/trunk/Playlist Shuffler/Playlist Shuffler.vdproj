@@ -15,26 +15,20 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_1CB4339E12B24D739FBB09BC7FEE862E"
+        "MsmKey" = "8:_25B67FE3E3F44C638FA3D883D1CCD381"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
+        "MsmKey" = "8:_2BCEB7A542C4935EA7A761332758FA95"
+        "OwnerKey" = "8:_25B67FE3E3F44C638FA3D883D1CCD381"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_462C89235006F2BC3EE4F24EF2A9D235"
-        "OwnerKey" = "8:_1CB4339E12B24D739FBB09BC7FEE862E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_4CC30513D746765323429191F4DD3B32"
-        "OwnerKey" = "8:_1CB4339E12B24D739FBB09BC7FEE862E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_4CC30513D746765323429191F4DD3B32"
-        "OwnerKey" = "8:_E67A20CD4ECFFB27F7C7E7110F6AB194"
+        "OwnerKey" = "8:_25B67FE3E3F44C638FA3D883D1CCD381"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -75,20 +69,26 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_E67A20CD4ECFFB27F7C7E7110F6AB194"
-        "OwnerKey" = "8:_1CB4339E12B24D739FBB09BC7FEE862E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_E69B0E50F5054EAD824BD490FBC62F95"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
+        "MsmKey" = "8:_E742239B60176476BF2462EB9D36EFB9"
+        "OwnerKey" = "8:_25B67FE3E3F44C638FA3D883D1CCD381"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E742239B60176476BF2462EB9D36EFB9"
+        "OwnerKey" = "8:_2BCEB7A542C4935EA7A761332758FA95"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_F5DEAD0BEA893416F1A865A4B359C213"
-        "OwnerKey" = "8:_1CB4339E12B24D739FBB09BC7FEE862E"
+        "OwnerKey" = "8:_25B67FE3E3F44C638FA3D883D1CCD381"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -100,7 +100,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_1CB4339E12B24D739FBB09BC7FEE862E"
+        "OwnerKey" = "8:_25B67FE3E3F44C638FA3D883D1CCD381"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -118,13 +118,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E67A20CD4ECFFB27F7C7E7110F6AB194"
+        "OwnerKey" = "8:_2BCEB7A542C4935EA7A761332758FA95"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_4CC30513D746765323429191F4DD3B32"
+        "OwnerKey" = "8:_E742239B60176476BF2462EB9D36EFB9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -238,20 +238,20 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_462C89235006F2BC3EE4F24EF2A9D235"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2BCEB7A542C4935EA7A761332758FA95"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:irrKlang.NET4, Version=1.0.3861.18767, Culture=neutral, PublicKeyToken=a854741bd80517c7, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=AMD64"
                 "ScatterAssemblies"
                 {
-                    "_462C89235006F2BC3EE4F24EF2A9D235"
+                    "_2BCEB7A542C4935EA7A761332758FA95"
                     {
-                    "Name" = "8:irrKlang.NET4.dll"
+                    "Name" = "8:Microsoft.WindowsAPICodePack.Shell.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:irrKlang.NET4.dll"
+            "SourcePath" = "8:Microsoft.WindowsAPICodePack.Shell.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_BD36DBBC48A24C4B8D988F10CFB48B94"
@@ -269,20 +269,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_4CC30513D746765323429191F4DD3B32"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_462C89235006F2BC3EE4F24EF2A9D235"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:irrKlang.NET4, Version=1.0.3861.18767, Culture=neutral, PublicKeyToken=a854741bd80517c7, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_4CC30513D746765323429191F4DD3B32"
+                    "_462C89235006F2BC3EE4F24EF2A9D235"
                     {
-                    "Name" = "8:Microsoft.WindowsAPICodePack.dll"
+                    "Name" = "8:irrKlang.NET4.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:Microsoft.WindowsAPICodePack.dll"
+            "SourcePath" = "8:irrKlang.NET4.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_BD36DBBC48A24C4B8D988F10CFB48B94"
@@ -442,37 +442,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E67A20CD4ECFFB27F7C7E7110F6AB194"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=x86"
-                "ScatterAssemblies"
-                {
-                    "_E67A20CD4ECFFB27F7C7E7110F6AB194"
-                    {
-                    "Name" = "8:Microsoft.WindowsAPICodePack.Shell.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Microsoft.WindowsAPICodePack.Shell.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_BD36DBBC48A24C4B8D988F10CFB48B94"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E69B0E50F5054EAD824BD490FBC62F95"
             {
             "SourcePath" = "8:..\\MusicPlayerWindow\\bin\\Release\\bass_aac.dll"
@@ -491,6 +460,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E742239B60176476BF2462EB9D36EFB9"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=AMD64"
+                "ScatterAssemblies"
+                {
+                    "_E742239B60176476BF2462EB9D36EFB9"
+                    {
+                    "Name" = "8:Microsoft.WindowsAPICodePack.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Microsoft.WindowsAPICodePack.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_BD36DBBC48A24C4B8D988F10CFB48B94"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F5DEAD0BEA893416F1A865A4B359C213"
@@ -592,7 +592,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Playlist Shuffler"
         "ProductCode" = "8:{0E4E2FB5-61EB-4041-99EE-A01D2112C214}"
-        "PackageCode" = "8:{795B58A3-2CBC-4E33-9837-76DE70B560AF}"
+        "PackageCode" = "8:{E2A76BDD-106F-4EE5-9650-25382A874200}"
         "UpgradeCode" = "8:{213E8DCC-6DF2-4558-BE56-EB16A44A41AA}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -720,7 +720,7 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_1CB4339E12B24D739FBB09BC7FEE862E"
+            "Target" = "8:_25B67FE3E3F44C638FA3D883D1CCD381"
             "Folder" = "8:_C031C0017E9A4E2291828F78B4E44AEF"
             "WorkingFolder" = "8:_BD36DBBC48A24C4B8D988F10CFB48B94"
             "Icon" = "8:_503BD27FA5744547B22396CBFDBBFD3D"
@@ -734,7 +734,7 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_1CB4339E12B24D739FBB09BC7FEE862E"
+            "Target" = "8:_25B67FE3E3F44C638FA3D883D1CCD381"
             "Folder" = "8:_C32DEFC39704418987F675A36B61546F"
             "WorkingFolder" = "8:_BD36DBBC48A24C4B8D988F10CFB48B94"
             "Icon" = "8:_503BD27FA5744547B22396CBFDBBFD3D"
@@ -1139,9 +1139,9 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_1CB4339E12B24D739FBB09BC7FEE862E"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_25B67FE3E3F44C638FA3D883D1CCD381"
             {
-            "SourcePath" = "8:..\\MusicPlayerWindow\\obj\\x86\\Debug\\MusicPlayerWindow.exe"
+            "SourcePath" = "8:..\\MusicPlayerWindow\\obj\\x86\\Release\\MusicPlayerWindow.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_BD36DBBC48A24C4B8D988F10CFB48B94"
