@@ -51,6 +51,7 @@ namespace MusicPlayerWindow
         private Thread scrollThread;
         private BoolObject labelHasChanged;
         private BoolObject scrollThreadShouldExit;
+        private static KeyHandler khandler;
 
         [DllImport("user32.dll", SetLastError = true)]
 
@@ -70,7 +71,9 @@ namespace MusicPlayerWindow
         /// If the iTunes playlists haven't been imported, it calls the appropriate methods to do so
         /// </summary>
         public MainWindow()
-        {            
+        {
+            MainWindow.khandler.setWindow(this);
+
             //import the iTunes playlists if they don't already exist
             if (!System.IO.Directory.Exists(outputDir) || System.IO.Directory.GetFiles(outputDir).Length == 0)
             {
@@ -107,7 +110,11 @@ namespace MusicPlayerWindow
         [STAThread]
         static void Main()
         {
-            Application.Run(new MainWindow());
+            khandler = new KeyHandler();
+            IntPtr hookID = khandler.SetHook();
+            MainWindow w = new MainWindow();
+            Application.Run(w);
+            KeyHandler.UnhookWindowsHookEx(hookID);
         }
         #endregion
 
@@ -118,7 +125,7 @@ namespace MusicPlayerWindow
         /// </summary>
         /// <param name="sender">the object sending the event</param>
         /// <param name="e">the event itself</param>
-        private void playButton_Click(object sender, EventArgs e)
+        public void playButton_Click(object sender, EventArgs e)
         {
             //no song is playing, so play a new song
             if (currentSong == null) {
@@ -141,7 +148,7 @@ namespace MusicPlayerWindow
         /// </summary>
         /// <param name="sender">the object sending the event</param>
         /// <param name="e">the event itself</param>
-        private void stopButton_Click(object sender, EventArgs e)
+        public void stopButton_Click(object sender, EventArgs e)
         {
             player.stopSong(currentSong);
             resetEngine();
@@ -152,7 +159,7 @@ namespace MusicPlayerWindow
         /// </summary>
         /// <param name="sender">the object sending the event</param>
         /// <param name="e">the event itself</param>
-        private void nextButton_Click(object sender, EventArgs e)
+        public void nextButton_Click(object sender, EventArgs e)
         {
             Song oldSong = currentSong;
             playNextSong();
@@ -165,7 +172,7 @@ namespace MusicPlayerWindow
         /// </summary>
         /// <param name="sender">the object sending the event</param>
         /// <param name="e">the event itself</param>
-        private void prevButton_Click(object sender, EventArgs e)
+        public void prevButton_Click(object sender, EventArgs e)
         {
             player.stopSong(currentSong);
 

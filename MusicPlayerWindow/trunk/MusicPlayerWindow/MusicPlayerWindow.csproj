@@ -60,14 +60,11 @@
     <ApplicationIcon>PlayIconBlack.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Bass.Net, Version=2.4.8.4, Culture=neutral, PublicKeyToken=b7566c273e6ef480, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\BASS.NET\v4.0\Bass.Net.dll</HintPath>
+    <Reference Include="Bass.Net">
+      <HintPath>..\References\Bass.Net.dll</HintPath>
     </Reference>
-    <Reference Include="irrKlang.NET4, Version=1.0.3861.18767, Culture=neutral, PublicKeyToken=a854741bd80517c7, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>.\irrKlang.NET4.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="irrKlang.NET4">
+      <HintPath>..\References\irrKlang.NET4.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore">
       <EmbedInteropTypes>False</EmbedInteropTypes>
@@ -90,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomMusicLoader.cs" />
+    <Compile Include="KeyHandler.cs" />
     <Compile Include="MusicLoaderInterface.cs" />
     <Compile Include="MusicPlayer.cs" />
     <Compile Include="MainWindow.cs">
