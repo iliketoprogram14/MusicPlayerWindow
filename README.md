@@ -24,6 +24,6 @@ Currently, I use [Bass.Net's API](http://www.un4seen.com/) for audio support and
 
 ![Playing a song](assets/playing.png "Playing a song")
 
-#### Song stopped ####
+#### Nothing playing ####
 
-![Song stopped](assets/stopped.png "Song stopped")
+![Nothing playing](assets/stopped.png "Nothing playing")
