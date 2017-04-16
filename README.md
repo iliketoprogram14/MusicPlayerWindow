@@ -10,6 +10,10 @@ As powerful as iTunes is, it hogs a ton of memory and uses more CPU than it shou
 
 Currently, I use [Bass.Net's API](http://www.un4seen.com/) for audio support and extract the iTunes playlists myself with an xml reader. Previously, I used [Ambiera's irrKlang library](http://www.ambiera.com/irrklang/) for audio support and [Eric Daugherty's iTunes Export application](http://www.ericdaugherty.com/dev/itunesexport/) to grab my iTunes playlists. For reasons I'm too lazy to figure out, this application doesn't seem to like other computers, and the thumbnail toolbar's event handlers are completely unresponsive. For now, I'm more than happy with my first C# and .NET application and its performance. 
 
+## Documentation ##
+
+Formal documentation around the classes is stored in the doc folder and can be viewed online [here](https://iliketoprogram14.github.io/MusicPlayerWindow/Index.html).
+
 ## Screenshots ##
 
 #### Initial setup ####
