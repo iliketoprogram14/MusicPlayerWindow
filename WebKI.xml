@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+
+  <HelpKINode Title="AccessibilityNotifyClients method" Url="html/Overload_MusicPlayerWindow_MainWindow_AccessibilityNotifyClients.htm" />
+  <HelpKINode Title="AccessibilityNotifyClients method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_AccessibilityNotifyClients.htm" />
+  <HelpKINode Title="addNextSong method" Url="html/M_MusicPlayerWindow_Queue_addNextSong.htm" />
+  <HelpKINode Title="addPrevSong method" Url="html/M_MusicPlayerWindow_Queue_addPrevSong.htm" />
+  <HelpKINode Title="addSongToNextQueue method" Url="html/M_MusicPlayerWindow_QueueStore_addSongToNextQueue.htm" />
+  <HelpKINode Title="addSongToNextQueueFront method" Url="html/M_MusicPlayerWindow_CustomMusicLoader_addSongToNextQueueFront.htm" />
+  <HelpKINode Title="addSongToNextQueueFront method" Url="html/M_MusicPlayerWindow_QueueStore_addSongToNextQueueFront.htm" />
+  <HelpKINode Title="addSongToPrevQueue method" Url="html/M_MusicPlayerWindow_QueueStore_addSongToPrevQueue.htm" />
+  <HelpKINode Title="BeginInvoke method" Url="html/Overload_MusicPlayerWindow_MainWindow_BeginInvoke.htm" />
+  <HelpKINode Title="BeginInvoke method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_BeginInvoke.htm" />
+  <HelpKINode Title="createPlaylists method" Url="html/M_MusicPlayerWindow_PlaylistParser_createPlaylists.htm" />
+  <HelpKINode Title="CustomMusicLoader class" Url="html/AllMembers_T_MusicPlayerWindow_CustomMusicLoader.htm" />
+  <HelpKINode Title="CustomMusicLoader class" Url="html/T_MusicPlayerWindow_CustomMusicLoader.htm" />
+  <HelpKINode Title="CustomMusicLoader class">
+    <HelpKINode Title="about CustomMusicLoader class" Url="html/T_MusicPlayerWindow_CustomMusicLoader.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers_T_MusicPlayerWindow_CustomMusicLoader.htm" />
+    <HelpKINode Title="constructor" Url="html/M_MusicPlayerWindow_CustomMusicLoader__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_MusicPlayerWindow_CustomMusicLoader.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CustomMusicLoader.addSongToNextQueueFront method" Url="html/M_MusicPlayerWindow_CustomMusicLoader_addSongToNextQueueFront.htm" />
+  <HelpKINode Title="CustomMusicLoader.CustomMusicLoader constructor" Url="html/M_MusicPlayerWindow_CustomMusicLoader__ctor.htm" />
+  <HelpKINode Title="CustomMusicLoader.destroyStoreAndExit method" Url="html/M_MusicPlayerWindow_CustomMusicLoader_destroyStoreAndExit.htm" />
+  <HelpKINode Title="CustomMusicLoader.getNextSong method" Url="html/M_MusicPlayerWindow_CustomMusicLoader_getNextSong.htm" />
+  <HelpKINode Title="CustomMusicLoader.getPlaylistNames method" Url="html/M_MusicPlayerWindow_CustomMusicLoader_getPlaylistNames.htm" />
+  <HelpKINode Title="CustomMusicLoader.getPrevSong method" Url="html/M_MusicPlayerWindow_CustomMusicLoader_getPrevSong.htm" />
+  <HelpKINode Title="CustomMusicLoader.switchToPlaylist method" Url="html/M_MusicPlayerWindow_CustomMusicLoader_switchToPlaylist.htm" />
+  <HelpKINode Title="CustomMusicLoader.updateNextQueue method" Url="html/M_MusicPlayerWindow_CustomMusicLoader_updateNextQueue.htm" />
+  <HelpKINode Title="CustomMusicLoader.updatePrevQueue method" Url="html/M_MusicPlayerWindow_CustomMusicLoader_updatePrevQueue.htm" />
+  <HelpKINode Title="destroyPlayer method" Url="html/M_MusicPlayerWindow_MusicPlayer_destroyPlayer.htm" />
+  <HelpKINode Title="destroyStoreAndExit method" Url="html/M_MusicPlayerWindow_CustomMusicLoader_destroyStoreAndExit.htm" />
+  <HelpKINode Title="Dispose method" Url="html/Overload_MusicPlayerWindow_MainWindow_Dispose.htm" />
+  <HelpKINode Title="Dispose method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_Dispose.htm" />
+  <HelpKINode Title="GetChildAtPoint method" Url="html/Overload_MusicPlayerWindow_MainWindow_GetChildAtPoint.htm" />
+  <HelpKINode Title="GetChildAtPoint method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_GetChildAtPoint.htm" />
+  <HelpKINode Title="getCurrSong method" Url="html/M_MusicPlayerWindow_MainWindow_getCurrSong.htm" />
+  <HelpKINode Title="getLen method" Url="html/M_MusicPlayerWindow_Playlist_getLen.htm" />
+  <HelpKINode Title="getName method" Url="html/M_MusicPlayerWindow_Playlist_getName.htm" />
+  <HelpKINode Title="getNextSong method" Url="html/M_MusicPlayerWindow_CustomMusicLoader_getNextSong.htm" />
+  <HelpKINode Title="getNextSong method" Url="html/M_MusicPlayerWindow_Queue_getNextSong.htm" />
+  <HelpKINode Title="getPath method" Url="html/M_MusicPlayerWindow_Playlist_getPath.htm" />
+  <HelpKINode Title="getPath method" Url="html/M_MusicPlayerWindow_Song_getPath.htm" />
+  <HelpKINode Title="getPlaylistLen method" Url="html/M_MusicPlayerWindow_Queue_getPlaylistLen.htm" />
+  <HelpKINode Title="getPlaylistName method" Url="html/M_MusicPlayerWindow_Queue_getPlaylistName.htm" />
+  <HelpKINode Title="getPlaylistNames method" Url="html/M_MusicPlayerWindow_CustomMusicLoader_getPlaylistNames.htm" />
+  <HelpKINode Title="getPlaylistNames method" Url="html/M_MusicPlayerWindow_QueueStore_getPlaylistNames.htm" />
+  <HelpKINode Title="getPlaylistPath method" Url="html/M_MusicPlayerWindow_Queue_getPlaylistPath.htm" />
+  <HelpKINode Title="getPrevSong method" Url="html/M_MusicPlayerWindow_CustomMusicLoader_getPrevSong.htm" />
+  <HelpKINode Title="getPrevSong method" Url="html/M_MusicPlayerWindow_Queue_getPrevSong.htm" />
+  <HelpKINode Title="getSongFromNextQueue method" Url="html/M_MusicPlayerWindow_QueueStore_getSongFromNextQueue.htm" />
+  <HelpKINode Title="getSongFromPrevQueue method" Url="html/M_MusicPlayerWindow_QueueStore_getSongFromPrevQueue.htm" />
+  <HelpKINode Title="getSound method" Url="html/M_MusicPlayerWindow_Song_getSound.htm" />
+  <HelpKINode Title="getVolume method" Url="html/M_MusicPlayerWindow_MainWindow_getVolume.htm" />
+  <HelpKINode Title="getVolume method" Url="html/M_MusicPlayerWindow_Sound_getVolume.htm" />
+  <HelpKINode Title="Invalidate method" Url="html/Overload_MusicPlayerWindow_MainWindow_Invalidate.htm" />
+  <HelpKINode Title="Invalidate method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_Invalidate.htm" />
+  <HelpKINode Title="Invoke method" Url="html/Overload_MusicPlayerWindow_MainWindow_Invoke.htm" />
+  <HelpKINode Title="Invoke method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_Invoke.htm" />
+  <HelpKINode Title="isPaused method" Url="html/M_MusicPlayerWindow_MusicPlayer_isPaused.htm" />
+  <HelpKINode Title="isPaused method" Url="html/M_MusicPlayerWindow_Sound_isPaused.htm" />
+  <HelpKINode Title="loader field" Url="html/F_MusicPlayerWindow_MainWindow_loader.htm" />
+  <HelpKINode Title="MainWindow class" Url="html/AllMembers_T_MusicPlayerWindow_MainWindow.htm" />
+  <HelpKINode Title="MainWindow class" Url="html/T_MusicPlayerWindow_MainWindow.htm" />
+  <HelpKINode Title="MainWindow class">
+    <HelpKINode Title="about MainWindow class" Url="html/T_MusicPlayerWindow_MainWindow.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers_T_MusicPlayerWindow_MainWindow.htm" />
+    <HelpKINode Title="constructor" Url="html/M_MusicPlayerWindow_MainWindow__ctor.htm" />
+    <HelpKINode Title="events" Url="html/Events_T_MusicPlayerWindow_MainWindow.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_MusicPlayerWindow_MainWindow.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_MusicPlayerWindow_MainWindow.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_MusicPlayerWindow_MainWindow.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MainWindow.AccessibilityNotifyClients method" Url="html/Overload_MusicPlayerWindow_MainWindow_AccessibilityNotifyClients.htm" />
+  <HelpKINode Title="MainWindow.BeginInvoke method" Url="html/Overload_MusicPlayerWindow_MainWindow_BeginInvoke.htm" />
+  <HelpKINode Title="MainWindow.Dispose method" Url="html/Overload_MusicPlayerWindow_MainWindow_Dispose.htm" />
+  <HelpKINode Title="MainWindow.GetChildAtPoint method" Url="html/Overload_MusicPlayerWindow_MainWindow_GetChildAtPoint.htm" />
+  <HelpKINode Title="MainWindow.getCurrSong method" Url="html/M_MusicPlayerWindow_MainWindow_getCurrSong.htm" />
+  <HelpKINode Title="MainWindow.getVolume method" Url="html/M_MusicPlayerWindow_MainWindow_getVolume.htm" />
+  <HelpKINode Title="MainWindow.Invalidate method" Url="html/Overload_MusicPlayerWindow_MainWindow_Invalidate.htm" />
+  <HelpKINode Title="MainWindow.Invoke method" Url="html/Overload_MusicPlayerWindow_MainWindow_Invoke.htm" />
+  <HelpKINode Title="MainWindow.loader field" Url="html/F_MusicPlayerWindow_MainWindow_loader.htm" />
+  <HelpKINode Title="MainWindow.MainWindow constructor" Url="html/M_MusicPlayerWindow_MainWindow__ctor.htm" />
+  <HelpKINode Title="MainWindow.MainWindow_FormClosed method" Url="html/M_MusicPlayerWindow_MainWindow_MainWindow_FormClosed.htm" />
+  <HelpKINode Title="MainWindow.MemberwiseClone method" Url="html/Overload_MusicPlayerWindow_MainWindow_MemberwiseClone.htm" />
+  <HelpKINode Title="MainWindow.outputDir field" Url="html/F_MusicPlayerWindow_MainWindow_outputDir.htm" />
+  <HelpKINode Title="MainWindow.PerformLayout method" Url="html/Overload_MusicPlayerWindow_MainWindow_PerformLayout.htm" />
+  <HelpKINode Title="MainWindow.playNextSong method" Url="html/M_MusicPlayerWindow_MainWindow_playNextSong.htm" />
+  <HelpKINode Title="MainWindow.ResumeLayout method" Url="html/Overload_MusicPlayerWindow_MainWindow_ResumeLayout.htm" />
+  <HelpKINode Title="MainWindow.RtlTranslateAlignment method" Url="html/Overload_MusicPlayerWindow_MainWindow_RtlTranslateAlignment.htm" />
+  <HelpKINode Title="MainWindow.Scale method" Url="html/Overload_MusicPlayerWindow_MainWindow_Scale.htm" />
+  <HelpKINode Title="MainWindow.Select method" Url="html/Overload_MusicPlayerWindow_MainWindow_Select.htm" />
+  <HelpKINode Title="MainWindow.SetBounds method" Url="html/Overload_MusicPlayerWindow_MainWindow_SetBounds.htm" />
+  <HelpKINode Title="MainWindow.Show method" Url="html/Overload_MusicPlayerWindow_MainWindow_Show.htm" />
+  <HelpKINode Title="MainWindow.ShowDialog method" Url="html/Overload_MusicPlayerWindow_MainWindow_ShowDialog.htm" />
+  <HelpKINode Title="MainWindow.UpdateBounds method" Url="html/Overload_MusicPlayerWindow_MainWindow_UpdateBounds.htm" />
+  <HelpKINode Title="MainWindow.Validate method" Url="html/Overload_MusicPlayerWindow_MainWindow_Validate.htm" />
+  <HelpKINode Title="MainWindow.ValidateChildren method" Url="html/Overload_MusicPlayerWindow_MainWindow_ValidateChildren.htm" />
+  <HelpKINode Title="MainWindow_FormClosed method" Url="html/M_MusicPlayerWindow_MainWindow_MainWindow_FormClosed.htm" />
+  <HelpKINode Title="MemberwiseClone method" Url="html/Overload_MusicPlayerWindow_MainWindow_MemberwiseClone.htm" />
+  <HelpKINode Title="MemberwiseClone method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_MemberwiseClone.htm" />
+  <HelpKINode Title="MusicPlayer class" Url="html/AllMembers_T_MusicPlayerWindow_MusicPlayer.htm" />
+  <HelpKINode Title="MusicPlayer class" Url="html/T_MusicPlayerWindow_MusicPlayer.htm" />
+  <HelpKINode Title="MusicPlayer class">
+    <HelpKINode Title="about MusicPlayer class" Url="html/T_MusicPlayerWindow_MusicPlayer.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers_T_MusicPlayerWindow_MusicPlayer.htm" />
+    <HelpKINode Title="constructor" Url="html/M_MusicPlayerWindow_MusicPlayer__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_MusicPlayerWindow_MusicPlayer.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MusicPlayer.destroyPlayer method" Url="html/M_MusicPlayerWindow_MusicPlayer_destroyPlayer.htm" />
+  <HelpKINode Title="MusicPlayer.isPaused method" Url="html/M_MusicPlayerWindow_MusicPlayer_isPaused.htm" />
+  <HelpKINode Title="MusicPlayer.MusicPlayer constructor" Url="html/M_MusicPlayerWindow_MusicPlayer__ctor.htm" />
+  <HelpKINode Title="MusicPlayer.OnSoundStopped method" Url="html/M_MusicPlayerWindow_MusicPlayer_OnSoundStopped.htm" />
+  <HelpKINode Title="MusicPlayer.pauseUnpauseSong method" Url="html/M_MusicPlayerWindow_MusicPlayer_pauseUnpauseSong.htm" />
+  <HelpKINode Title="MusicPlayer.playCurrSong method" Url="html/M_MusicPlayerWindow_MusicPlayer_playCurrSong.htm" />
+  <HelpKINode Title="MusicPlayer.setVolume method" Url="html/M_MusicPlayerWindow_MusicPlayer_setVolume.htm" />
+  <HelpKINode Title="MusicPlayer.stopSong method" Url="html/M_MusicPlayerWindow_MusicPlayer_stopSong.htm" />
+  <HelpKINode Title="MusicPlayerWindow namespace" Url="html/N_MusicPlayerWindow.htm" />
+  <HelpKINode Title="MusicPlayerWindow.CustomMusicLoader class" Url="html/AllMembers_T_MusicPlayerWindow_CustomMusicLoader.htm" />
+  <HelpKINode Title="MusicPlayerWindow.CustomMusicLoader class" Url="html/T_MusicPlayerWindow_CustomMusicLoader.htm" />
+  <HelpKINode Title="MusicPlayerWindow.MainWindow class" Url="html/AllMembers_T_MusicPlayerWindow_MainWindow.htm" />
+  <HelpKINode Title="MusicPlayerWindow.MainWindow class" Url="html/T_MusicPlayerWindow_MainWindow.htm" />
+  <HelpKINode Title="MusicPlayerWindow.MusicPlayer class" Url="html/AllMembers_T_MusicPlayerWindow_MusicPlayer.htm" />
+  <HelpKINode Title="MusicPlayerWindow.MusicPlayer class" Url="html/T_MusicPlayerWindow_MusicPlayer.htm" />
+  <HelpKINode Title="MusicPlayerWindow.Playlist class" Url="html/AllMembers_T_MusicPlayerWindow_Playlist.htm" />
+  <HelpKINode Title="MusicPlayerWindow.Playlist class" Url="html/T_MusicPlayerWindow_Playlist.htm" />
+  <HelpKINode Title="MusicPlayerWindow.PlaylistParser class" Url="html/AllMembers_T_MusicPlayerWindow_PlaylistParser.htm" />
+  <HelpKINode Title="MusicPlayerWindow.PlaylistParser class" Url="html/T_MusicPlayerWindow_PlaylistParser.htm" />
+  <HelpKINode Title="MusicPlayerWindow.Progress_Bar class" Url="html/AllMembers_T_MusicPlayerWindow_Progress_Bar.htm" />
+  <HelpKINode Title="MusicPlayerWindow.Progress_Bar class" Url="html/T_MusicPlayerWindow_Progress_Bar.htm" />
+  <HelpKINode Title="MusicPlayerWindow.Queue class" Url="html/AllMembers_T_MusicPlayerWindow_Queue.htm" />
+  <HelpKINode Title="MusicPlayerWindow.Queue class" Url="html/T_MusicPlayerWindow_Queue.htm" />
+  <HelpKINode Title="MusicPlayerWindow.QueueStore class" Url="html/AllMembers_T_MusicPlayerWindow_QueueStore.htm" />
+  <HelpKINode Title="MusicPlayerWindow.QueueStore class" Url="html/T_MusicPlayerWindow_QueueStore.htm" />
+  <HelpKINode Title="MusicPlayerWindow.Song class" Url="html/AllMembers_T_MusicPlayerWindow_Song.htm" />
+  <HelpKINode Title="MusicPlayerWindow.Song class" Url="html/T_MusicPlayerWindow_Song.htm" />
+  <HelpKINode Title="MusicPlayerWindow.Sound class" Url="html/AllMembers_T_MusicPlayerWindow_Sound.htm" />
+  <HelpKINode Title="MusicPlayerWindow.Sound class" Url="html/T_MusicPlayerWindow_Sound.htm" />
+  <HelpKINode Title="nextSongQueue field" Url="html/F_MusicPlayerWindow_Queue_nextSongQueue.htm" />
+  <HelpKINode Title="OnSoundStopped method" Url="html/M_MusicPlayerWindow_MusicPlayer_OnSoundStopped.htm" />
+  <HelpKINode Title="outputDir field" Url="html/F_MusicPlayerWindow_MainWindow_outputDir.htm" />
+  <HelpKINode Title="pauseUnpause method" Url="html/M_MusicPlayerWindow_Sound_pauseUnpause.htm" />
+  <HelpKINode Title="pauseUnpauseSong method" Url="html/M_MusicPlayerWindow_MusicPlayer_pauseUnpauseSong.htm" />
+  <HelpKINode Title="PerformLayout method" Url="html/Overload_MusicPlayerWindow_MainWindow_PerformLayout.htm" />
+  <HelpKINode Title="PerformLayout method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_PerformLayout.htm" />
+  <HelpKINode Title="playCurrSong method" Url="html/M_MusicPlayerWindow_MusicPlayer_playCurrSong.htm" />
+  <HelpKINode Title="Playlist class" Url="html/AllMembers_T_MusicPlayerWindow_Playlist.htm" />
+  <HelpKINode Title="Playlist class" Url="html/T_MusicPlayerWindow_Playlist.htm" />
+  <HelpKINode Title="Playlist class">
+    <HelpKINode Title="about Playlist class" Url="html/T_MusicPlayerWindow_Playlist.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers_T_MusicPlayerWindow_Playlist.htm" />
+    <HelpKINode Title="constructor" Url="html/M_MusicPlayerWindow_Playlist__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_MusicPlayerWindow_Playlist.htm" />
+  </HelpKINode>
+  <HelpKINode Title="playlist field" Url="html/F_MusicPlayerWindow_Queue_playlist.htm" />
+  <HelpKINode Title="Playlist.getLen method" Url="html/M_MusicPlayerWindow_Playlist_getLen.htm" />
+  <HelpKINode Title="Playlist.getName method" Url="html/M_MusicPlayerWindow_Playlist_getName.htm" />
+  <HelpKINode Title="Playlist.getPath method" Url="html/M_MusicPlayerWindow_Playlist_getPath.htm" />
+  <HelpKINode Title="Playlist.Playlist constructor" Url="html/M_MusicPlayerWindow_Playlist__ctor.htm" />
+  <HelpKINode Title="PlaylistParser class" Url="html/AllMembers_T_MusicPlayerWindow_PlaylistParser.htm" />
+  <HelpKINode Title="PlaylistParser class" Url="html/T_MusicPlayerWindow_PlaylistParser.htm" />
+  <HelpKINode Title="PlaylistParser class">
+    <HelpKINode Title="about PlaylistParser class" Url="html/T_MusicPlayerWindow_PlaylistParser.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers_T_MusicPlayerWindow_PlaylistParser.htm" />
+    <HelpKINode Title="constructor" Url="html/M_MusicPlayerWindow_PlaylistParser__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_MusicPlayerWindow_PlaylistParser.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PlaylistParser.createPlaylists method" Url="html/M_MusicPlayerWindow_PlaylistParser_createPlaylists.htm" />
+  <HelpKINode Title="PlaylistParser.PlaylistParser constructor" Url="html/M_MusicPlayerWindow_PlaylistParser__ctor.htm" />
+  <HelpKINode Title="playNextSong method" Url="html/M_MusicPlayerWindow_MainWindow_playNextSong.htm" />
+  <HelpKINode Title="prevSongLimit field" Url="html/F_MusicPlayerWindow_Queue_prevSongLimit.htm" />
+  <HelpKINode Title="prevSongQueue field" Url="html/F_MusicPlayerWindow_Queue_prevSongQueue.htm" />
+  <HelpKINode Title="Progress_Bar class" Url="html/AllMembers_T_MusicPlayerWindow_Progress_Bar.htm" />
+  <HelpKINode Title="Progress_Bar class" Url="html/T_MusicPlayerWindow_Progress_Bar.htm" />
+  <HelpKINode Title="Progress_Bar class">
+    <HelpKINode Title="about Progress_Bar class" Url="html/T_MusicPlayerWindow_Progress_Bar.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers_T_MusicPlayerWindow_Progress_Bar.htm" />
+    <HelpKINode Title="constructor" Url="html/M_MusicPlayerWindow_Progress_Bar__ctor.htm" />
+    <HelpKINode Title="events" Url="html/Events_T_MusicPlayerWindow_Progress_Bar.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_MusicPlayerWindow_Progress_Bar.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_MusicPlayerWindow_Progress_Bar.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Progress_Bar.AccessibilityNotifyClients method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_AccessibilityNotifyClients.htm" />
+  <HelpKINode Title="Progress_Bar.BeginInvoke method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_BeginInvoke.htm" />
+  <HelpKINode Title="Progress_Bar.Dispose method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_Dispose.htm" />
+  <HelpKINode Title="Progress_Bar.GetChildAtPoint method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_GetChildAtPoint.htm" />
+  <HelpKINode Title="Progress_Bar.Invalidate method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_Invalidate.htm" />
+  <HelpKINode Title="Progress_Bar.Invoke method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_Invoke.htm" />
+  <HelpKINode Title="Progress_Bar.MemberwiseClone method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_MemberwiseClone.htm" />
+  <HelpKINode Title="Progress_Bar.PerformLayout method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_PerformLayout.htm" />
+  <HelpKINode Title="Progress_Bar.Progress_Bar constructor" Url="html/M_MusicPlayerWindow_Progress_Bar__ctor.htm" />
+  <HelpKINode Title="Progress_Bar.ResumeLayout method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_ResumeLayout.htm" />
+  <HelpKINode Title="Progress_Bar.RtlTranslateAlignment method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_RtlTranslateAlignment.htm" />
+  <HelpKINode Title="Progress_Bar.Scale method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_Scale.htm" />
+  <HelpKINode Title="Progress_Bar.Select method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_Select.htm" />
+  <HelpKINode Title="Progress_Bar.SetBounds method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_SetBounds.htm" />
+  <HelpKINode Title="Progress_Bar.setLabel method" Url="html/M_MusicPlayerWindow_Progress_Bar_setLabel.htm" />
+  <HelpKINode Title="Progress_Bar.setValue method" Url="html/M_MusicPlayerWindow_Progress_Bar_setValue.htm" />
+  <HelpKINode Title="Progress_Bar.Show method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_Show.htm" />
+  <HelpKINode Title="Progress_Bar.ShowDialog method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_ShowDialog.htm" />
+  <HelpKINode Title="Progress_Bar.UpdateBounds method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_UpdateBounds.htm" />
+  <HelpKINode Title="Progress_Bar.Validate method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_Validate.htm" />
+  <HelpKINode Title="Progress_Bar.ValidateChildren method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_ValidateChildren.htm" />
+  <HelpKINode Title="Queue class" Url="html/AllMembers_T_MusicPlayerWindow_Queue.htm" />
+  <HelpKINode Title="Queue class" Url="html/T_MusicPlayerWindow_Queue.htm" />
+  <HelpKINode Title="Queue class">
+    <HelpKINode Title="about Queue class" Url="html/T_MusicPlayerWindow_Queue.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers_T_MusicPlayerWindow_Queue.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload_MusicPlayerWindow_Queue__ctor.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_MusicPlayerWindow_Queue.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_MusicPlayerWindow_Queue.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Queue.addNextSong method" Url="html/M_MusicPlayerWindow_Queue_addNextSong.htm" />
+  <HelpKINode Title="Queue.addPrevSong method" Url="html/M_MusicPlayerWindow_Queue_addPrevSong.htm" />
+  <HelpKINode Title="Queue.getNextSong method" Url="html/M_MusicPlayerWindow_Queue_getNextSong.htm" />
+  <HelpKINode Title="Queue.getPlaylistLen method" Url="html/M_MusicPlayerWindow_Queue_getPlaylistLen.htm" />
+  <HelpKINode Title="Queue.getPlaylistName method" Url="html/M_MusicPlayerWindow_Queue_getPlaylistName.htm" />
+  <HelpKINode Title="Queue.getPlaylistPath method" Url="html/M_MusicPlayerWindow_Queue_getPlaylistPath.htm" />
+  <HelpKINode Title="Queue.getPrevSong method" Url="html/M_MusicPlayerWindow_Queue_getPrevSong.htm" />
+  <HelpKINode Title="Queue.nextSongQueue field" Url="html/F_MusicPlayerWindow_Queue_nextSongQueue.htm" />
+  <HelpKINode Title="Queue.playlist field" Url="html/F_MusicPlayerWindow_Queue_playlist.htm" />
+  <HelpKINode Title="Queue.prevSongLimit field" Url="html/F_MusicPlayerWindow_Queue_prevSongLimit.htm" />
+  <HelpKINode Title="Queue.prevSongQueue field" Url="html/F_MusicPlayerWindow_Queue_prevSongQueue.htm" />
+  <HelpKINode Title="Queue.Queue constructor" Url="html/Overload_MusicPlayerWindow_Queue__ctor.htm" />
+  <HelpKINode Title="QueueStore class" Url="html/AllMembers_T_MusicPlayerWindow_QueueStore.htm" />
+  <HelpKINode Title="QueueStore class" Url="html/T_MusicPlayerWindow_QueueStore.htm" />
+  <HelpKINode Title="QueueStore class">
+    <HelpKINode Title="about QueueStore class" Url="html/T_MusicPlayerWindow_QueueStore.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers_T_MusicPlayerWindow_QueueStore.htm" />
+    <HelpKINode Title="constructor" Url="html/M_MusicPlayerWindow_QueueStore__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_MusicPlayerWindow_QueueStore.htm" />
+  </HelpKINode>
+  <HelpKINode Title="QueueStore.addSongToNextQueue method" Url="html/M_MusicPlayerWindow_QueueStore_addSongToNextQueue.htm" />
+  <HelpKINode Title="QueueStore.addSongToNextQueueFront method" Url="html/M_MusicPlayerWindow_QueueStore_addSongToNextQueueFront.htm" />
+  <HelpKINode Title="QueueStore.addSongToPrevQueue method" Url="html/M_MusicPlayerWindow_QueueStore_addSongToPrevQueue.htm" />
+  <HelpKINode Title="QueueStore.getPlaylistNames method" Url="html/M_MusicPlayerWindow_QueueStore_getPlaylistNames.htm" />
+  <HelpKINode Title="QueueStore.getSongFromNextQueue method" Url="html/M_MusicPlayerWindow_QueueStore_getSongFromNextQueue.htm" />
+  <HelpKINode Title="QueueStore.getSongFromPrevQueue method" Url="html/M_MusicPlayerWindow_QueueStore_getSongFromPrevQueue.htm" />
+  <HelpKINode Title="QueueStore.QueueStore constructor" Url="html/M_MusicPlayerWindow_QueueStore__ctor.htm" />
+  <HelpKINode Title="QueueStore.switchPlaylist method" Url="html/M_MusicPlayerWindow_QueueStore_switchPlaylist.htm" />
+  <HelpKINode Title="ResumeLayout method" Url="html/Overload_MusicPlayerWindow_MainWindow_ResumeLayout.htm" />
+  <HelpKINode Title="ResumeLayout method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_ResumeLayout.htm" />
+  <HelpKINode Title="RtlTranslateAlignment method" Url="html/Overload_MusicPlayerWindow_MainWindow_RtlTranslateAlignment.htm" />
+  <HelpKINode Title="RtlTranslateAlignment method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_RtlTranslateAlignment.htm" />
+  <HelpKINode Title="Scale method" Url="html/Overload_MusicPlayerWindow_MainWindow_Scale.htm" />
+  <HelpKINode Title="Scale method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_Scale.htm" />
+  <HelpKINode Title="Select method" Url="html/Overload_MusicPlayerWindow_MainWindow_Select.htm" />
+  <HelpKINode Title="Select method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_Select.htm" />
+  <HelpKINode Title="SetBounds method" Url="html/Overload_MusicPlayerWindow_MainWindow_SetBounds.htm" />
+  <HelpKINode Title="SetBounds method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_SetBounds.htm" />
+  <HelpKINode Title="setLabel method" Url="html/M_MusicPlayerWindow_Progress_Bar_setLabel.htm" />
+  <HelpKINode Title="setPath method" Url="html/M_MusicPlayerWindow_Song_setPath.htm" />
+  <HelpKINode Title="setSound method" Url="html/M_MusicPlayerWindow_Song_setSound.htm" />
+  <HelpKINode Title="setValue method" Url="html/M_MusicPlayerWindow_Progress_Bar_setValue.htm" />
+  <HelpKINode Title="setVolume method" Url="html/M_MusicPlayerWindow_MusicPlayer_setVolume.htm" />
+  <HelpKINode Title="setVolume method" Url="html/M_MusicPlayerWindow_Sound_setVolume.htm" />
+  <HelpKINode Title="Show method" Url="html/Overload_MusicPlayerWindow_MainWindow_Show.htm" />
+  <HelpKINode Title="Show method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_Show.htm" />
+  <HelpKINode Title="ShowDialog method" Url="html/Overload_MusicPlayerWindow_MainWindow_ShowDialog.htm" />
+  <HelpKINode Title="ShowDialog method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_ShowDialog.htm" />
+  <HelpKINode Title="Song class" Url="html/AllMembers_T_MusicPlayerWindow_Song.htm" />
+  <HelpKINode Title="Song class" Url="html/T_MusicPlayerWindow_Song.htm" />
+  <HelpKINode Title="Song class">
+    <HelpKINode Title="about Song class" Url="html/T_MusicPlayerWindow_Song.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers_T_MusicPlayerWindow_Song.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload_MusicPlayerWindow_Song__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_MusicPlayerWindow_Song.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Song.getPath method" Url="html/M_MusicPlayerWindow_Song_getPath.htm" />
+  <HelpKINode Title="Song.getSound method" Url="html/M_MusicPlayerWindow_Song_getSound.htm" />
+  <HelpKINode Title="Song.setPath method" Url="html/M_MusicPlayerWindow_Song_setPath.htm" />
+  <HelpKINode Title="Song.setSound method" Url="html/M_MusicPlayerWindow_Song_setSound.htm" />
+  <HelpKINode Title="Song.Song constructor" Url="html/Overload_MusicPlayerWindow_Song__ctor.htm" />
+  <HelpKINode Title="Sound class" Url="html/AllMembers_T_MusicPlayerWindow_Sound.htm" />
+  <HelpKINode Title="Sound class" Url="html/T_MusicPlayerWindow_Sound.htm" />
+  <HelpKINode Title="Sound class">
+    <HelpKINode Title="about Sound class" Url="html/T_MusicPlayerWindow_Sound.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers_T_MusicPlayerWindow_Sound.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload_MusicPlayerWindow_Sound__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_MusicPlayerWindow_Sound.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Sound.getVolume method" Url="html/M_MusicPlayerWindow_Sound_getVolume.htm" />
+  <HelpKINode Title="Sound.isPaused method" Url="html/M_MusicPlayerWindow_Sound_isPaused.htm" />
+  <HelpKINode Title="Sound.pauseUnpause method" Url="html/M_MusicPlayerWindow_Sound_pauseUnpause.htm" />
+  <HelpKINode Title="Sound.setVolume method" Url="html/M_MusicPlayerWindow_Sound_setVolume.htm" />
+  <HelpKINode Title="Sound.Sound constructor" Url="html/Overload_MusicPlayerWindow_Sound__ctor.htm" />
+  <HelpKINode Title="Sound.stop method" Url="html/M_MusicPlayerWindow_Sound_stop.htm" />
+  <HelpKINode Title="stop method" Url="html/M_MusicPlayerWindow_Sound_stop.htm" />
+  <HelpKINode Title="stopSong method" Url="html/M_MusicPlayerWindow_MusicPlayer_stopSong.htm" />
+  <HelpKINode Title="switchPlaylist method" Url="html/M_MusicPlayerWindow_QueueStore_switchPlaylist.htm" />
+  <HelpKINode Title="switchToPlaylist method" Url="html/M_MusicPlayerWindow_CustomMusicLoader_switchToPlaylist.htm" />
+  <HelpKINode Title="UpdateBounds method" Url="html/Overload_MusicPlayerWindow_MainWindow_UpdateBounds.htm" />
+  <HelpKINode Title="UpdateBounds method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_UpdateBounds.htm" />
+  <HelpKINode Title="updateNextQueue method" Url="html/M_MusicPlayerWindow_CustomMusicLoader_updateNextQueue.htm" />
+  <HelpKINode Title="updatePrevQueue method" Url="html/M_MusicPlayerWindow_CustomMusicLoader_updatePrevQueue.htm" />
+  <HelpKINode Title="Validate method" Url="html/Overload_MusicPlayerWindow_MainWindow_Validate.htm" />
+  <HelpKINode Title="Validate method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_Validate.htm" />
+  <HelpKINode Title="ValidateChildren method" Url="html/Overload_MusicPlayerWindow_MainWindow_ValidateChildren.htm" />
+  <HelpKINode Title="ValidateChildren method" Url="html/Overload_MusicPlayerWindow_Progress_Bar_ValidateChildren.htm" />
+</HelpKI>

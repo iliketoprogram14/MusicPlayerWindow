@@ -1,0 +1,556 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<title>Playlist Shuffler Help - Table of Content</title>
+<link rel="stylesheet" href="TOC.css">
+<link rel="shortcut icon" href="favicon.ico"/>
+<script type="text/javascript" src="TOC.js"></script>
+</head>
+
+<body onload="javascript: Initialize();" onresize="javascript: ResizeTree();">
+<form id="IndexForm" runat="server">
+
+<div id="TOCDiv" class="TOCDiv">
+
+<div id="divSearchOpts" class="SearchOpts" style="height: 100px; display: none;">
+<img class="TOCLink" onclick="javascript: ShowHideSearch(false);"
+    src="CloseSearch.png" height="16" width="16" alt="Hide search" style="float: right;"/>
+Keyword(s) for which to search:
+<input id="txtSearchText" type="text" style="width: 100%;"
+  onkeypress="javascript: return OnSearchTextKeyPress(event);" /><br />
+<input id="chkSortByTitle" type="checkbox" /><label for="chkSortByTitle">&nbsp;Sort results by title</label><br />
+<input type="button" value="Search" onclick="javascript: return PerformSearch();" />
+</div>
+
+<div id="divIndexOpts" class="IndexOpts" style="height: 25px; display: none;">
+<img class="TOCLink" onclick="javascript: ShowHideIndex(false);"
+    src="CloseSearch.png" height="17" width="17" alt="Hide index" style="float: right;"/>
+Keyword Index
+</div>
+
+<div id="divNavOpts" class="NavOpts" style="height: 20px;">
+    <img class="TOCLink" onclick="javascript: SyncTOC();" src="SyncTOC.gif"
+        height="16" width="16" alt="Sync to TOC"/>
+    <img class="TOCLink" onclick="javascript: ExpandOrCollapseAll(true);"
+        src="ExpandAll.bmp" height="16" width="16" alt="Expand all "/>
+    <img class="TOCLink" onclick="javascript: ExpandOrCollapseAll(false);"
+        src="CollapseAll.bmp" height="16" width="16" alt="Collapse all" />
+</div>
+
+<div class="Tree" id="divSearchResults" style="display: none;"
+    onselectstart="javascript: return false;">
+</div>
+
+<div class="Tree" id="divIndexResults" style="display: none;"
+    onselectstart="javascript: return false;">
+</div>
+
+<div class="Tree" id="divTree" onselectstart="javascript: return false;">
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/N_MusicPlayerWindow.htm" target="TopicContent">MusicPlayerWindow Namespace</a>
+<div class="Hidden">
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T_MusicPlayerWindow_CustomMusicLoader.htm" target="TopicContent">CustomMusicLoader Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers_T_MusicPlayerWindow_CustomMusicLoader.htm" target="TopicContent">CustomMusicLoader Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_CustomMusicLoader__ctor.htm" target="TopicContent">CustomMusicLoader Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods_T_MusicPlayerWindow_CustomMusicLoader.htm" target="TopicContent">CustomMusicLoader Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_CustomMusicLoader_addSongToNextQueueFront.htm" target="TopicContent">addSongToNextQueueFront Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_CustomMusicLoader_destroyStoreAndExit.htm" target="TopicContent">destroyStoreAndExit Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_CustomMusicLoader_getNextSong.htm" target="TopicContent">getNextSong Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_CustomMusicLoader_getPlaylistNames.htm" target="TopicContent">getPlaylistNames Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_CustomMusicLoader_getPrevSong.htm" target="TopicContent">getPrevSong Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_CustomMusicLoader_switchToPlaylist.htm" target="TopicContent">switchToPlaylist Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_CustomMusicLoader_updateNextQueue.htm" target="TopicContent">updateNextQueue Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_CustomMusicLoader_updatePrevQueue.htm" target="TopicContent">updatePrevQueue Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T_MusicPlayerWindow_MainWindow.htm" target="TopicContent">MainWindow Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers_T_MusicPlayerWindow_MainWindow.htm" target="TopicContent">MainWindow Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_MainWindow__ctor.htm" target="TopicContent">MainWindow Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Fields_T_MusicPlayerWindow_MainWindow.htm" target="TopicContent">MainWindow Fields</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F_MusicPlayerWindow_MainWindow_loader.htm" target="TopicContent">loader Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F_MusicPlayerWindow_MainWindow_outputDir.htm" target="TopicContent">outputDir Field</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods_T_MusicPlayerWindow_MainWindow.htm" target="TopicContent">MainWindow Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_MainWindow_AccessibilityNotifyClients.htm" target="TopicContent">AccessibilityNotifyClients Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_MainWindow_BeginInvoke.htm" target="TopicContent">BeginInvoke Method </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Overload_MusicPlayerWindow_MainWindow_Dispose.htm" target="TopicContent">Dispose Method </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_MainWindow_Dispose.htm" target="TopicContent">Dispose Method (Boolean)</a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_MainWindow_GetChildAtPoint.htm" target="TopicContent">GetChildAtPoint Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_MainWindow_getCurrSong.htm" target="TopicContent">getCurrSong Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_MainWindow_getVolume.htm" target="TopicContent">getVolume Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_MainWindow_Invalidate.htm" target="TopicContent">Invalidate Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_MainWindow_Invoke.htm" target="TopicContent">Invoke Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_MainWindow_MainWindow_FormClosed.htm" target="TopicContent">MainWindow_FormClosed Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_MainWindow_MemberwiseClone.htm" target="TopicContent">MemberwiseClone Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_MainWindow_PerformLayout.htm" target="TopicContent">PerformLayout Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_MainWindow_playNextSong.htm" target="TopicContent">playNextSong Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_MainWindow_ResumeLayout.htm" target="TopicContent">ResumeLayout Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_MainWindow_RtlTranslateAlignment.htm" target="TopicContent">RtlTranslateAlignment Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_MainWindow_Scale.htm" target="TopicContent">Scale Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_MainWindow_Select.htm" target="TopicContent">Select Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_MainWindow_SetBounds.htm" target="TopicContent">SetBounds Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_MainWindow_Show.htm" target="TopicContent">Show Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_MainWindow_ShowDialog.htm" target="TopicContent">ShowDialog Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_MainWindow_UpdateBounds.htm" target="TopicContent">UpdateBounds Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_MainWindow_Validate.htm" target="TopicContent">Validate Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_MainWindow_ValidateChildren.htm" target="TopicContent">ValidateChildren Method </a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Properties_T_MusicPlayerWindow_MainWindow.htm" target="TopicContent">MainWindow Properties</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Events_T_MusicPlayerWindow_MainWindow.htm" target="TopicContent">MainWindow Events</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T_MusicPlayerWindow_MusicPlayer.htm" target="TopicContent">MusicPlayer Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers_T_MusicPlayerWindow_MusicPlayer.htm" target="TopicContent">MusicPlayer Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_MusicPlayer__ctor.htm" target="TopicContent">MusicPlayer Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods_T_MusicPlayerWindow_MusicPlayer.htm" target="TopicContent">MusicPlayer Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_MusicPlayer_destroyPlayer.htm" target="TopicContent">destroyPlayer Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_MusicPlayer_isPaused.htm" target="TopicContent">isPaused Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_MusicPlayer_OnSoundStopped.htm" target="TopicContent">OnSoundStopped Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_MusicPlayer_pauseUnpauseSong.htm" target="TopicContent">pauseUnpauseSong Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_MusicPlayer_playCurrSong.htm" target="TopicContent">playCurrSong Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_MusicPlayer_setVolume.htm" target="TopicContent">setVolume Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_MusicPlayer_stopSong.htm" target="TopicContent">stopSong Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T_MusicPlayerWindow_Playlist.htm" target="TopicContent">Playlist Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers_T_MusicPlayerWindow_Playlist.htm" target="TopicContent">Playlist Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_Playlist__ctor.htm" target="TopicContent">Playlist Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods_T_MusicPlayerWindow_Playlist.htm" target="TopicContent">Playlist Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_Playlist_getLen.htm" target="TopicContent">getLen Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_Playlist_getName.htm" target="TopicContent">getName Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_Playlist_getPath.htm" target="TopicContent">getPath Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T_MusicPlayerWindow_PlaylistParser.htm" target="TopicContent">PlaylistParser Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers_T_MusicPlayerWindow_PlaylistParser.htm" target="TopicContent">PlaylistParser Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_PlaylistParser__ctor.htm" target="TopicContent">PlaylistParser Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods_T_MusicPlayerWindow_PlaylistParser.htm" target="TopicContent">PlaylistParser Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_PlaylistParser_createPlaylists.htm" target="TopicContent">createPlaylists Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T_MusicPlayerWindow_Progress_Bar.htm" target="TopicContent">Progress_Bar Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers_T_MusicPlayerWindow_Progress_Bar.htm" target="TopicContent">Progress_Bar Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_Progress_Bar__ctor.htm" target="TopicContent">Progress_Bar Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods_T_MusicPlayerWindow_Progress_Bar.htm" target="TopicContent">Progress_Bar Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_Progress_Bar_AccessibilityNotifyClients.htm" target="TopicContent">AccessibilityNotifyClients Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_Progress_Bar_BeginInvoke.htm" target="TopicContent">BeginInvoke Method </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Overload_MusicPlayerWindow_Progress_Bar_Dispose.htm" target="TopicContent">Dispose Method </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_Progress_Bar_Dispose.htm" target="TopicContent">Dispose Method (Boolean)</a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_Progress_Bar_GetChildAtPoint.htm" target="TopicContent">GetChildAtPoint Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_Progress_Bar_Invalidate.htm" target="TopicContent">Invalidate Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_Progress_Bar_Invoke.htm" target="TopicContent">Invoke Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_Progress_Bar_MemberwiseClone.htm" target="TopicContent">MemberwiseClone Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_Progress_Bar_PerformLayout.htm" target="TopicContent">PerformLayout Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_Progress_Bar_ResumeLayout.htm" target="TopicContent">ResumeLayout Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_Progress_Bar_RtlTranslateAlignment.htm" target="TopicContent">RtlTranslateAlignment Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_Progress_Bar_Scale.htm" target="TopicContent">Scale Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_Progress_Bar_Select.htm" target="TopicContent">Select Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_Progress_Bar_SetBounds.htm" target="TopicContent">SetBounds Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_Progress_Bar_setLabel.htm" target="TopicContent">setLabel Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_Progress_Bar_setValue.htm" target="TopicContent">setValue Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_Progress_Bar_Show.htm" target="TopicContent">Show Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_Progress_Bar_ShowDialog.htm" target="TopicContent">ShowDialog Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_Progress_Bar_UpdateBounds.htm" target="TopicContent">UpdateBounds Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_Progress_Bar_Validate.htm" target="TopicContent">Validate Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Overload_MusicPlayerWindow_Progress_Bar_ValidateChildren.htm" target="TopicContent">ValidateChildren Method </a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Properties_T_MusicPlayerWindow_Progress_Bar.htm" target="TopicContent">Progress_Bar Properties</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Events_T_MusicPlayerWindow_Progress_Bar.htm" target="TopicContent">Progress_Bar Events</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T_MusicPlayerWindow_Queue.htm" target="TopicContent">Queue Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers_T_MusicPlayerWindow_Queue.htm" target="TopicContent">Queue Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Overload_MusicPlayerWindow_Queue__ctor.htm" target="TopicContent">Queue Constructor </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_Queue__ctor_1.htm" target="TopicContent">Queue Constructor (Queue)</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_Queue__ctor.htm" target="TopicContent">Queue Constructor (Playlist, Int32)</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Fields_T_MusicPlayerWindow_Queue.htm" target="TopicContent">Queue Fields</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F_MusicPlayerWindow_Queue_nextSongQueue.htm" target="TopicContent">nextSongQueue Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F_MusicPlayerWindow_Queue_playlist.htm" target="TopicContent">playlist Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F_MusicPlayerWindow_Queue_prevSongLimit.htm" target="TopicContent">prevSongLimit Field</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F_MusicPlayerWindow_Queue_prevSongQueue.htm" target="TopicContent">prevSongQueue Field</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods_T_MusicPlayerWindow_Queue.htm" target="TopicContent">Queue Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_Queue_addNextSong.htm" target="TopicContent">addNextSong Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_Queue_addPrevSong.htm" target="TopicContent">addPrevSong Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_Queue_getNextSong.htm" target="TopicContent">getNextSong Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_Queue_getPlaylistLen.htm" target="TopicContent">getPlaylistLen Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_Queue_getPlaylistName.htm" target="TopicContent">getPlaylistName Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_Queue_getPlaylistPath.htm" target="TopicContent">getPlaylistPath Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_Queue_getPrevSong.htm" target="TopicContent">getPrevSong Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T_MusicPlayerWindow_QueueStore.htm" target="TopicContent">QueueStore Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers_T_MusicPlayerWindow_QueueStore.htm" target="TopicContent">QueueStore Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_QueueStore__ctor.htm" target="TopicContent">QueueStore Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods_T_MusicPlayerWindow_QueueStore.htm" target="TopicContent">QueueStore Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_QueueStore_addSongToNextQueue.htm" target="TopicContent">addSongToNextQueue Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_QueueStore_addSongToNextQueueFront.htm" target="TopicContent">addSongToNextQueueFront Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_QueueStore_addSongToPrevQueue.htm" target="TopicContent">addSongToPrevQueue Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_QueueStore_getPlaylistNames.htm" target="TopicContent">getPlaylistNames Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_QueueStore_getSongFromNextQueue.htm" target="TopicContent">getSongFromNextQueue Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_QueueStore_getSongFromPrevQueue.htm" target="TopicContent">getSongFromPrevQueue Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_QueueStore_switchPlaylist.htm" target="TopicContent">switchPlaylist Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T_MusicPlayerWindow_Song.htm" target="TopicContent">Song Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers_T_MusicPlayerWindow_Song.htm" target="TopicContent">Song Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Overload_MusicPlayerWindow_Song__ctor.htm" target="TopicContent">Song Constructor </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_Song__ctor_1.htm" target="TopicContent">Song Constructor (String)</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_Song__ctor.htm" target="TopicContent">Song Constructor (Song)</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods_T_MusicPlayerWindow_Song.htm" target="TopicContent">Song Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_Song_getPath.htm" target="TopicContent">getPath Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_Song_getSound.htm" target="TopicContent">getSound Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_Song_setPath.htm" target="TopicContent">setPath Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_Song_setSound.htm" target="TopicContent">setSound Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T_MusicPlayerWindow_Sound.htm" target="TopicContent">Sound Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers_T_MusicPlayerWindow_Sound.htm" target="TopicContent">Sound Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Overload_MusicPlayerWindow_Sound__ctor.htm" target="TopicContent">Sound Constructor </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_Sound__ctor.htm" target="TopicContent">Sound Constructor ()</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_Sound__ctor_1.htm" target="TopicContent">Sound Constructor (Int32)</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.gif"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods_T_MusicPlayerWindow_Sound.htm" target="TopicContent">Sound Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_Sound_getVolume.htm" target="TopicContent">getVolume Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_Sound_isPaused.htm" target="TopicContent">isPaused Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_Sound_pauseUnpause.htm" target="TopicContent">pauseUnpause Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_Sound_setVolume.htm" target="TopicContent">setVolume Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M_MusicPlayerWindow_Sound_stop.htm" target="TopicContent">stop Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<div id="TOCSizer" class="TOCSizer" onmousedown="OnMouseDown(event)" onselectstart="javascript: return false;"></div>
+
+<iframe id="TopicContent" name="TopicContent" class="TopicContent" src="html/N_MusicPlayerWindow.htm">
+This page uses an IFRAME but your browser does not support it.
+</iframe>
+
+</form>
+
+</body>
+
+</html>

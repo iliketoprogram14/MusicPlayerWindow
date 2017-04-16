@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpTOC>
+
+  <HelpTOCNode Id="e726c36b-cf9e-4911-9261-d1b31a5c3c13" Title="MusicPlayerWindow Namespace" Url="html/N_MusicPlayerWindow.htm">
+    <HelpTOCNode Id="df9c3ef4-716f-4290-b34f-a9acadef93a3" Title="CustomMusicLoader Class" Url="html/T_MusicPlayerWindow_CustomMusicLoader.htm">
+      <HelpTOCNode Title="CustomMusicLoader Members" Url="html/AllMembers_T_MusicPlayerWindow_CustomMusicLoader.htm" />
+      <HelpTOCNode Title="CustomMusicLoader Constructor " Url="html/M_MusicPlayerWindow_CustomMusicLoader__ctor.htm" />
+      <HelpTOCNode Id="5d67a3ff-650e-4227-9261-ba80b78a5cdc" Title="CustomMusicLoader Methods" Url="html/Methods_T_MusicPlayerWindow_CustomMusicLoader.htm">
+        <HelpTOCNode Title="addSongToNextQueueFront Method " Url="html/M_MusicPlayerWindow_CustomMusicLoader_addSongToNextQueueFront.htm" />
+        <HelpTOCNode Title="destroyStoreAndExit Method " Url="html/M_MusicPlayerWindow_CustomMusicLoader_destroyStoreAndExit.htm" />
+        <HelpTOCNode Title="getNextSong Method " Url="html/M_MusicPlayerWindow_CustomMusicLoader_getNextSong.htm" />
+        <HelpTOCNode Title="getPlaylistNames Method " Url="html/M_MusicPlayerWindow_CustomMusicLoader_getPlaylistNames.htm" />
+        <HelpTOCNode Title="getPrevSong Method " Url="html/M_MusicPlayerWindow_CustomMusicLoader_getPrevSong.htm" />
+        <HelpTOCNode Title="switchToPlaylist Method " Url="html/M_MusicPlayerWindow_CustomMusicLoader_switchToPlaylist.htm" />
+        <HelpTOCNode Title="updateNextQueue Method " Url="html/M_MusicPlayerWindow_CustomMusicLoader_updateNextQueue.htm" />
+        <HelpTOCNode Title="updatePrevQueue Method " Url="html/M_MusicPlayerWindow_CustomMusicLoader_updatePrevQueue.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="06d5e61c-30ed-4e0e-aa6a-bf973fe276fd" Title="MainWindow Class" Url="html/T_MusicPlayerWindow_MainWindow.htm">
+      <HelpTOCNode Title="MainWindow Members" Url="html/AllMembers_T_MusicPlayerWindow_MainWindow.htm" />
+      <HelpTOCNode Title="MainWindow Constructor " Url="html/M_MusicPlayerWindow_MainWindow__ctor.htm" />
+      <HelpTOCNode Id="5342f11c-990f-44ed-b544-bfa50dd07819" Title="MainWindow Fields" Url="html/Fields_T_MusicPlayerWindow_MainWindow.htm">
+        <HelpTOCNode Title="loader Field" Url="html/F_MusicPlayerWindow_MainWindow_loader.htm" />
+        <HelpTOCNode Title="outputDir Field" Url="html/F_MusicPlayerWindow_MainWindow_outputDir.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="aeb920eb-679b-4a9f-8cd0-8b0e3d7e224e" Title="MainWindow Methods" Url="html/Methods_T_MusicPlayerWindow_MainWindow.htm">
+        <HelpTOCNode Title="AccessibilityNotifyClients Method " Url="html/Overload_MusicPlayerWindow_MainWindow_AccessibilityNotifyClients.htm" />
+        <HelpTOCNode Title="BeginInvoke Method " Url="html/Overload_MusicPlayerWindow_MainWindow_BeginInvoke.htm" />
+        <HelpTOCNode Id="98420b88-1f39-43ed-b878-503a5dd9a9ff" Title="Dispose Method " Url="html/Overload_MusicPlayerWindow_MainWindow_Dispose.htm">
+          <HelpTOCNode Title="Dispose Method (Boolean)" Url="html/M_MusicPlayerWindow_MainWindow_Dispose.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="GetChildAtPoint Method " Url="html/Overload_MusicPlayerWindow_MainWindow_GetChildAtPoint.htm" />
+        <HelpTOCNode Title="getCurrSong Method " Url="html/M_MusicPlayerWindow_MainWindow_getCurrSong.htm" />
+        <HelpTOCNode Title="getVolume Method " Url="html/M_MusicPlayerWindow_MainWindow_getVolume.htm" />
+        <HelpTOCNode Title="Invalidate Method " Url="html/Overload_MusicPlayerWindow_MainWindow_Invalidate.htm" />
+        <HelpTOCNode Title="Invoke Method " Url="html/Overload_MusicPlayerWindow_MainWindow_Invoke.htm" />
+        <HelpTOCNode Title="MainWindow_FormClosed Method " Url="html/M_MusicPlayerWindow_MainWindow_MainWindow_FormClosed.htm" />
+        <HelpTOCNode Title="MemberwiseClone Method " Url="html/Overload_MusicPlayerWindow_MainWindow_MemberwiseClone.htm" />
+        <HelpTOCNode Title="PerformLayout Method " Url="html/Overload_MusicPlayerWindow_MainWindow_PerformLayout.htm" />
+        <HelpTOCNode Title="playNextSong Method " Url="html/M_MusicPlayerWindow_MainWindow_playNextSong.htm" />
+        <HelpTOCNode Title="ResumeLayout Method " Url="html/Overload_MusicPlayerWindow_MainWindow_ResumeLayout.htm" />
+        <HelpTOCNode Title="RtlTranslateAlignment Method " Url="html/Overload_MusicPlayerWindow_MainWindow_RtlTranslateAlignment.htm" />
+        <HelpTOCNode Title="Scale Method " Url="html/Overload_MusicPlayerWindow_MainWindow_Scale.htm" />
+        <HelpTOCNode Title="Select Method " Url="html/Overload_MusicPlayerWindow_MainWindow_Select.htm" />
+        <HelpTOCNode Title="SetBounds Method " Url="html/Overload_MusicPlayerWindow_MainWindow_SetBounds.htm" />
+        <HelpTOCNode Title="Show Method " Url="html/Overload_MusicPlayerWindow_MainWindow_Show.htm" />
+        <HelpTOCNode Title="ShowDialog Method " Url="html/Overload_MusicPlayerWindow_MainWindow_ShowDialog.htm" />
+        <HelpTOCNode Title="UpdateBounds Method " Url="html/Overload_MusicPlayerWindow_MainWindow_UpdateBounds.htm" />
+        <HelpTOCNode Title="Validate Method " Url="html/Overload_MusicPlayerWindow_MainWindow_Validate.htm" />
+        <HelpTOCNode Title="ValidateChildren Method " Url="html/Overload_MusicPlayerWindow_MainWindow_ValidateChildren.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="MainWindow Properties" Url="html/Properties_T_MusicPlayerWindow_MainWindow.htm" />
+      <HelpTOCNode Title="MainWindow Events" Url="html/Events_T_MusicPlayerWindow_MainWindow.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="cea05518-82d6-4683-aa56-327a8ede34c8" Title="MusicPlayer Class" Url="html/T_MusicPlayerWindow_MusicPlayer.htm">
+      <HelpTOCNode Title="MusicPlayer Members" Url="html/AllMembers_T_MusicPlayerWindow_MusicPlayer.htm" />
+      <HelpTOCNode Title="MusicPlayer Constructor " Url="html/M_MusicPlayerWindow_MusicPlayer__ctor.htm" />
+      <HelpTOCNode Id="bedd2404-c2ca-45fa-8ad9-7b78036c0616" Title="MusicPlayer Methods" Url="html/Methods_T_MusicPlayerWindow_MusicPlayer.htm">
+        <HelpTOCNode Title="destroyPlayer Method " Url="html/M_MusicPlayerWindow_MusicPlayer_destroyPlayer.htm" />
+        <HelpTOCNode Title="isPaused Method " Url="html/M_MusicPlayerWindow_MusicPlayer_isPaused.htm" />
+        <HelpTOCNode Title="OnSoundStopped Method " Url="html/M_MusicPlayerWindow_MusicPlayer_OnSoundStopped.htm" />
+        <HelpTOCNode Title="pauseUnpauseSong Method " Url="html/M_MusicPlayerWindow_MusicPlayer_pauseUnpauseSong.htm" />
+        <HelpTOCNode Title="playCurrSong Method " Url="html/M_MusicPlayerWindow_MusicPlayer_playCurrSong.htm" />
+        <HelpTOCNode Title="setVolume Method " Url="html/M_MusicPlayerWindow_MusicPlayer_setVolume.htm" />
+        <HelpTOCNode Title="stopSong Method " Url="html/M_MusicPlayerWindow_MusicPlayer_stopSong.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="2edc811c-79b5-46bf-8e73-68a2ca3d95e3" Title="Playlist Class" Url="html/T_MusicPlayerWindow_Playlist.htm">
+      <HelpTOCNode Title="Playlist Members" Url="html/AllMembers_T_MusicPlayerWindow_Playlist.htm" />
+      <HelpTOCNode Title="Playlist Constructor " Url="html/M_MusicPlayerWindow_Playlist__ctor.htm" />
+      <HelpTOCNode Id="4ceeae13-3674-42c8-a7dd-1745dc556af8" Title="Playlist Methods" Url="html/Methods_T_MusicPlayerWindow_Playlist.htm">
+        <HelpTOCNode Title="getLen Method " Url="html/M_MusicPlayerWindow_Playlist_getLen.htm" />
+        <HelpTOCNode Title="getName Method " Url="html/M_MusicPlayerWindow_Playlist_getName.htm" />
+        <HelpTOCNode Title="getPath Method " Url="html/M_MusicPlayerWindow_Playlist_getPath.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="279abe8a-a1cf-4bed-adf9-40f48b8500b4" Title="PlaylistParser Class" Url="html/T_MusicPlayerWindow_PlaylistParser.htm">
+      <HelpTOCNode Title="PlaylistParser Members" Url="html/AllMembers_T_MusicPlayerWindow_PlaylistParser.htm" />
+      <HelpTOCNode Title="PlaylistParser Constructor " Url="html/M_MusicPlayerWindow_PlaylistParser__ctor.htm" />
+      <HelpTOCNode Id="344b9dd9-0bb2-4cce-989e-df0130f7f7c6" Title="PlaylistParser Methods" Url="html/Methods_T_MusicPlayerWindow_PlaylistParser.htm">
+        <HelpTOCNode Title="createPlaylists Method " Url="html/M_MusicPlayerWindow_PlaylistParser_createPlaylists.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="c758beb0-6aa5-49b1-acaf-37a94711f598" Title="Progress_Bar Class" Url="html/T_MusicPlayerWindow_Progress_Bar.htm">
+      <HelpTOCNode Title="Progress_Bar Members" Url="html/AllMembers_T_MusicPlayerWindow_Progress_Bar.htm" />
+      <HelpTOCNode Title="Progress_Bar Constructor " Url="html/M_MusicPlayerWindow_Progress_Bar__ctor.htm" />
+      <HelpTOCNode Id="2e5cd204-be91-4dc8-a771-934cdbe713ec" Title="Progress_Bar Methods" Url="html/Methods_T_MusicPlayerWindow_Progress_Bar.htm">
+        <HelpTOCNode Title="AccessibilityNotifyClients Method " Url="html/Overload_MusicPlayerWindow_Progress_Bar_AccessibilityNotifyClients.htm" />
+        <HelpTOCNode Title="BeginInvoke Method " Url="html/Overload_MusicPlayerWindow_Progress_Bar_BeginInvoke.htm" />
+        <HelpTOCNode Id="18f82499-1e44-42ce-aeb8-cf5e83e3a863" Title="Dispose Method " Url="html/Overload_MusicPlayerWindow_Progress_Bar_Dispose.htm">
+          <HelpTOCNode Title="Dispose Method (Boolean)" Url="html/M_MusicPlayerWindow_Progress_Bar_Dispose.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="GetChildAtPoint Method " Url="html/Overload_MusicPlayerWindow_Progress_Bar_GetChildAtPoint.htm" />
+        <HelpTOCNode Title="Invalidate Method " Url="html/Overload_MusicPlayerWindow_Progress_Bar_Invalidate.htm" />
+        <HelpTOCNode Title="Invoke Method " Url="html/Overload_MusicPlayerWindow_Progress_Bar_Invoke.htm" />
+        <HelpTOCNode Title="MemberwiseClone Method " Url="html/Overload_MusicPlayerWindow_Progress_Bar_MemberwiseClone.htm" />
+        <HelpTOCNode Title="PerformLayout Method " Url="html/Overload_MusicPlayerWindow_Progress_Bar_PerformLayout.htm" />
+        <HelpTOCNode Title="ResumeLayout Method " Url="html/Overload_MusicPlayerWindow_Progress_Bar_ResumeLayout.htm" />
+        <HelpTOCNode Title="RtlTranslateAlignment Method " Url="html/Overload_MusicPlayerWindow_Progress_Bar_RtlTranslateAlignment.htm" />
+        <HelpTOCNode Title="Scale Method " Url="html/Overload_MusicPlayerWindow_Progress_Bar_Scale.htm" />
+        <HelpTOCNode Title="Select Method " Url="html/Overload_MusicPlayerWindow_Progress_Bar_Select.htm" />
+        <HelpTOCNode Title="SetBounds Method " Url="html/Overload_MusicPlayerWindow_Progress_Bar_SetBounds.htm" />
+        <HelpTOCNode Title="setLabel Method " Url="html/M_MusicPlayerWindow_Progress_Bar_setLabel.htm" />
+        <HelpTOCNode Title="setValue Method " Url="html/M_MusicPlayerWindow_Progress_Bar_setValue.htm" />
+        <HelpTOCNode Title="Show Method " Url="html/Overload_MusicPlayerWindow_Progress_Bar_Show.htm" />
+        <HelpTOCNode Title="ShowDialog Method " Url="html/Overload_MusicPlayerWindow_Progress_Bar_ShowDialog.htm" />
+        <HelpTOCNode Title="UpdateBounds Method " Url="html/Overload_MusicPlayerWindow_Progress_Bar_UpdateBounds.htm" />
+        <HelpTOCNode Title="Validate Method " Url="html/Overload_MusicPlayerWindow_Progress_Bar_Validate.htm" />
+        <HelpTOCNode Title="ValidateChildren Method " Url="html/Overload_MusicPlayerWindow_Progress_Bar_ValidateChildren.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="Progress_Bar Properties" Url="html/Properties_T_MusicPlayerWindow_Progress_Bar.htm" />
+      <HelpTOCNode Title="Progress_Bar Events" Url="html/Events_T_MusicPlayerWindow_Progress_Bar.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="dbaed2b6-7f70-488f-8312-f63305ade42f" Title="Queue Class" Url="html/T_MusicPlayerWindow_Queue.htm">
+      <HelpTOCNode Title="Queue Members" Url="html/AllMembers_T_MusicPlayerWindow_Queue.htm" />
+      <HelpTOCNode Id="2435f1fb-8f08-46f4-8017-2e1be4d9a93f" Title="Queue Constructor " Url="html/Overload_MusicPlayerWindow_Queue__ctor.htm">
+        <HelpTOCNode Title="Queue Constructor (Queue)" Url="html/M_MusicPlayerWindow_Queue__ctor_1.htm" />
+        <HelpTOCNode Title="Queue Constructor (Playlist, Int32)" Url="html/M_MusicPlayerWindow_Queue__ctor.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="16a7e793-a302-4b98-a1f1-8b5420c4a61b" Title="Queue Fields" Url="html/Fields_T_MusicPlayerWindow_Queue.htm">
+        <HelpTOCNode Title="nextSongQueue Field" Url="html/F_MusicPlayerWindow_Queue_nextSongQueue.htm" />
+        <HelpTOCNode Title="playlist Field" Url="html/F_MusicPlayerWindow_Queue_playlist.htm" />
+        <HelpTOCNode Title="prevSongLimit Field" Url="html/F_MusicPlayerWindow_Queue_prevSongLimit.htm" />
+        <HelpTOCNode Title="prevSongQueue Field" Url="html/F_MusicPlayerWindow_Queue_prevSongQueue.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="67339d5c-e099-46e5-9ba7-effcfb53aae5" Title="Queue Methods" Url="html/Methods_T_MusicPlayerWindow_Queue.htm">
+        <HelpTOCNode Title="addNextSong Method " Url="html/M_MusicPlayerWindow_Queue_addNextSong.htm" />
+        <HelpTOCNode Title="addPrevSong Method " Url="html/M_MusicPlayerWindow_Queue_addPrevSong.htm" />
+        <HelpTOCNode Title="getNextSong Method " Url="html/M_MusicPlayerWindow_Queue_getNextSong.htm" />
+        <HelpTOCNode Title="getPlaylistLen Method " Url="html/M_MusicPlayerWindow_Queue_getPlaylistLen.htm" />
+        <HelpTOCNode Title="getPlaylistName Method " Url="html/M_MusicPlayerWindow_Queue_getPlaylistName.htm" />
+        <HelpTOCNode Title="getPlaylistPath Method " Url="html/M_MusicPlayerWindow_Queue_getPlaylistPath.htm" />
+        <HelpTOCNode Title="getPrevSong Method " Url="html/M_MusicPlayerWindow_Queue_getPrevSong.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="43e1edf0-1ea6-413a-b8c7-4c0c42c039f5" Title="QueueStore Class" Url="html/T_MusicPlayerWindow_QueueStore.htm">
+      <HelpTOCNode Title="QueueStore Members" Url="html/AllMembers_T_MusicPlayerWindow_QueueStore.htm" />
+      <HelpTOCNode Title="QueueStore Constructor " Url="html/M_MusicPlayerWindow_QueueStore__ctor.htm" />
+      <HelpTOCNode Id="1388a4be-55de-46d5-8208-c83557653021" Title="QueueStore Methods" Url="html/Methods_T_MusicPlayerWindow_QueueStore.htm">
+        <HelpTOCNode Title="addSongToNextQueue Method " Url="html/M_MusicPlayerWindow_QueueStore_addSongToNextQueue.htm" />
+        <HelpTOCNode Title="addSongToNextQueueFront Method " Url="html/M_MusicPlayerWindow_QueueStore_addSongToNextQueueFront.htm" />
+        <HelpTOCNode Title="addSongToPrevQueue Method " Url="html/M_MusicPlayerWindow_QueueStore_addSongToPrevQueue.htm" />
+        <HelpTOCNode Title="getPlaylistNames Method " Url="html/M_MusicPlayerWindow_QueueStore_getPlaylistNames.htm" />
+        <HelpTOCNode Title="getSongFromNextQueue Method " Url="html/M_MusicPlayerWindow_QueueStore_getSongFromNextQueue.htm" />
+        <HelpTOCNode Title="getSongFromPrevQueue Method " Url="html/M_MusicPlayerWindow_QueueStore_getSongFromPrevQueue.htm" />
+        <HelpTOCNode Title="switchPlaylist Method " Url="html/M_MusicPlayerWindow_QueueStore_switchPlaylist.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="266a561d-4db6-44a5-8315-109496967545" Title="Song Class" Url="html/T_MusicPlayerWindow_Song.htm">
+      <HelpTOCNode Title="Song Members" Url="html/AllMembers_T_MusicPlayerWindow_Song.htm" />
+      <HelpTOCNode Id="faeaa10a-e07d-43ec-ad2f-7628f8fdf966" Title="Song Constructor " Url="html/Overload_MusicPlayerWindow_Song__ctor.htm">
+        <HelpTOCNode Title="Song Constructor (String)" Url="html/M_MusicPlayerWindow_Song__ctor_1.htm" />
+        <HelpTOCNode Title="Song Constructor (Song)" Url="html/M_MusicPlayerWindow_Song__ctor.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="36bd5dda-22d6-4b5e-aee1-8d630bcc07a5" Title="Song Methods" Url="html/Methods_T_MusicPlayerWindow_Song.htm">
+        <HelpTOCNode Title="getPath Method " Url="html/M_MusicPlayerWindow_Song_getPath.htm" />
+        <HelpTOCNode Title="getSound Method " Url="html/M_MusicPlayerWindow_Song_getSound.htm" />
+        <HelpTOCNode Title="setPath Method " Url="html/M_MusicPlayerWindow_Song_setPath.htm" />
+        <HelpTOCNode Title="setSound Method " Url="html/M_MusicPlayerWindow_Song_setSound.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="2df63dee-c368-473e-b3e1-a15e5710a217" Title="Sound Class" Url="html/T_MusicPlayerWindow_Sound.htm">
+      <HelpTOCNode Title="Sound Members" Url="html/AllMembers_T_MusicPlayerWindow_Sound.htm" />
+      <HelpTOCNode Id="f881c01a-6744-49a2-abd1-64aada282dc8" Title="Sound Constructor " Url="html/Overload_MusicPlayerWindow_Sound__ctor.htm">
+        <HelpTOCNode Title="Sound Constructor ()" Url="html/M_MusicPlayerWindow_Sound__ctor.htm" />
+        <HelpTOCNode Title="Sound Constructor (Int32)" Url="html/M_MusicPlayerWindow_Sound__ctor_1.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="10f672ea-7b78-4c0e-8e99-6ae09986dfbd" Title="Sound Methods" Url="html/Methods_T_MusicPlayerWindow_Sound.htm">
+        <HelpTOCNode Title="getVolume Method " Url="html/M_MusicPlayerWindow_Sound_getVolume.htm" />
+        <HelpTOCNode Title="isPaused Method " Url="html/M_MusicPlayerWindow_Sound_isPaused.htm" />
+        <HelpTOCNode Title="pauseUnpause Method " Url="html/M_MusicPlayerWindow_Sound_pauseUnpause.htm" />
+        <HelpTOCNode Title="setVolume Method " Url="html/M_MusicPlayerWindow_Sound_setVolume.htm" />
+        <HelpTOCNode Title="stop Method " Url="html/M_MusicPlayerWindow_Sound_stop.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+</HelpTOC>
